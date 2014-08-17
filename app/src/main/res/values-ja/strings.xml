@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <string name="yes">はい</string>
+  <string name="no">いいえ</string>
+  <!--  TABs  -->
+  <string name="tab_label_main">メイン</string>
+  <string name="tab_label_style">ウィジェット</string>
+  <string name="shareStart">私は12Hoursウィジェットを使っています！</string>
+  <string name="shareWhere">何処で共有しますか？</string>
+  <!--  CONFIGURE SCREEN  -->
+  <string name="configure_next">次</string>
+  <string name="configure_prev">前</string>
+  <string name="configure_add">ウィジェットを追加</string>
+  <string name="configure_install_cal">インストール</string>
+  <string name="configure_continue_cal">続ける</string>
+  <string name="configure_fullday">一日中のイベント</string>
+  <string name="configure_notgoing">イベントに参加しない。</string>
+  <string name="configure_colorfromcalendar">イベント・カラーを使う</string>
+  <string name="configure_calendarselection_title">カレンダー</string>
+  <string name="configure_ready_title">行く準備が出来ました！</string>
+  <string name="configure_ready_subtitle">次はなんですか？</string>
+  <string name="configure_ready_titleone">一つ以上のウィジェットを追加。</string>
+  <string name="configure_ready_titletwo">その他の設定・機能を見る為にアプリを開く。</string>
+  <string name="configure_ready_titlethree">アプリを評価して自慢する。</string>
+  <string name="configure_style_title">スタイル</string>
+  <string name="configure_warning_title">警告</string>
+  <string name="configure_info_titleevent">イベント</string>
+  <string name="configure_info_contentevent">次の12時間における選択されたカレンダーからのイベントは、時計の文字盤に印付されています。</string>
+  <string name="configure_info_titledetails">一日中のイベント</string>
+  <string name="configure_info_contentdetails">一日中(12時間以上)のイベントは任意であり、オフにできます。また、「いいえ」と答えたイベントを隠すことができます。</string>
+  <string name="configure_info_content">時計の文字盤に選択されたカレンダーからのイベントを印付するアナログな時計。それを使っている時に何か問題に直面したら、お気軽にメールでお問い合わせください。</string>
+  <string name="warning_nocalendar_fragment">アプリはGoogleカレンダーを見つけられませんでした。それ無しでは12Hoursは―期待通りに―機能しないかもしれません。</string>
+  <string name="configure_choose_program_title">特定のエリアの為のアクション</string>
+  <string name="configure_choose_program_button">アプリを選択</string>
+  <!--  TAB MAIN  -->
+  <string name="tab_main_title_time">自由時間ファインダー</string>
+  <string name="tab_main_select_calendars">カレンダーを選択</string>
+  <string name="tab_main_friend_calendar_chooser_title">見つける</string>
+  <!--  ABOUT  -->
+  <string name="tab_extras_about_content">こんにちは！こちらはDevです。私は、このアプリがあなたにとって最も有用であるように尽力していますので、バグに関する情報を(それに気付いた場合)送信し、アプリを評価し、もしくはお友達にアプリを勧めるなどして私を助けてください。その他のプロジェクトに関しては、G+上で私をフォローしてください！</string>
+  <string name="tab_extras_rate_title">評価！</string>
+  <string name="tab_extras_rate_middle"> そして/あるいは </string>
+  <string name="tab_extras_share">共有！</string>
+  <string name="tab_extras_contactme">ご連絡ください</string>
+  <!--  Color Screen  -->
+  <string name="tab_style_color_aggressive">攻撃的</string>
+  <string name="tab_style_color_mild">マイルド</string>
+  <string name="tab_style_color_blind">色覚異常</string>
+  <string name="tab_style_color_custom">カスタム</string>
+  <string name="color_add_addbutton">追加</string>
+  <string name="color_delete_question">色を削除しますか？</string>
+  <!--  Widget Settings  -->
+  <string name="tab_style_radial_gradient">中央の色のグラデーション:</string>
+  <string name="tab_style_inner_intensity">内側の色の強さ:</string>
+  <string name="tab_style_outer_intensity">外側の色の強さ:</string>
+  <string name="widget_settings_style_title">スタイル</string>
+  <string name="widget_settings_action_title">アクション</string>
+  <!--  MENU  -->
+  <string name="menu_about">概要</string>
+  <string name="menu_bugreport">バグ報告</string>
+  <string name="menu_rateapp">評価！</string>
+  <!--  JAVA  -->
+  <string name="cancel">取消</string>
+  <string name="tab_no_widget_content">ホームスクリーンにウィジェットを追加し、お戻りください:)</string>
+  <string name="tab_extras_select_one_title">アプリを選択:</string>
+  <string name="tab_extras_select_one_title_selected">あなたは次を選択しました:</string>
+  <string name="tab_extras_colors_needed_more">少なくとも3色必要。</string>
+  <!--  Screen titles  -->
+  <string name="title_activity_activity_color_managment">カラー・パレット</string>
+  <string name="action_settings">設定</string>
+  <string name="title_activity_activity_widget_settings">ウィジェット設定</string>
+</resources>

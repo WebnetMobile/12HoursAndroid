@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="yes">是</string>
+    <string name="no">否 </string>
+
+    <!-- TABs -->
+    <string name="tab_label_main">主要</string>
+    <string name="tab_label_style">组件</string>
+    <string name="shareStart">我在使用十二小时制的组件!</string>
+    <string name="shareWhere">分享到哪里？</string>
+
+    <!-- CONFIGURE SCREEN -->
+    <string name="configure_next">下一个</string>
+    <string name="configure_prev">前一个</string>
+    <string name="configure_add">添加组件</string>
+    <string name="configure_install_cal">安装</string>
+    <string name="configure_continue_cal">继续</string>
+    <string name="configure_fullday">全天事件</string>
+    <string name="configure_notgoing">不是赴约活动</string>
+    <string name="configure_colorfromcalendar">使用事件颜色</string>
+    <string name="configure_calendarselection_title">日历</string>
+    <string name="configure_ready_title">准备行动！</string>
+    <string name="configure_ready_subtitle">下一个是什么？</string>
+    <string name="configure_ready_titleone">添加更多组件</string>
+    <string name="configure_ready_titletwo">打开应用程序，查看更多功能设置</string>
+    <string name="configure_ready_titlethree">帮应用评分并且分享</string>
+    <string name="configure_style_title">风格</string>
+    <string name="configure_warning_title">警告</string>
+    <string name="configure_info_titleevent">事件</string>
+    <string name="configure_info_contentevent">未来12小时从日历中选择的事件都会标记在钟面上</string>
+    <string name="configure_info_titledetails">全天事件</string>
+    <string name="configure_info_contentdetails">全天事件（或者超过12小时的）具有可选择性，您也可以关闭它。你还可以通过回复\“否\”来进行隐藏事件</string>
+    <string name="configure_info_content">这是一个用钟面上选择的日历来标记事件的模拟时钟。\n\n如果你在使用过程中遇到问题，请随时用Email联系我。</string>
+    <string name="warning_nocalendar_fragment">该应用不具有自动查找谷歌日历的功能。\n\n如果不能连接到谷歌，12小时就无法正常使用或会运行的不够好。</string>
+    <string name="configure_choose_program_title">特殊区域的动作</string>
+    <string name="configure_choose_program_button">选择应用</string>
+    <!-- TAB MAIN -->
+    <string name="tab_main_title_time">搜索空闲时间</string>
+    <string name="tab_main_select_calendars">选择日历</string>
+    <string name="tab_main_friend_calendar_chooser_title">寻找</string>
+    <!-- ABOUT -->
+    <string name="tab_extras_about_content">你好！我是Dev。\n我们正在努力完善这款应用。如果你注意到了任何错误或者漏洞，请通过您把漏洞信息发给我们，对该应用进行评分或者将它推荐给你的朋友的方式来帮助我们。请在G+关注我的更多项目。再次感谢您的支持和帮助。</string>
+    <string name="tab_extras_rate_title">评分！</string>
+    <string name="tab_extras_rate_middle"> 和\或  </string>
+    <string name="tab_extras_share">分享</string>
+    <string name="tab_extras_contactme">联系我</string>
+
+    <!-- Color Screen -->
+    <string name="tab_style_color_aggressive">积极进取</string>
+    <string name="tab_style_color_mild">温和</string>
+    <string name="tab_style_color_blind">色盲</string>
+    <string name="tab_style_color_custom">定制</string>
+    <string name="color_add_addbutton">添加</string>
+    <string name="color_delete_question">选择颜色？</string>
+
+    <!-- Widget Settings -->
+    <string name="tab_style_radial_gradient">主要核心度:</string>
+    <string name="tab_style_inner_intensity">内置色彩强度:</string>
+    <string name="tab_style_outer_intensity">表面色彩度:</string>
+    <string name="widget_settings_style_title">风格</string>
+    <string name="widget_settings_action_title">行动</string>
+
+    <!-- MENU -->
+    <string name="menu_about">关于</string>
+    <string name="menu_bugreport">错误报告</string>
+    <string name="menu_rateapp">帮应用评分</string>
+
+    <!-- JAVA -->
+    <string name="cancel">取消</string>
+    <string name="tab_no_widget_content">将小组件添加至主屏幕，然后返回 :)</string>
+    <string name="tab_extras_select_one_title">选择应用:</string>
+    <string name="tab_extras_select_one_title_selected">你已经选择了:</string>
+    <string name="tab_extras_colors_needed_more">你至少需要三种颜色。</string>
+
+    <!-- Screen titles -->
+    <string name="title_activity_activity_color_managment">调色板</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_activity_widget_settings">组件设置</string>
+
+</resources>

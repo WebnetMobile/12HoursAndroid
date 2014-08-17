@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- XMLs -->
+    <string name="app_name">12hours</string>
+    <string name="author_name">Michał Tajchert</string>
+
+    <!-- CHANGELOG -->
+    <string name="changelog_title">Changelog</string>
+    <string name="changelog_ok_button">OK</string>
+    <string name="changelog_version_format">Version <xliff:g id="version_name">%s</xliff:g></string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- TABs -->
+    <string name="tab_label_main">Main</string>
+    <string name="tab_label_style">Widgets</string>
+    <string name="shareStart">I\'m using 12Hours widget!</string>
+    <string name="shareWhere">Where to share?</string>
+
+    <!-- CONFIGURE SCREEN -->
+    <string name="configure_next">Next</string>
+    <string name="configure_prev">Previous</string>
+    <string name="configure_add">Add widget</string>
+    <string name="configure_install_cal">Install</string>
+    <string name="configure_continue_cal">Continue</string>
+    <string name="configure_fullday">Full day events.</string>
+    <string name="configure_notgoing">Not attending events.</string>
+    <string name="configure_colorfromcalendar">Use events colors.</string>
+    <string name="configure_calendarselection_title">Calendars</string>
+    <string name="configure_ready_title">Ready to go!</string>
+    <string name="configure_ready_subtitle">What next?</string>
+    <string name="configure_ready_titleone">Add more than one widget.</string>
+    <string name="configure_ready_titletwo">Open app to see more settings and features.</string>
+    <string name="configure_ready_titlethree">Rate app and boast around.</string>
+    <string name="configure_style_title">Style</string>
+    <string name="configure_warning_title">Warning</string>
+    <string name="configure_info_titleevent">Event</string>
+    <string name="configure_info_contentevent">Events from selected calendars in next 12 hours are marked at the clock face.</string>
+    <string name="configure_info_titledetails">Whole day event</string>
+    <string name="configure_info_contentdetails">Whole day events (or longer then 12h), are optional and can be turned off, also you can hide events that you responded \"no\" to them.</string>
+    <string name="configure_info_content">It is a analog clock that marks events from selected calendars at clock face.\n\nIf you encounter any troubles during using it - feel free to contact me by email.</string>
+    <string name="warning_nocalendar_fragment">App wasn\'t able to find Google Calendar.\n\nWithout it 12Hours might not work - or not as desired.</string>
+    <string name="configure_choose_program_title">Action for particular area.</string>
+    <string name="configure_choose_program_button">Choose app</string>
+    <!-- TAB MAIN -->
+    <string name="tab_main_title_time">Free Time Finder</string>
+    <string name="tab_main_select_calendars">Select Calendars</string>
+    <string name="tab_main_friend_calendar_chooser_title">FIND</string>
+    <!-- ABOUT -->
+    <string name="tab_extras_about_content">Hi! Dev here.\nI\'m doing my best to make this app most useful to you, so please help me - by sending bug info (if any noticed), rating it or by recommending it to friends.\nFollow me on G+ for more projects!</string>
+    <string name="tab_extras_rate_title">Rate!</string>
+    <string name="tab_extras_rate_middle"> AND/OR </string>
+    <string name="tab_extras_share">Share!</string>
+    <string name="tab_extras_contactme">Contact me</string>
+    <string name="tab_extras_googleplus">Google+</string>
+
+    <!-- Color Screen -->
+    <string name="tab_style_color_aggressive">Aggressive</string>
+    <string name="tab_style_color_mild">Mild</string>
+    <string name="tab_style_color_blind">Colorblind</string>
+    <string name="tab_style_color_custom">Custom</string>
+    <string name="color_add_addbutton">Add</string>
+    <string name="color_delete_question">Delete color?</string>
+
+    <!-- Widget Settings -->
+    <string name="tab_style_radial_gradient">Central gradient:</string>
+    <string name="tab_style_inner_intensity">Inner intensity:</string>
+    <string name="tab_style_outer_intensity">Outer intensity:</string>
+    <string name="widget_settings_style_title">Style</string>
+    <string name="widget_settings_action_title">Action</string>
+
+    <!-- MENU -->
+    <string name="menu_about">About</string>
+    <string name="menu_bugreport">Bug Report</string>
+    <string name="menu_rateapp">Rate App!</string>
+
+    <!-- JAVA -->
+    <string name="cancel">Cancel</string>
+    <string name="tab_no_widget_content">Add widgets to your homescreen, and come back :)</string>
+    <string name="tab_extras_select_one_title">Select App:</string>
+    <string name="tab_extras_select_one_title_selected">You have selected:</string>
+    <string name="tab_extras_colors_needed_more">You need at least 3 colors.</string>
+
+    <!-- Screen titles -->
+    <string name="title_activity_activity_color_managment">Color palette</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity_widget_settings">Widget settings</string>
+
+</resources>

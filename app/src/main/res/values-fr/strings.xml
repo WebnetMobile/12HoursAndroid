@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <string name="yes">Oui</string>
+  <string name="no">Non</string>
+  <!--  TABs  -->
+  <string name="tab_label_main">Principal</string>
+  <string name="tab_label_style">Widget</string>
+  <string name="shareStart">J\'utilise le widget 12Hours</string>
+  <string name="shareWhere">Où partager?</string>
+  <!--  CONFIGURE SCREEN  -->
+  <string name="configure_next">Suivant </string>
+  <string name="configure_prev">Précédent</string>
+  <string name="configure_add">Ajouter un Widget</string>
+  <string name="configure_install_cal">Installer</string>
+  <string name="configure_continue_cal">Continuer</string>
+  <string name="configure_fullday">Evénement Jour Entier</string>
+  <string name="configure_notgoing">Evénement où vous n\'êtes pas attendu</string>
+  <string name="configure_colorfromcalendar">Utiliser les couleurs d\'évènements</string>
+  <string name="configure_calendarselection_title">Calendrier</string>
+  <string name="configure_ready_title">Prêt!</string>
+  <string name="configure_ready_subtitle">Ensuite?</string>
+  <string name="configure_ready_titleone">Ajouter plus d\'un widget</string>
+  <string name="configure_ready_titletwo">Ouvrir l\'application pour voir plus de paramètres et de fonctionnalités </string>
+  <string name="configure_ready_titlethree">Evaluer l\'application et partager</string>
+  <string name="configure_style_title">Style</string>
+  <string name="configure_warning_title">Attention</string>
+  <string name="configure_info_titleevent">Evènement </string>
+  <string name="configure_info_contentevent">Dans calendriers sélectionnés, les évènements des 12 prochaines heures sont marqués sur l\'horloge</string>
+  <string name="configure_info_titledetails">Evènement jour entier</string>
+  <string name="configure_info_contentdetails">Les évènements sur une journée (plus de 12 heures) sont en option et peuvent être désactivés. De plus vous pouvez masquer les évènements auxquels vous avez répondu \"non\"</string>
+  <string name="configure_info_content">C\'est une horloge analogique qui marque les évènements des calendriers sélectionnés.\n\nSi vous rencontrez des problèmes d\'utilisation, n\'hésitez pas à nous contacter par mail.</string>
+  <string name="warning_nocalendar_fragment">L\'application ne parvient pas à trouver Google Calendar.\n\nSans celui-ci 12Hours ne pourra pas être fonctionnel à 100\u0025</string>
+  <string name="configure_choose_program_title">Action pour une zone particulière</string>
+  <string name="configure_choose_program_button">Choisissez l\'application</string>
+  <!--  TAB MAIN  -->
+  <string name="tab_main_title_time">Détecteur de Temps Libre</string>
+  <string name="tab_main_select_calendars">Sélectionner le calendrier</string>
+  <string name="tab_main_friend_calendar_chooser_title">TROUVER</string>
+  <!--  ABOUT  -->
+  <string name="tab_extras_about_content">Bonjour! Ici Dev.\n\nJe fais tout mon possible pour que l\'application soit le plus utile possible, alors aidez moi en me signalant les anomalies de fonctionnement (si vous en rencontrez) et en notant l\'application. N\'hésitez pas à partager votre expérience avec vos amis.\nSuivez moi sur G+ pour plus de projet. </string>
+  <string name="tab_extras_rate_title">Notez!</string>
+  <string name="tab_extras_rate_middle"> ET/OU </string>
+  <string name="tab_extras_share">Partager!</string>
+  <string name="tab_extras_contactme">Contacter moi</string>
+  <!--  Color Screen  -->
+  <string name="tab_style_color_aggressive">Agressif</string>
+  <string name="tab_style_color_mild">Faible</string>
+  <string name="tab_style_color_blind">Achromatique</string>
+  <string name="tab_style_color_custom">Personnalisé</string>
+  <string name="color_add_addbutton">Ajouter</string>
+  <string name="color_delete_question">Supprimer la couleur</string>
+  <!--  Widget Settings  -->
+  <string name="tab_style_radial_gradient">Gradient Couleur principale</string>
+  <string name="tab_style_inner_intensity">Intensité intérieure</string>
+  <string name="tab_style_outer_intensity">Intensité exterieure</string>
+  <string name="widget_settings_style_title">Style</string>
+  <string name="widget_settings_action_title">Action</string>
+  <!--  MENU  -->
+  <string name="menu_about">A propos</string>
+  <string name="menu_bugreport">Rapport</string>
+  <string name="menu_rateapp">Evaluer!</string>
+  <!--  JAVA  -->
+  <string name="cancel">Annuler</string>
+  <string name="tab_no_widget_content">Ajouter un widget à votre écran d\'acceuil, et revenez :)</string>
+  <string name="tab_extras_select_one_title">Sélectionner l\'application</string>
+  <string name="tab_extras_select_one_title_selected">Vous avez sélectionné </string>
+  <string name="tab_extras_colors_needed_more">Vous devez choisir au moins 3 couleurs</string>
+  <!--  Screen titles  -->
+  <string name="title_activity_activity_color_managment">Palette de couleur</string>
+  <string name="action_settings">Paramètres</string>
+  <string name="title_activity_activity_widget_settings">Paramètres Widget</string>
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <!--  XMLs  -->
+  <!-- TODO: string name="app_name" -->
+  <!-- TODO: string name="author_name" -->
+  <!--  CHANGELOG  -->
+  <!-- TODO: string name="changelog_title" -->
+  <!-- TODO: string name="changelog_ok_button" -->
+  <!-- TODO: string name="changelog_version_format" -->
+  <string name="yes">Evet</string>
+  <string name="no">Hayır</string>
+  <!--  TABs  -->
+  <string name="tab_label_main">Ana</string>
+  <string name="tab_label_style">Widget\'lar</string>
+  <string name="shareStart">12hours Widget\'ını kullanıyorum!</string>
+  <string name="shareWhere">Nerede paylaş?</string>
+  <!--  CONFIGURE SCREEN  -->
+  <string name="configure_next">Sonraki</string>
+  <string name="configure_prev">Önceki</string>
+  <string name="configure_add">Widget Ekle</string>
+  <string name="configure_install_cal">Kur</string>
+  <string name="configure_continue_cal">Devam Et</string>
+  <string name="configure_fullday">Tam gün etkinlikleri.</string>
+  <string name="configure_notgoing">Etkinliklere katılınmıyor.</string>
+  <string name="configure_colorfromcalendar">Etkinlik renklerini kullan.</string>
+  <string name="configure_calendarselection_title">Takvimler</string>
+  <string name="configure_ready_title">Kullanıma hazır!</string>
+  <string name="configure_ready_subtitle">Ya sonra?</string>
+  <string name="configure_ready_titleone">Bir Widget\'tan fazlasını ekle.</string>
+  <string name="configure_ready_titletwo">Daha fazla ayar ve özellik için uygulamayı açın.</string>
+  <string name="configure_ready_titlethree">Uygulamayı değerlendir ve etrafta böbürlen!</string>
+  <string name="configure_style_title">Stil</string>
+  <string name="configure_warning_title">Uyarı</string>
+  <string name="configure_info_titleevent">Etkinlik</string>
+  <string name="configure_info_contentevent">Seçilen takvimlerdeki önümüzdeki 12 saat içindeki etkinlikler saat yüzüne işaretlenmiştir.</string>
+  <string name="configure_info_titledetails">Bütün gün etkinliği</string>
+  <string name="configure_info_contentdetails">Bütün gün etkinlikleri(veya 12saatten fazla), tercihe bağlıdır ve kapatılabilir, ayrıca "hayır" cevabı verdiğiniz etkinlikleri de gizleyebilirsiniz.</string>
+  <string name="configure_info_content">Saat yüzüne seçili takvimlerden etkinlikleri işaretleyen şey analog bir saattir.\n\nKullanım esnasında herhangi bir sorunla karşılaşmanız durumunda benimle e-posta yoluyla iletişime geçmekten çekinmeyiniz.</string>
+  <string name="warning_nocalendar_fragment">Uygulama Google Takvimini bulamadı.\n\nOnsuz 12Hours çalışmayabilir veya arzu edildiği şekilde çalışmayabilir.</string>
+  <string name="configure_choose_program_title">Belirli bir bölgeye yönelik etkinlik.</string>
+  <string name="configure_choose_program_button">Uygulamayı seç</string>
+  <!--  TAB MAIN  -->
+  <string name="tab_main_title_time">Boş Zaman Bulucu</string>
+  <string name="tab_main_select_calendars">Takvimleri Seç</string>
+  <string name="tab_main_friend_calendar_chooser_title">BUL</string>
+  <!--  ABOUT  -->
+  <string name="tab_extras_about_content">Selam! Ben Dev.\nBu uygulamanın size en çok yararı sağlaması için elimden geleni yapıyorum. Bu sebeple, lütfen bana bug bilgisi (eğer karşılaştıysanız) göndererek, değerlendirerek veya arkadaşlarınıza tavsiye ederek yardım edin.\nDaha fazla proje için beni G+ üzerinden takip edin.</string>
+  <string name="tab_extras_rate_title">Değerlendir!</string>
+  <string name="tab_extras_rate_middle">VE/YA DA</string>
+  <string name="tab_extras_share">Paylaş!</string>
+  <string name="tab_extras_contactme">Bana ulaş</string>
+  <!-- TODO: string name="tab_extras_googleplus" -->
+  <!--  Color Screen  -->
+  <string name="tab_style_color_aggressive">Agresif</string>
+  <string name="tab_style_color_mild">Hafif</string>
+  <string name="tab_style_color_blind">Renk körü</string>
+  <string name="tab_style_color_custom">Özel</string>
+  <string name="color_add_addbutton">Ekle</string>
+  <string name="color_delete_question">Rengi Sil?</string>
+  <!--  Widget Settings  -->
+  <string name="tab_style_radial_gradient">Ana merkez gradyan:</string>
+  <string name="tab_style_inner_intensity">İç renk yoğunluğu:</string>
+  <string name="tab_style_outer_intensity">Dış renk yoğunluğu:</string>
+  <string name="widget_settings_style_title">Stil</string>
+  <string name="widget_settings_action_title">Eylem</string>
+  <!--  MENU  -->
+  <string name="menu_about">Hakkında</string>
+  <string name="menu_bugreport">Bug Bildirimi</string>
+  <string name="menu_rateapp">Uygulamayı değerlendir!</string>
+  <!--  JAVA  -->
+  <string name="cancel">İptal</string>
+  <string name="tab_no_widget_content">Anasayfanıza Widget ekleyin ve geri gelin :)</string>
+  <string name="tab_extras_select_one_title">Uygulama seç:</string>
+  <string name="tab_extras_select_one_title_selected">Şunları seçtiniz:</string>
+  <string name="tab_extras_colors_needed_more">En az 3 renge ihtiyacınız var.</string>
+  <!--  Screen titles  -->
+  <string name="title_activity_activity_color_managment">Renk paleti</string>
+  <string name="action_settings">Ayarlar</string>
+  <string name="title_activity_activity_widget_settings">Widget Ayarları</string>
+</resources>

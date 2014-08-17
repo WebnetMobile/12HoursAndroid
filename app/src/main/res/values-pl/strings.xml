@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="yes">Tak</string>
+    <string name="no">Nie</string>
+
+    <!-- TABs -->
+    <string name="tab_label_main">Główna</string>
+    <string name="tab_label_style">Widgety</string>
+    <string name="shareStart">Używam widgetu 12Hours!</string>
+    <string name="shareWhere">Gdzie udostępnić?</string>
+
+    <!-- CONFIGURE SCREEN -->
+    <string name="configure_next">Następny</string>
+    <string name="configure_prev">Poprzedni</string>
+    <string name="configure_add">Dodaj widget</string>
+    <string name="configure_install_cal">Instaluj</string>
+    <string name="configure_continue_cal">Kontynuuj</string>
+    <string name="configure_fullday">Wydarzenia całodniowe.</string>
+    <string name="configure_notgoing">Wydarzenia oznaczone \"nie idę\".</string>
+    <string name="configure_colorfromcalendar">Kolory wydarzeń z kalendarza.</string>
+    <string name="configure_calendarselection_title">Kalendarze</string>
+    <string name="configure_ready_title">Gotowy!</string>
+    <string name="configure_ready_subtitle">Co dalej?</string>
+    <string name="configure_ready_titleone">Dodaj więcej niż jeden widget.</string>
+    <string name="configure_ready_titletwo">Otwórz aplikacje by zobaczyć wszystkie ustawienia i funkcje.</string>
+    <string name="configure_ready_titlethree">Oceń aplikację i chwal się przed znajomymi!</string>
+    <string name="configure_style_title">Styl</string>
+    <string name="configure_warning_title">Ostrzeżenie</string>
+    <string name="configure_info_titleevent">Wydarzenie</string>
+    <string name="configure_info_contentevent">Wydarzenia z następnych 12 godz. z kalendarza są zaznaczone na tarczy.</string>
+    <string name="configure_info_titledetails">Całodniowe wydarzenie.</string>
+    <string name="configure_info_contentdetails">Całodniowe wydarzenia są opcjonalne, tak samo jak te które zostały oznaczone "nie idę".</string>
+    <string name="configure_info_content">To zegar analogowy który automatycznie zaznacza wydarzenia z Twojego kalendarza na tarczy.\n\nJeśli będziesz miał(a) jakieś trudności z korzystanie - napisz do mnie maila.</string>
+    <string name="warning_nocalendar_fragment">Aplikacja nie była w stanie znaleźć kalendarza Google\'a - może przez to niepoprawnie działać.</string>
+    <string name="configure_choose_program_title">Program dla poszczególnej strefy.</string>
+    <string name="configure_choose_program_button">Wybierz aplikacje:</string>
+    <!-- TAB MAIN -->
+    <string name="tab_main_title_time">Znajdź Wolny Czas</string>
+    <string name="tab_main_select_calendars">Wybierz kalendarze</string>
+    <string name="tab_main_friend_calendar_chooser_title">Szukaj</string>
+    <!-- ABOUT -->
+    <string name="tab_extras_about_content">Witaj!\n Robię co mogę by ta aplikacja było możliwie użyteczna - jeśli chcesz pomóc wyślij mi błąd jeśli taki wystąpi, oceń ją w Google Play, i chwal się przed znajomymi.\nŚledź mnie na Google+ aby zobaczyć więcej moich projektów!</string>
+    <string name="tab_extras_rate_title">Oceń!</string>
+    <string name="tab_extras_rate_middle"> I/LUB </string>
+    <string name="tab_extras_share">Udostępnij!</string>
+    <string name="tab_extras_contactme">Mail</string>
+
+    <!-- Color Screen -->
+    <string name="tab_style_color_aggressive">Agresywne</string>
+    <string name="tab_style_color_mild">Stonowane</string>
+    <string name="tab_style_color_blind">Dla daltonistów</string>
+    <string name="tab_style_color_custom">Własne</string>
+    <string name="color_add_addbutton">Dodaj</string>
+    <string name="color_delete_question">Usunąć kolor?</string>
+
+    <!-- Widget Settings -->
+    <string name="tab_style_radial_gradient">Środkowy gradient:</string>
+    <string name="tab_style_inner_intensity">Intensywność środka:</string>
+    <string name="tab_style_outer_intensity">Intensywność obręczy:</string>
+    <string name="widget_settings_style_title">Styl</string>
+    <string name="widget_settings_action_title">Akcja</string>
+
+    <!-- MENU -->
+    <string name="menu_about">O aplikacji</string>
+    <string name="menu_bugreport">Bug Raport</string>
+    <string name="menu_rateapp">Oceń!</string>
+
+    <!-- JAVA -->
+    <string name="cancel">Anuluj</string>
+    <string name="tab_no_widget_content">Dodaj widget do pulpitu i wróć tutaj. :)</string>
+    <string name="tab_extras_select_one_title">Wybierz aplikacje</string>
+    <string name="tab_extras_select_one_title_selected">Wybrałeś:</string>
+    <string name="tab_extras_colors_needed_more">Potrzebujesz przynajmniej 3 kolorów.</string>
+
+    <!-- Screen titles -->
+    <string name="title_activity_activity_color_managment">Paleta kolorów</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="title_activity_activity_widget_settings">Ustawienia widgetu</string>
+
+</resources>

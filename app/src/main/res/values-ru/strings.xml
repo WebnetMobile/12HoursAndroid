@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+	<string name="yes">Да</string>
+    <string name="no">Нет</string>
+
+    <!-- TABs -->
+    <string name="tab_label_main">Основные</string>
+    <string name="tab_label_style">Оформление</string>
+    <string name="shareStart">Я использую виджет 12Hours</string>
+    <string name="shareWhere">Где поделиться?</string>
+
+    <!-- CONFIGURE SCREEN -->
+    <string name="configure_next">Дальше</string>
+    <string name="configure_prev">Назад</string>
+    <string name="configure_add">Добавить виджет</string>
+    <string name="configure_install_cal">Установить</string>
+    <string name="configure_continue_cal">Продолжить</string>
+    <string name="configure_fullday">События на целый день.</string>
+    <string name="configure_notgoing">Непосещаемые события.</string>
+    <string name="configure_colorfromcalendar">Использовать цвета событий</string>
+    <string name="configure_calendarselection_title">Календари</string>
+    <string name="configure_ready_title">Готовы идти!</string>
+    <string name="configure_ready_subtitle">Что дальше?</string>
+    <string name="configure_ready_titleone">Добавить больше чем один виджет.</string>
+    <string name="configure_ready_titletwo">Открыть приложение, чтобы увидеть больше настроек и функций.</string>
+    <string name="configure_ready_titlethree">Поставить рейтинг приложению и похвастаться им.</string>
+    <string name="configure_style_title">Стиль</string>
+    <string name="configure_warning_title">Предупреждение</string>
+    <string name="configure_info_titleevent">Событие</string>
+    <string name="configure_info_contentevent">События из выбранных календарей на следующие 12 часов отмечены на циферблате.</string>
+    <string name="configure_info_titledetails">События на целый день</string>
+    <string name="configure_info_contentdetails">События на целый день (или те, что длятся более 12 часов) являются дополнительными и могут быть выключены; также вы можете спрятать события, которым вы ответили \"нет\".</string>
+    <string name="configure_info_content">Аналоговые часы отмечают события из выбранных календарей на циферблате.\n\nЕсли вы заметили какие-либо проблемы при использовании, не стесняйтесь связаться со мной через email.</string>
+    <string name="warning_nocalendar_fragment">Приложению не удалось найти Календарь Google.\n\nБез него приложение 12Hours может не работать, или работать не так, как следует.</string>
+    <string name="configure_choose_program_title">Действия для определенной зоны.</string>
+    <string name="configure_choose_program_button">Выбрать приложение</string>
+    <!-- TAB MAIN -->
+    <string name="tab_main_title_time">Бесплатный Сыщик Времени
+</string>
+    <string name="tab_main_select_calendars">Выбрать Календарь</string>
+    <string name="tab_main_friend_calendar_chooser_title">НАЙТИ</string>
+    <!-- ABOUT -->
+    <string name="tab_extras_about_content">Привет! Дэв здесь.\n\nЯ делаю все возможное, чтобы сделать это приложение полезным для вас, поэтому, помогите мне, пожалуйста - отправьте информацию об ошибке (если вы ее обнаружите), поставьте рейтинг или порекомендуйте приложение друзьям.\nПодписывайтесь на меня в G+ и откройте для себя другие проекты!</string>
+    <string name="tab_extras_rate_title">Поставить рейтинг!</string>
+    <string name="tab_extras_rate_middle"> И/ИЛИ </string>
+    <string name="tab_extras_share">Поделиться!</string>
+    <string name="tab_extras_contactme">Связаться со мной</string>
+
+    <!-- Color Screen -->
+    <string name="tab_style_color_aggressive">Агресивная</string>
+    <string name="tab_style_color_mild">Умеренная</string>
+    <string name="tab_style_color_blind">Контрастная</string>
+    <string name="tab_style_color_custom">Кастомный</string>
+    <string name="color_add_addbutton">Добавить</string>
+    <string name="color_delete_question">Удалить цвет?</string>
+
+    <!-- Widget Settings -->
+    <string name="tab_style_radial_gradient">Центральный градиент:</string>
+    <string name="tab_style_inner_intensity">Внутренняя интенсивность:</string>
+    <string name="tab_style_outer_intensity">Внешняя интенсивность:</string>
+    <string name="widget_settings_style_title">Стиль</string>
+    <string name="widget_settings_action_title">Действие</string>
+
+    <!-- MENU -->
+    <string name="menu_about">Про нас</string>
+    <string name="menu_bugreport">Ошибка</string>
+    <string name="menu_rateapp">Оценить!</string>
+
+    <!-- JAVA -->
+    <string name="cancel">Отменить</string>
+    <string name="tab_no_widget_content">Добавьте виджеты на домашний экран и возвращайтесь :)</string>
+    <string name="tab_extras_select_one_title">Выбрать приложение</string>
+    <string name="tab_extras_select_one_title_selected">Вы выбрали:</string>
+    <string name="tab_extras_colors_needed_more">Необходимо минимум 3 цвета.</string>
+
+    <!-- Screen titles -->
+    <string name="title_activity_activity_color_managment">Цветовая гамма</string>
+    <string name="action_settings">Настройки</string>
+    <string name="title_activity_activity_widget_settings">Настройки виджетов</string>
+
+</resources>

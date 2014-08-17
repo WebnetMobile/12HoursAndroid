@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+
+    <!-- TABs -->
+    <string name="tab_label_main">Hauptmenü</string>
+    <string name="tab_label_style">Widgets</string>
+    <string name="shareStart">Ich benutze das 12Hours-Widget!</string>
+    <string name="shareWhere">Wo kann man teilen?</string>
+
+    <!-- CONFIGURE SCREEN -->
+    <string name="configure_next">Weiter</string>
+    <string name="configure_prev">Zurück</string>
+    <string name="configure_add">Widget hinzufügen</string>
+    <string name="configure_install_cal">Installieren</string>
+    <string name="configure_continue_cal">Weitermachen
+</string>
+    <string name="configure_fullday">Volltagesereignisse.</string>
+    <string name="configure_notgoing">Keine Teilnahme an Ereignissen.</string>
+    <string name="configure_colorfromcalendar">Benutzung der Farben des Ereignisses.</string>
+    <string name="configure_calendarselection_title">Kalender</string>
+    <string name="configure_ready_title">Bereit!</string>
+    <string name="configure_ready_subtitle">Was kommt als nächstes?</string>
+    <string name="configure_ready_titleone">Mehr als ein Widget hinzufügen.</string>
+    <string name="configure_ready_titletwo">App öffnen um mehr Einstellungen und Funktionen zu sehen.</string>
+    <string name="configure_ready_titlethree">Bewertung der App und sagen, wie toll sie ist.</string>
+    <string name="configure_style_title">Stil</string>
+    <string name="configure_warning_title">Warnung</string>
+    <string name="configure_info_titleevent">Ereignis</string>
+    <string name="configure_info_contentevent">Ereignisse innerhalb der nächsten 12 Stunden von ausgewählten Kalendern sind markiert auf dem Ziffernblatt.</string>
+    <string name="configure_info_titledetails">Ganztagesereignis</string>
+    <string name="configure_info_contentdetails">Ganztagesereignisse (oder die länger als 12 Stunden sind) sind optional und können abgestellt werden. Sie können Ereignisse auch ausblenden, wenn Sie diese mit \"nein\" beantwortet haben </string>
+    <string name="configure_info_content">Dies ist eine Analoguhr, die Ereignisse aus ausgewählten Kalendern auf dem Zifferblatt markiert.\n\nWenn Sie irgendwelche Schwierigkeiten mit der Benutzung haben, bitte wenden Sie sich an mich per E-Mail.</string>
+    <string name="warning_nocalendar_fragment">App konnte Google-Kalender nicht finden.\n\nOhne ihn können 12Hours nicht funktionieren oder nicht so wie gewünscht.</string>
+    <string name="configure_choose_program_title">Aktion für bestimmten Bereich.</string>
+    <string name="configure_choose_program_button">Wählen Sie App aus</string>
+    <!-- TAB MAIN -->
+    <string name="tab_main_title_time">Suche nach freier Zeit</string>
+    <string name="tab_main_select_calendars">FINDEN</string>
+    <string name="tab_main_friend_calendar_chooser_title">FINDEN</string>
+    <!-- ABOUT -->
+    <string name="tab_extras_about_content">Hallo!\nHier ist Dev.\nIch tue mein Bestes, damit Sie den größten Nutzen aus dieser App haben. Deshalb helfen Sie mir bitte und schicken Sie mir eine Info mit dem Programmfehler (falls Sie ihn bemerken), oder bewerten Sie das Programm oder empfehlen Sie es an Freunde.\nFolgen Sie mir auf G+ für mehr Projekte!</string>
+    <string name="tab_extras_rate_title">Bewerten Sie!</string>
+    <string name="tab_extras_rate_middle"> UND/ODER </string>
+    <string name="tab_extras_share">Teilen!</string>
+    <string name="tab_extras_contactme">Kontaktieren Sie mich!</string>
+
+    <!-- Color Screen -->
+    <string name="tab_style_color_aggressive">Aufdringliche</string>
+    <string name="tab_style_color_mild">Unaufdringlich</string>
+    <string name="tab_style_color_blind">Farbenblind</string>
+    <string name="tab_style_color_custom">Benutzerdefiniert</string>
+    <string name="color_add_addbutton">Hinzufügen</string>
+    <string name="color_delete_question">Farbe löschen?</string>
+
+    <!-- Widget Settings -->
+    <string name="tab_style_radial_gradient">Zentraler Farbverlauf:</string>
+    <string name="tab_style_inner_intensity">Innere Intensität:</string>
+    <string name="tab_style_outer_intensity">Äußere Intensität:</string>
+    <string name="widget_settings_style_title">Stil</string>
+    <string name="widget_settings_action_title">Aktion</string>
+
+    <!-- MENU -->
+    <string name="menu_about">Über</string>
+    <string name="menu_bugreport">Fehlermeldungsreport</string>
+    <string name="menu_rateapp">Bewerten Sie!</string>
+
+    <!-- JAVA -->
+    <string name="cancel">Abbrechen</string>
+    <string name="tab_no_widget_content">Fügen Sie Widgets auf Ihren Start-Bildschirm hinzu und kommen Sie zurück :)</string>
+    <string name="tab_extras_select_one_title">App auswählen:</string>
+    <string name="tab_extras_select_one_title_selected">Sie haben ausgewählt:</string>
+    <string name="tab_extras_colors_needed_more">Sie brauchen mindestens 3 Farben.</string>
+
+    <!-- Screen titles -->
+    <string name="title_activity_activity_color_managment">Farbpalette</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="title_activity_activity_widget_settings">Widget-Einstellungen</string>
+
+</resources>

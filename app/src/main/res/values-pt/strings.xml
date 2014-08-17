@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <!--  CHANGELOG  -->
+  <string name="yes">Sim</string>
+  <string name="no">Não</string>
+  <!--  TABs  -->
+  <string name="tab_label_main">Principal</string>
+  <string name="tab_label_style">Widgets</string>
+  <string name="shareStart">Estou usando o widget do 12Hours!</string>
+  <string name="shareWhere">Onde compartilhar?</string>
+  <!--  CONFIGURE SCREEN  -->
+  <string name="configure_next">Próximo</string>
+  <string name="configure_prev">Anterior</string>
+  <string name="configure_add">Adicionar widget</string>
+  <string name="configure_install_cal">Instalar</string>
+  <string name="configure_continue_cal">Continuar</string>
+  <string name="configure_fullday">Evento (dia inteiro).</string>
+  <string name="configure_notgoing">Não vou ao evento.</string>
+  <string name="configure_colorfromcalendar">Usar cor para os eventos.</string>
+  <string name="configure_calendarselection_title">Calendários</string>
+  <string name="configure_ready_title">Pronto para começar!</string>
+  <string name="configure_ready_subtitle">O que fazer agora?</string>
+  <string name="configure_ready_titleone">Adicionar mais que um widget</string>
+  <string name="configure_ready_titletwo">Abrir app para ver mais configurações e funcionalidades.</string>
+  <string name="configure_ready_titlethree">Dê uma nota para esta app.</string>
+  <string name="configure_style_title">Estilo</string>
+  <string name="configure_warning_title">Aviso</string>
+  <string name="configure_info_titleevent">Evento</string>
+  <string name="configure_info_contentevent">Eventos das próximas 12 horas dos calendários selecionados são mostrados diretamente no relógio.</string>
+  <string name="configure_info_titledetails">Evento de dia inteiro.</string>
+  <string name="configure_info_contentdetails">Eventos de dia inteiro (ou com duração maior que 12 horas), são opcionais e podem ser desligados, você também pode esconde-los se você responder "Não" para eles.</string>
+  <string name="configure_info_content">Isto é um relógio analógico que mostra os eventos de calendários selecionados diretamente no relógio. \n\nI Se você encontrar algum problema ao utilizar, sinta-se a vontade para me contactar por email.</string>
+  <string name="warning_nocalendar_fragment">A app não conseguiu encontrar o Google Calender. \n\n Sem isso o 12Hours pode não funcionar, ou não funcionar como desejado.</string>
+  <string name="configure_choose_program_title">Ação para uma área em particular.</string>
+  <string name="configure_choose_program_button">Escolher app</string>
+  <!--  TAB MAIN  -->
+  <string name="tab_main_title_time">Buscador de tempo livre</string>
+  <string name="tab_main_select_calendars">Selecionar calendários</string>
+  <string name="tab_main_friend_calendar_chooser_title">BUSCAR</string>
+  <!--  ABOUT  -->
+  <string name="tab_extras_about_content">Olá! Aqui quem fala é o desenvolvedor.\nEstou fazendo o meu melhor para fazer essa app útil para você, então me ajude enviando erros (se você achar algum), dando nota ou recomendando para seus amigos. \nSiga-me no G+ para mais projetos!</string>
+  <string name="tab_extras_rate_title">Dê uma nota!</string>
+  <string name="tab_extras_rate_middle"> E/OU </string>
+  <string name="tab_extras_share">Compartilhar!</string>
+  <string name="tab_extras_contactme">Contate-me</string>
+  <!--  Color Screen  -->
+  <string name="tab_style_color_aggressive">Agressivo</string>
+  <string name="tab_style_color_mild">Suave</string>
+  <string name="tab_style_color_blind">Colorblind</string>
+  <string name="tab_style_color_custom">Customizado</string>
+  <string name="color_add_addbutton">Adicionar</string>
+  <string name="color_delete_question">Deletar cor?</string>
+  <!--  Widget Settings  -->
+  <string name="tab_style_radial_gradient">Gradiente central principal</string>
+  <string name="tab_style_inner_intensity">Intensidade da cor interna</string>
+  <string name="tab_style_outer_intensity">Intensidade da cor externa</string>
+  <string name="widget_settings_style_title">Estilo</string>
+  <string name="widget_settings_action_title">Ação</string>
+  <!--  MENU  -->
+  <string name="menu_about">Sobre</string>
+  <string name="menu_bugreport">Reportar bug</string>
+  <string name="menu_rateapp">Dê uma nota!</string>
+  <!--  JAVA  -->
+  <string name="cancel">Cancelar</string>
+  <string name="tab_no_widget_content">Adicionar widgets a sua tela inicial, e voltar :)</string>
+  <string name="tab_extras_select_one_title">Selecionar app:</string>
+  <string name="tab_extras_select_one_title_selected">Você selecionou:</string>
+  <string name="tab_extras_colors_needed_more">Você precisa de ao menos 3 cores.</string>
+  <!--  Screen titles  -->
+  <string name="title_activity_activity_color_managment">Paleta de cores</string>
+  <string name="action_settings">Configurações</string>
+  <string name="title_activity_activity_widget_settings">Configurações do widget</string>
+</resources>

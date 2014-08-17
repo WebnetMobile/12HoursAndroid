@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/topClockPreview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" >
+
+        <ImageView
+            android:id="@+id/imageViewClockUnderflow"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignBottom="@+id/imageViewClockOverflow"
+            android:layout_alignLeft="@+id/imageViewClockOverflow"
+            android:layout_alignRight="@+id/imageViewClockOverflow"
+            android:layout_alignTop="@+id/imageViewClockOverflow"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:id="@+id/imageViewClockOverflow"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+        
+        <AnalogClock
+            android:id="@+id/analogClockActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageViewClockOverflow"
+            android:layout_alignLeft="@+id/imageViewClockOverflow"
+            android:layout_alignRight="@+id/imageViewClockOverflow"
+            android:layout_alignTop="@+id/imageViewClockOverflow"
+            android:layout_centerVertical="true"
+            android:dial="@drawable/empty"
+            android:hand_hour="@drawable/hand_hour"
+            android:hand_minute="@drawable/hand_minute" />
+
+        
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_below="@+id/imageViewClockOverflow"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="2dp"
+            android:background="#ffffff" />
+
+        <TextView
+            android:id="@+id/textViewStyleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/divider"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/widget_settings_style_title"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageButton
+            android:id="@+id/imageButtonNext"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageViewClockUnderflow"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_action_next_item" />
+
+        <ImageButton
+            android:id="@+id/imageButtonPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/imageViewClockUnderflow"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_action_previous_item" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/TransparencySettings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topClockPreview" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RelativeLayout
+                android:id="@+id/GradientIntensity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/tab_style_radial_gradient"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <SeekBar
+                    android:id="@+id/seekbarGradientTransparency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textView1"
+                    android:layout_marginTop="5dp"
+                    android:max="255" />
+
+                <TextView
+                    android:id="@+id/textViewRight"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView1"
+                    android:layout_alignBottom="@+id/textView1"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="right"
+                    android:text="100"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/textViewLeft"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView1"
+                    android:layout_alignBottom="@+id/textView1"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="sans-serif-light"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/PieIntensity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GradientIntensity" >
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/TextView03"
+                    android:layout_toRightOf="@+id/TextView01"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="@string/tab_style_inner_intensity"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <SeekBar
+                    android:id="@+id/SeekBarPieIntensity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/TextView02"
+                    android:layout_marginTop="10dp"
+                    android:max="255" />
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/TextView02"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="sans-serif-light"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/TextView02"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="right"
+                    android:text="100"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/OuterIntensity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/PieIntensity" >
+
+                <TextView
+                    android:id="@+id/TextView04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/TextView06"
+                    android:layout_toRightOf="@+id/TextView05"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="@string/tab_style_outer_intensity"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <SeekBar
+                    android:id="@+id/SeekBarOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/TextView04"
+                    android:layout_marginTop="5dp"
+                    android:max="255" />
+
+                <TextView
+                    android:id="@+id/TextView05"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/SeekBarOut"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="sans-serif-light"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/TextView06"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/SeekBarOut"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="right"
+                    android:text="100"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/separator"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:text="@string/widget_settings_action_title"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <View
+                android:id="@+id/separator"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/OuterIntensity"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separator"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="@string/configure_choose_program_title"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RelativeLayout
+                android:id="@+id/buttonLayout"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_below="@+id/textView3"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" >
+
+                <ImageView
+                    android:id="@+id/imageViewClockPreview"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/clock_preview" />
+
+                <Button
+                    android:id="@+id/buttonProgramOut"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:alpha="0.7"
+                    android:background="@drawable/rounded_color_button_big" />
+
+                <Button
+                    android:id="@+id/buttonProgram"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:alpha="0.5"
+                    android:background="@drawable/rounded_color_button"
+                    android:fontFamily="sans-serif-light" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/separatorThree"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:text="Events"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <View
+                android:id="@+id/separatorThree"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/buttonLayout"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff" />
+            <LinearLayout
+                 android:id="@+id/layoutCheckboxes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorThree"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:gravity="left">
+
+            <CheckBox
+                android:id="@+id/checkBoxCalendarFullDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorThree"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/configure_fullday" />
+
+            <CheckBox
+                android:id="@+id/checkBoxCalendarColors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/checkBoxCalendarFullDay"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/configure_colorfromcalendar" />
+
+            <CheckBox
+                android:id="@+id/checkBoxCalendarGoing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/checkBoxCalendarColors"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/configure_notgoing" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

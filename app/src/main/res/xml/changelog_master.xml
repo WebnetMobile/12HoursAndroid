@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="2.0.1" versioncode="37" >
+        <change>Bug fixes.</change>
+        <change>Translation: Korean, Japanese, Turkish.</change>
+    </release>
+    <release version="2.0" versioncode="36" >
+        <change>Translation: Polish, German, Portuguese, Chinese, Italian, Spanish, French.</change>
+        <change>Custom colors.</change>
+        <change>Custom second action.</change>
+        <change>Bug fixes.</change>
+    </release>
+    <release version="1.99" versioncode="32" >
+        <change>Better adding widgets.</change>
+        <change>Show/hide full day events.</change>
+        <change>Show/hide not going events.</change>
+    </release>
+    <release version="1.98" versioncode="31" >
+        <change>Support for more than 1 widget.</change>
+        <change>Support for >12h events.</change>
+        <change>Managment panel for all widgets.</change>
+        <change>Preview of widget in settings.</change>
+    </release>
+    <release version="1.97" versioncode="27" >
+        <change>Bug fixes.</change>
+        <change>free time finder.</change>
+        <change>RU translation added.</change>
+    </release>
+    <release version="1.95" versioncode="21" >
+        <change>All day events are again hidden.</change>
+    </release>
+     <release version="1.94" versioncode="20" >
+        <change>Bug fixes.</change>
+        <change>Drawing optimization.</change>
+        <change>Showing part of event (if >12 hours).</change>
+        <change>Colorblind mode.</change>
+    </release>
+    <release version="1.93" versioncode="18" >
+        <change>Better drawing resolution.</change>
+        <change>Some drawing bug repaired.</change>
+        <change>Each next event have different color.</change>
+    </release>
+    <release version="1.92" versioncode="15" >
+        <change>New KitKat style.</change>
+        <change>Better settings panel.</change>
+        <change>Share/rate buttons+description.</change>
+    </release>
+    <release version="1.9" versioncode="12">
+        <change>Removed WRITE permission.</change>
+        <change>Changed to 1x1 and 3x3 sizes as requested.</change>
+    </release>
+</changelog>
