@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RadialGradient;
 import android.graphics.RectF;
-import android.util.Log;
 
 import com.tajchert.hours.ColorManager;
 import com.tajchert.hours.Tools;
@@ -44,34 +43,19 @@ public class ClockDraw {
 			listType = widget.colorPallete;
 			transparencyCenter = widget.transparencyCenter;
 		}
-		
 		size = size/2;
-		
-		
-		
-		//Log.d("24Hours", "size: " +size);
 		int sweepAngle = 0;
 		if(EndAngle >= startAngle){
 			 sweepAngle = EndAngle- startAngle;
-			 //Log.d("24Hours", "sweepAngle1: " +sweepAngle);
 		}else{
 			sweepAngle = (360 - startAngle) +  EndAngle;
-			//Log.d("24Hours","sweepAngle2: " +sweepAngle);
 		}
 		if(sweepAngle==359){
 			sweepAngle=360;
 		}
-		
-		//Log.d("24hours", "startAngle: "+startAngle+ ", EndAngle: "+EndAngle + ", sweep: " + sweepAngle);
-		//float radius = 63;
 		Paint p = new Paint();
 		// smooths
-		int colorId;
 		p.setAntiAlias(true);
-		
-		
-		
-		//Log.d("24Hours", "listType: " +listType);
 		switch(listType){
 			case 0:
 				colorList = Tools.colors_mild;
@@ -87,7 +71,7 @@ public class ClockDraw {
 				
 				break;
 		}
-		colorId = (int) (Math.random() *( colorList.length+1));
+		int colorId = (int) (Math.random() *( colorList.length+1));
 		while (colorId == closestUp(startDate, colors) || colorId == closestDown(startDate, colors)) {
 			colorId = (int) (Math.random() * colorList.length);
 		}
@@ -107,91 +91,70 @@ public class ClockDraw {
 		}
 		startAngle = startAngle-90;
 		colors.put(startDate, colorId);
-		//Log.d("24Hours", "colorId: " +colorId);
 		RadialGradient gradient;
-		Log.d(Tools.AWESOME_TAG, "SIZE: "+ colorId);
 		colorId--;
-		
-		//Log.d("24hours", "transparency: "+transparencyCenter);
 		if(transparencyCenter == 0){
 			transparencyCenter=1;
 		}
 		if(calColor != 0){
 			gradient = new RadialGradient(size, size, transparencyCenter, Color.TRANSPARENT, calColor, android.graphics.Shader.TileMode.CLAMP);
-			//log += "calColor != null"+"\n";
 		}else{
 			gradient = new RadialGradient(size, size, transparencyCenter, Color.TRANSPARENT, colorList[colorId], android.graphics.Shader.TileMode.CLAMP);
-			//log += "calColor == null"+"\n";
 		}
-		//p.setColor(colors[colorId]);
 		p.setDither(true);
 	    p.setShader(gradient);
 	    
 		prevColor = colorId;
 		p.setStyle(Paint.Style.STROKE); 
 		p.setStrokeWidth(widthIn);
-		//p.setAlpha(40);
-		//Log.d("24hours", "!!opacityInner"+opacityInner);
 		p.setAlpha((int) opacityInner);
 		
 		oval.set(size - radiusIn, size - radiusIn, size + radiusIn, size + radiusIn);
-		//Log.d("24Hours", "! " + (startAngle-90));
-		//int tmpStartAngle = (startAngle-90);
-		/*if(tmpStartAngle<0){
-			tmpStartAngle = 360 + tmpStartAngle;
-		}*/
 		canvas.drawArc(oval, startAngle, sweepAngle-0.0001f, false, p);
-		
-		//radius = 135.7f;
+
 		p.setColor(colorList[colorId]);
 		p.setStyle(Paint.Style.STROKE); 
 		p.setStrokeWidth(widthOut);
-		//p.setAlpha(210);
 		p.setAlpha((int) opacityOuter);
 		
 		ovalOut.set(size - radiusOut, size - radiusOut, size + radiusOut, size + radiusOut);
-		//tmpStartAngle = (startAngle-90);
-		/*if(tmpStartAngle<0){
-			tmpStartAngle = 360 + tmpStartAngle;
-		}*/
 		canvas.drawArc(ovalOut, startAngle, sweepAngle-0.0001f, false, p);
-		//writeFileToSD(log);
 	}
 	
 	/**
 	 * Closest down.
 	 *
-	 * @param of the of
+	 * @param insertedColourTime the of
 	 * @param in the TreeMap<Long, Integer> of values
 	 * @return the int
 	 */
-	public int closestDown(long of, TreeMap<Long, Integer>in) {
+	public int closestDown(long insertedColourTime, TreeMap<Long, Integer>in) {
 	    long min = Integer.MAX_VALUE;
 	    Integer closest = 0;
 	    for(Entry<Long, Integer> entry : in.entrySet()) {
-	    	  Long key = entry.getKey();
-	    	  Integer value = entry.getValue();
-	    	  if(key < of){
-		    	  final long diff = Math.abs(key - of);
+	    	  Long entryTime = entry.getKey();
+	    	  Integer entryValue = entry.getValue();
+	    	  if(entryTime < insertedColourTime){
+		    	  final long diff = Math.abs(entryTime - insertedColourTime);
 			        if (diff < min) {
 			            min = diff;
-			            closest = value;
+			            closest = entryValue;
 			        }
 	    	  }
 	    	}
 	    return closest;
 	}
-	public int closestUp(long of, TreeMap<Long, Integer>in) {
+	public int closestUp(long insertedColourTime, TreeMap<Long, Integer>in) {
 	    long min = Integer.MAX_VALUE;
 	    Integer closest = 0;
 	    for(Entry<Long, Integer> entry : in.entrySet()) {
-	    	  Long key = entry.getKey();
-	    	  Integer value = entry.getValue();
-	    	  if(key> of){
-		    	  final long diff = Math.abs(key - of);
+	    	  Long entryTime = entry.getKey();
+	    	  Integer entryValue = entry.getValue();
+	    	  if(entryTime > insertedColourTime){
+		    	  final long diff = Math.abs(entryTime - insertedColourTime);
 			        if (diff < min) {
 			            min = diff;
-			            closest = value;
+			            closest = entryValue;
 			        }
 	    	  }
 	    	}

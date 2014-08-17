@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tajchert.hours.R;
-import com.tajchert.hours.WidgetInstance;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,33 +20,30 @@ import java.util.TreeMap;
  
 public class AppArrayAdapter extends ArrayAdapter<String> {
 	private final Context context;
-	private final static ArrayList<String> values = new ArrayList<String>();
-	private final static TreeMap<String, Drawable> vals = new TreeMap<String, Drawable>(); 
+	private final static ArrayList<String> appNames = new ArrayList<String>();
+	private final static TreeMap<String, Drawable> appIconsAndNames = new TreeMap<String, Drawable>();
 	public static ArrayList<ApplicationInfo> appInstalled = new ArrayList<ApplicationInfo>();
  
-	public AppArrayAdapter(Context context, PackageManager pck, WidgetInstance widget) {
+	public AppArrayAdapter(Context context, PackageManager pck) {
 		
-		super(context, R.layout.list_apps, values);
-		vals.clear();
-		values.clear();
-		//img.clear();
+		super(context, R.layout.list_apps, appNames);
+		appIconsAndNames.clear();
+		appNames.clear();
 		appInstalled = new ArrayList<ApplicationInfo>();
 		appInstalled = (ArrayList<ApplicationInfo>) pck.getInstalledApplications(PackageManager.GET_META_DATA);
 		ArrayList<ApplicationInfo> apps = new ArrayList<ApplicationInfo>();
-		Drawable dr;
+		Drawable appIcon;
 		for(ApplicationInfo app : appInstalled){
-        	String name = (String) pck.getApplicationLabel(app);
-        	if(name != null && name.length()>0){
-        		dr = pck.getApplicationIcon(app);
-        		values.add(name);
-        		vals.put(name, dr);
-        		//img.add(dr);
+        	String appName = (String) pck.getApplicationLabel(app);
+        	if(appName != null && appName.length()>0){
+        		appIcon = pck.getApplicationIcon(app);
+        		appNames.add(appName);
+        		appIconsAndNames.put(appName, appIcon);
         	}
         }
-		Collections.sort(values, String.CASE_INSENSITIVE_ORDER);
+		Collections.sort(appNames, String.CASE_INSENSITIVE_ORDER);
 		appInstalled = apps;
 		this.context = context;
-		//this.values = values;
 	}
  
 	@Override
@@ -58,8 +54,8 @@ public class AppArrayAdapter extends ArrayAdapter<String> {
 		View rowView = inflater.inflate(R.layout.list_apps, parent, false);
 		TextView textView = (TextView) rowView.findViewById(R.id.label);
 		ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-		textView.setText(values.get(position));
-		imageView.setImageDrawable(vals.get(values.get(position)));
+		textView.setText(appNames.get(position));
+		imageView.setImageDrawable(appIconsAndNames.get(appNames.get(position)));
 		
  
 		return rowView;

@@ -67,7 +67,6 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 		final ActionBar actionBar = getActionBar();
 		actionBar.setHomeButtonEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		//setUpInApp();payments
 		ChangeLog cl = new ChangeLog(this);
         if (cl.isFirstRun()) {
             cl.getLogDialog().show();
@@ -201,14 +200,11 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 		}
 
 		public void onActivityResult(int requestCode, int resultCode, Intent data) {
-			Log.d("24Hours", "onActivityResult");
 	        	if (requestCode == 1) {
-	        		ClockDrawFreeTime cdft = new ClockDrawFreeTime(getView(), (Context)getActivity(), prefs, eventsTogether);
+	        		ClockDrawFreeTime clockSurface = new ClockDrawFreeTime(getView(), getActivity(), prefs, eventsTogether);
 					if (resultCode == RESULT_OK) {
-						
 						String calendars = data.getStringExtra("calendars");
 						String[] calendarsNames = calendars.split("<;;>");
-						//if(calendarsNames.length <= 2 || isPremium){
 							CalendarContentResolver calRevolver = new CalendarContentResolver(getActivity());
 							calRevolver.clear();
 							eventsTogether.clear();
@@ -219,31 +215,27 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 									Log.d("24Hours", "listEventsFriend.size(): " + listEventsFriend.size());
 									if (listEventsFriend != null && listEventsFriend.size() > 0) {
 										for (Event ev : listEventsFriend) {
-											// Log.d("24Hours", "EV: "+ ev.title);
 											addEventToTogether(ev);
 										}
 									}
 								} catch (NumberFormatException e) {
-									//EMPTY CAL ID
-									cdft.drawEmpty();
+									clockSurface.drawEmpty();
 								}
 							}
 							if (calendars == null || calendars.length() == 0 || calendarsNames == null || calendarsNames.length == 0) {
-								//drawFull(getActivity());
-								cdft.drawEmpty();
+								clockSurface.drawEmpty();
 							}else if(eventsTogether.size()>0){
-								cdft.drawEventsFromTogether(getActivity());
+								clockSurface.drawEventsFromTogether();
 							}else{
-								cdft.drawFull(getActivity());
+								clockSurface.drawFull();
 							}
 					if (resultCode == RESULT_CANCELED) {
 						Log.d("24Hours", "RESULT_CANCELED");
-						cdft.drawEmpty();
+						clockSurface.drawEmpty();
 					}
 	            super.onActivityResult(requestCode, resultCode, data);
 	        } else {
-	        	Log.d("24Hours", "onActivityResult handled by IABUtil.");
-	            //Log.d(TAG, "onActivityResult handled by IABUtil.");
+	        	Log.d("24Hours", "onActivityResult handled by IABUtil.");//TODO most likely remove it
 	        }
 			
 			}

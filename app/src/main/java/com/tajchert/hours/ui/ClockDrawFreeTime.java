@@ -31,7 +31,7 @@ public class ClockDrawFreeTime {
 		this.activity = view;
 	}
 	
-	void drawFull(Context context) {
+	void drawFull() {
 		float radiusIn = 0;
 		float radiusOut = 0;
 		float widthIn = 0;
@@ -89,7 +89,7 @@ public class ClockDrawFreeTime {
 		iView.setImageBitmap(bitmap);
 	}
 
-	void drawEventsFromTogether(Context context) {
+	void drawEventsFromTogether() {
 		float radiusIn = 0;
 		float radiusOut = 0;
 		float widthIn = 0;
@@ -135,7 +135,7 @@ public class ClockDrawFreeTime {
 		Bitmap bitmap = Bitmap.createBitmap(size, size, Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		long lastEnd = Calendar.getInstance().getTimeInMillis();
-		long timeForNow = lastEnd;// Calendar.getInstance().getTimeInMillis()
+		long timeForNow = lastEnd;
 		int degreesLastEnd = dateInMilisecondsToDegrees(lastEnd);
 
 		for (Map.Entry<Long, Long> entry : eventsTogether.entrySet()) {
@@ -145,14 +145,6 @@ public class ClockDrawFreeTime {
 			Date dateEn = new Date();
 			dateSt.setTime(entryStart);
 			dateEn.setTime(entryEnd);
-			//Log.d("24Hours", "Old Start: " + dateSt);
-			//Log.d("24Hours", "Old End: " + dateEn);
-			//Log.d("24Hours", "CALC: " + (dateInMilisecondsToDegrees(entryStart) - degreesLastEnd));
-				//Log.d("24Hours", "Start: " + degreesLastEnd + ", end: "+ dateInMilisecondsToDegrees(entryStart));
-				// clock.draw(dateInMilisecondsToDegrees(entryStart),
-				// dateInMilisecondsToDegrees(entryEnd), canvas,
-				// transparencyInnerColor, transparencyOutColor,
-				// Color.GREEN, entryStart, size);
 				clock.draw(degreesLastEnd,
 						dateInMilisecondsToDegrees(entryStart), canvas,
 						transparencyInnerColor, transparencyOutColor,
@@ -161,7 +153,6 @@ public class ClockDrawFreeTime {
 			lastEnd = entryEnd;
 			degreesLastEnd = dateInMilisecondsToDegrees(entryEnd);
 		}
-		//Log.d("24Hours", "X Start: " + degreesLastEnd + ", end: "+ dateInMilisecondsToDegrees(timeForNow)+1);
 		clock.draw(degreesLastEnd, dateInMilisecondsToDegrees(timeForNow),
 				canvas, transparencyInnerColor, transparencyOutColor,
 				Color.GREEN, lastEnd, size, null);
@@ -169,13 +160,12 @@ public class ClockDrawFreeTime {
 		iView.setImageBitmap(bitmap);
 	}
 	
-	private int dateInMilisecondsToDegrees(long inl) {
+	private int dateInMilisecondsToDegrees(long timeInMiliseconds) {
 		Calendar in = Calendar.getInstance();
-		in.setTimeInMillis(inl);
-		int angle = 0;
+		in.setTimeInMillis(timeInMiliseconds);
 		int hour = in.get(Calendar.HOUR);
 		int minutes = in.get(Calendar.MINUTE);
-		angle = hour * 30;
+		int angle = hour * 30;
 		angle += minutes * 0.5;
 		return angle;
 	}

@@ -69,11 +69,14 @@ public class ActivityWidgetSettings extends Activity {
 		Bundle b = getIntent().getExtras();
 		String widgetId = b.getString("widgetID");
 		prefs = getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
-		//new LongOperation().execute("");
 		widget = WidgetListManager.getWidgetInstance(prefs, widgetId);
 		position = widget.style;
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+            try {
+                getActionBar().setDisplayHomeAsUpEnabled(true);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
         }
 	}
 	@Override
@@ -323,7 +326,7 @@ public class ActivityWidgetSettings extends Activity {
         @Override
         protected String doInBackground(final String... params) {
         	final PackageManager packageManager = ActivityWidgetSettings.this.getPackageManager();
-            final AppArrayAdapter adapter = new AppArrayAdapter(ActivityWidgetSettings.this, packageManager, widget);
+            final AppArrayAdapter adapter = new AppArrayAdapter(ActivityWidgetSettings.this, packageManager);
     		builderSingle.setNegativeButton(
     				getResources().getString(R.string.cancel),
     				new DialogInterface.OnClickListener() {
@@ -340,7 +343,6 @@ public class ActivityWidgetSettings extends Activity {
     					public void onClick(DialogInterface dialog,final int which) {
     						String strName = adapter.getItem(which);
     						AlertDialog.Builder builderInner = new AlertDialog.Builder(ActivityWidgetSettings.this);
-    						// builderInner.setMessage(""+adapter.appInstalled.get(which).packageName);
     						builderInner.setMessage("" + strName);
     						builderInner.setTitle(getResources().getString(R.string.tab_extras_select_one_title_selected));
     						ArrayList<ApplicationInfo> appInstalled = new ArrayList<ApplicationInfo>();
