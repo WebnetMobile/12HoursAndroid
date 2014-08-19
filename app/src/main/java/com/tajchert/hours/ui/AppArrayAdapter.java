@@ -29,13 +29,12 @@ public class AppArrayAdapter extends ArrayAdapter<String> {
 		super(context, R.layout.list_apps, appNames);
 		appIconsAndNames.clear();
 		appNames.clear();
-		appInstalled = new ArrayList<ApplicationInfo>();
 		appInstalled = (ArrayList<ApplicationInfo>) pck.getInstalledApplications(PackageManager.GET_META_DATA);
 		ArrayList<ApplicationInfo> apps = new ArrayList<ApplicationInfo>();
 		Drawable appIcon;
 		for(ApplicationInfo app : appInstalled){
         	String appName = (String) pck.getApplicationLabel(app);
-        	if(appName != null && appName.length()>0){
+        	if(appName != null && appName.length() > 0){
         		appIcon = pck.getApplicationIcon(app);
         		appNames.add(appName);
         		appIconsAndNames.put(appName, appIcon);

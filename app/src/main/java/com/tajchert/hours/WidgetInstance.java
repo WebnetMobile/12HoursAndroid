@@ -7,7 +7,6 @@ public class WidgetInstance {
 	public String calendarColors;
 	public String calendars;
 	public int style;
-	public String[] colors;
 	public String[] calendarNames; 
 	public String action;
 	public String actionSecond;
@@ -41,7 +40,7 @@ public class WidgetInstance {
 	public String toString() {
 		return "WidgetInstance [id=" + id + ", calendarColors="
 				+ calendarColors + ", calendars=" + calendars + ", style="
-				+ style + ", colors=" + Arrays.toString(colors)
+				+ style
 				+ ", calendarNames=" + Arrays.toString(calendarNames)
 				+ ", action=" + action + ", actionSecond=" + actionSecond
 				+ ", resolution=" + resolution + ", radiusIn=" + radiusIn

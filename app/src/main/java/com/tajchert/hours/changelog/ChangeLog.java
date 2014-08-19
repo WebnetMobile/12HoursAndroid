@@ -316,7 +316,7 @@ public class ChangeLog {
         editor.putInt(VERSION_KEY, mCurrentVersionCode);
 
         // TODO: Update preferences from a background thread
-        editor.commit();
+        editor.apply();
     }
 
     /**

@@ -1,6 +1,5 @@
 package com.tajchert.hours.config;
 
-import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -35,11 +34,6 @@ public class ConfigStyleSelect extends Fragment {
 	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-
-	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		View v =  inflater.inflate(R.layout.fragment_config_style_select, container, false);
@@ -47,16 +41,6 @@ public class ConfigStyleSelect extends Fragment {
 		setThings(v);
 		getID();
         return v;
-	}
-
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-	}
-
-	@Override
-	public void onDetach() {
-		super.onDetach();
 	}
 	
 	private int getID() {

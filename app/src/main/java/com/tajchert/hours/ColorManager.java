@@ -1,7 +1,6 @@
 package com.tajchert.hours;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,19 +33,6 @@ public class ColorManager {
 		
 		return results;
 	}
-	public static int[] getColors(SharedPreferences prefs){
-		if(prefs == null){
-			return null;
-		}
-		Set<String> colorSet = prefs.getStringSet(Tools.COLOR_LIST, new HashSet<String>());
-		int results[] = new int[colorSet.size()];
-		int i = 0;
-		for(String str: colorSet){
-			results[i] = Color.parseColor("#"+Integer.parseInt(""+str));
-			i++;
-		}
-		return results;
-	}
 	public static void saveList(SharedPreferences prefs, ArrayList<Integer> colors){
 		if(prefs == null || colors == null){
 			return;
@@ -55,7 +41,7 @@ public class ColorManager {
 		for(Integer col: colors){
 			colorSet.add(col+"");
 		}
-		prefs.edit().putStringSet(Tools.COLOR_LIST, colorSet).commit();
+		prefs.edit().putStringSet(Tools.COLOR_LIST, colorSet).apply();
 	}
 	
 	public static void addColor(SharedPreferences prefs, Integer color){

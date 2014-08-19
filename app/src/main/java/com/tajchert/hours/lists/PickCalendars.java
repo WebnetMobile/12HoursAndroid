@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ListView;
 
 import com.tajchert.hours.CalendarContentResolver;
@@ -19,9 +18,7 @@ import java.util.ArrayList;
 public class PickCalendars extends Activity {
 	private CalendarListAdapter marketListAdapter;
 	private ArrayList<CalendarObject> listCalendars;
-	
-	//CheckBox checkBoxTime;
-	CheckBox checkBoxCalendarColors;
+
 	private ListView calendarList;
 	
 	 
@@ -30,8 +27,6 @@ public class PickCalendars extends Activity {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.calendar_chooser_friends);
-        //checkBoxTime = (CheckBox)findViewById(R.id.checkBoxTime);
-        checkBoxCalendarColors = (CheckBox)findViewById(R.id.checkBoxCalendarColors);
         calendarList = (ListView) findViewById(R.id.listViewCalendars);
         calendarList.setDividerHeight(1);
         

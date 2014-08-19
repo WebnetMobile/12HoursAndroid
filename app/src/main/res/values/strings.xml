@@ -56,6 +56,7 @@
     <string name="tab_extras_googleplus">Google+</string>
 
     <!-- Color Screen -->
+    <string name="tab_style_top_save">Save</string>
     <string name="tab_style_color_aggressive">Aggressive</string>
     <string name="tab_style_color_mild">Mild</string>
     <string name="tab_style_color_blind">Colorblind</string>
@@ -69,8 +70,10 @@
     <string name="tab_style_outer_intensity">Outer intensity:</string>
     <string name="widget_settings_style_title">Style</string>
     <string name="widget_settings_action_title">Action</string>
+    <string name="widget_settings_action_event">Events</string>
 
     <!-- MENU -->
+    <string name="menu_colors">Colors</string>
     <string name="menu_about">About</string>
     <string name="menu_bugreport">Bug Report</string>
     <string name="menu_rateapp">Rate App!</string>

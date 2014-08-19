@@ -171,7 +171,7 @@ public class Configure extends FragmentActivity {
     	Intent resultValue = new Intent();
 		resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
 		setResult(RESULT_OK, resultValue);
-		prefs.edit().putBoolean(Tools.WIDGET_FIRSTADD, false).commit();
+		prefs.edit().putBoolean(Tools.WIDGET_FIRSTADD, false).apply();
 		
 		
 		Intent serviceIntent = new Intent(Configure.this, WidgetUpdateService.class);

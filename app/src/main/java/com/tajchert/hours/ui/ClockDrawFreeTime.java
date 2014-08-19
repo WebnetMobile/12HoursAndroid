@@ -41,7 +41,7 @@ public class ClockDrawFreeTime {
 		int res = prefs.getInt(Tools.RESULUTION_GOT, 0);
 		if (res == 0) {
 			res = Widget.adaptResolution(cont);
-			prefs.edit().putInt(Tools.RESULUTION_GOT, res).commit();
+			prefs.edit().putInt(Tools.RESULUTION_GOT, res).apply();
 		}
 		if (res == 1) {
 			radiusIn = 52.5f;
@@ -99,7 +99,7 @@ public class ClockDrawFreeTime {
 		int res = prefs.getInt(Tools.RESULUTION_GOT, 0);
 		if (res == 0) {
 			res = Widget.adaptResolution(cont);
-			prefs.edit().putInt(Tools.RESULUTION_GOT, res).commit();
+			prefs.edit().putInt(Tools.RESULUTION_GOT, res).apply();
 		}
 		if (res == 1) {
 			radiusIn = 52.5f;

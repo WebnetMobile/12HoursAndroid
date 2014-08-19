@@ -2,10 +2,6 @@ package com.tajchert.hours;
 
 import android.graphics.Color;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 public class Tools {
 	
 	public final static String AWESOME_TAG = "24Hours";
@@ -41,24 +37,6 @@ public class Tools {
 	public final static int innerTransparency = 60;
 	public final static int gradientTransparency = 120;
 	public final static int outerTransparency = 210;
-	
-	
-	public Calendar stringToDate(String aDate) {
-		
-	      Calendar cal = Calendar.getInstance();
-	      Date d1 = null;
-	      Calendar tdy1;
-	      try {
-	          d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" , java.util.Locale.getDefault()).parse(aDate);
-	      } catch (java.text.ParseException e) {
-	          // TODO Auto-generated catch block
-	          e.printStackTrace();
-	      }
-	      tdy1 = Calendar.getInstance();
-	      System.out.println("tdy mnthhhhhhhhhhh " + tdy1.get(Calendar.MONTH));
-	      tdy1.setTime(d1);
-	      return cal;            
 
-	   }
 
 }

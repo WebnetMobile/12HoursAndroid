@@ -313,7 +313,7 @@
                 android:layout_marginLeft="5dp"
                 android:fontFamily="sans-serif"
                 android:gravity="left"
-                android:text="Events"
+                android:text="@string/widget_settings_action_event"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <View
@@ -337,8 +337,6 @@
                 android:id="@+id/checkBoxCalendarFullDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/separatorThree"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/configure_fullday" />
@@ -347,8 +345,6 @@
                 android:id="@+id/checkBoxCalendarColors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/checkBoxCalendarFullDay"
-                android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/configure_colorfromcalendar" />
 
@@ -356,8 +352,6 @@
                 android:id="@+id/checkBoxCalendarGoing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/checkBoxCalendarColors"
-                android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/configure_notgoing" />
             </LinearLayout>

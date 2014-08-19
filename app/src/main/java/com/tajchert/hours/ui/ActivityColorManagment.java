@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -95,7 +96,12 @@ public class ActivityColorManagment extends FragmentActivity {
 			}
 		});
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+            try {
+                getActionBar().setDisplayHomeAsUpEnabled(true);
+            } catch (NullPointerException e) {
+                Log.d("com.tajchert.hours.ui.ActivityColorManagment", "onCreate NullPointerException: " + e.getMessage());
+            }
+
         }
 	}
 	@Override
@@ -166,7 +172,7 @@ public class ActivityColorManagment extends FragmentActivity {
         	if(prefs == null){
         		prefs = getSharedPreferences("com.tajchert.hours", MODE_PRIVATE);
         	}
-        	prefs.edit().putInt(Tools.COLOR_LIST_TYPE, mViewPager.getCurrentItem()).commit();
+        	prefs.edit().putInt(Tools.COLOR_LIST_TYPE, mViewPager.getCurrentItem()).apply();
         	widgets = WidgetListManager.getWidgets(prefs);
         }
     }

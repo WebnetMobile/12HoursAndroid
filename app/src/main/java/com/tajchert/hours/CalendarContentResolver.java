@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -65,10 +64,6 @@ public class CalendarContentResolver {
 	}
 	public void clear(){
 		events.clear();
-		//nameOfEvent.clear();
-		//startDates.clear();
-		//endDates.clear();
-		//descriptions.clear();
 	}
 	public ArrayList<Event> testGet(Context context, int calendarId, int color, boolean showNotGoing, boolean showFullDay){
 		//Log.d("24hours", "calendarName: " + calendarName +", color: "+color );
@@ -191,62 +186,5 @@ public class CalendarContentResolver {
 		} catch (Exception e) {
 		}
 		return color;
-	}
-	
-	
-	//NOT USED
-	public void getEvents(Context context, String calendarName, int color) {
-		Event tmpOne = new Event();
-		//Log.d("24hours", "Calendar: " +calendarName);
-		long nowTime = Calendar.getInstance().getTimeInMillis();
-		long nextDay = nowTime + (1000 * 60 * 60 * 24);// 24h
-		long halfday = nowTime + (1000 * 60 * 60 * 12);//12h
-		Cursor cursor = context.getContentResolver().query(Uri.parse("content://com.android.calendar/events"),
-				new String[] { "calendar_id", "title", "description","dtstart", "dtend", "eventLocation", "selfAttendeeStatus",
-						"calendar_displayName"}, "dtstart >= " + nowTime + " AND dtend <= " + nextDay +" AND calendar_displayName = \""+calendarName+"\"", null, null);
-		//+" AND calendar_displayName = \"" + calendarName+"\""
-		String CNames[] = new String[cursor.getCount()];
-		//Log.d("24hours", "CNames.length: " + cursor.getCount());
-		cursor.moveToFirst();
-		for (int i = 0; i < CNames.length; i++) {
-			//Log.d("24hours", "calendar_displayName: " + cursor.getString(7));
-			if (cursor.getInt(6) != 2) { //2= not going to attend event
-				tmpOne = new Event();
-				Calendar tmp = Calendar.getInstance();
-				tmp.setTimeInMillis(cursor.getLong(3));
-				Calendar tmpp = Calendar.getInstance();
-				tmpp.setTimeInMillis(cursor.getLong(4));
-				tmpOne.dateStart = tmp;
-				if(tmp.getTimeInMillis()<nowTime){
-					tmpOne.dateStart.setTimeInMillis(nowTime);
-				}
-				if(tmpp.getTimeInMillis()>halfday){
-					tmpp.setTimeInMillis(halfday);
-					tmpOne.dateEnd = tmpp;
-				}else{
-					tmpOne.dateEnd = tmpp;
-				}
-				tmpOne.title = cursor.getString(1);
-				tmpOne.description = cursor.getString(2);
-				tmpOne.color = color;
-				events.add(tmpOne);
-			}
-			cursor.moveToNext();
-		}
-		try{
-			if( cursor != null && !cursor.isClosed() ){
-				cursor.close();
-			}
-		} catch (Exception e) {
-		}
-		//Log.d("24hours", "nameOfEvent.size: " + nameOfEvent.size());
-
-	}
-
-	public static String getDate(long milliSeconds) {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a",java.util.Locale.getDefault());
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTimeInMillis(milliSeconds);
-		return formatter.format(calendar.getTime());
 	}
 }

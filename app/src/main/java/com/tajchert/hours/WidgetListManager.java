@@ -12,12 +12,11 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class WidgetListManager {
-	private static String separator = "<!!!>";
-	static String separatorBig = "<|||>";
-	
+	private static String SEPARATOR = "<!!!>";
+
 	public static void saveToSharedPrefs(Set<String> cals, SharedPreferences prefs){
 		//Set<String> cals = new HashSet<String>();
-		prefs.edit().putStringSet(Tools.WIDGET_CALENDAR_LIST, cals).commit();
+		prefs.edit().putStringSet(Tools.WIDGET_CALENDAR_LIST, cals).apply();
 	}
 	public static void removeWidget(int widgetId, SharedPreferences prefs){
 		Set<String> cals = new HashSet<String>(prefs.getStringSet(Tools.WIDGET_CALENDAR_LIST, new HashSet<String>()));
@@ -53,7 +52,7 @@ public class WidgetListManager {
 	}
 	public static void addWidget(int widgetId, String content, SharedPreferences prefs){
 		Set<String> cals = new HashSet<String>(prefs.getStringSet(Tools.WIDGET_CALENDAR_LIST, new HashSet<String>()));
-		cals.add(widgetId + separator + content);
+		cals.add(widgetId + SEPARATOR + content);
 		saveMap(setToMap(cals), prefs);
 	}
 	public static void addWidget(WidgetInstance widget, SharedPreferences prefs){
@@ -61,7 +60,7 @@ public class WidgetListManager {
 		Log.d(Tools.AWESOME_TAG, "ADD new layout:" + widget.style);
 		Gson gson = new Gson();
 		Set<String> cals = new HashSet<String>(prefs.getStringSet(Tools.WIDGET_CALENDAR_LIST, new HashSet<String>()));
-		cals.add(widget.id + separator + gson.toJson(widget));
+		cals.add(widget.id + SEPARATOR + gson.toJson(widget));
 		//Log.d(Tools.AWESOME_TAG, "To Gson: " + gson.toJson(widget));
 		saveMap(setToMap(cals), prefs);
 	}
@@ -77,8 +76,7 @@ public class WidgetListManager {
 			  Integer key = keySetIterator.next();
 			  if((key+"").equals(id)){
 				  Gson gson = new Gson();
-				  WidgetInstance widget = gson.fromJson(result.get(key), WidgetInstance.class);
-				  return widget;
+                  return gson.fromJson(result.get(key), WidgetInstance.class);
 			  }
 			}
 		}else{
@@ -99,50 +97,10 @@ public class WidgetListManager {
 		}
 		return ids;
 	}
-	
-	public static void saveWidgets(ArrayList<WidgetInstance> arr, SharedPreferences prefs){
-		Set<String> cals = new HashSet<String>(prefs.getStringSet(Tools.WIDGET_CALENDAR_LIST, new HashSet<String>()));
-		HashMap<Integer, String> result = setToMap(cals);
-		for(WidgetInstance widget: arr){
-			if(result.containsKey(widget.id)){
-				Gson gson = new Gson();
-				result.put(widget.id, gson.toJson(widget));
-				
-			}else{
-				addWidget(widget, prefs);
-			}
-		}
-		saveMap(result, prefs);
-	}
-	
-	public static ArrayList<Integer> getWidgetIds(SharedPreferences prefs){
-		ArrayList<Integer> ids = new ArrayList<Integer>();
-		Set<String> cals = new HashSet<String>(prefs.getStringSet(Tools.WIDGET_CALENDAR_LIST, new HashSet<String>()));
-		HashMap<Integer, String> result = setToMap(cals);
-		Iterator<Integer> keySetIterator = result.keySet().iterator();
-		while(keySetIterator.hasNext()){
-		  Integer key = keySetIterator.next();
-		  ids.add(key);
-		}
-		return ids;
-	}
-	public static boolean isExistsWidget(int widgetId, SharedPreferences prefs){
-		Set<String> cals = new HashSet<String>(prefs.getStringSet(Tools.WIDGET_CALENDAR_LIST, new HashSet<String>()));
-		HashMap<Integer, String> result = setToMap(cals);
-		if(result.size()>0){
-			if(result.containsKey(widgetId)){
-				return true;
-			}else{
-				return false;
-			}
-		}else{
-			return false;
-		}
-	}
 	public static HashMap<Integer, String> setToMap(Set<String> cals){
 		HashMap<Integer, String> result = new HashMap<Integer, String>();
 		for(String in: cals){
-			String [] content = in.split(separator);
+			String [] content = in.split(SEPARATOR);
 			result.put(Integer.parseInt(content[0]), content[1]);
 		}
 		return result;
@@ -154,8 +112,8 @@ public class WidgetListManager {
 		Iterator<Integer> keySetIterator = cals.keySet().iterator();
 		while(keySetIterator.hasNext()){
 		  Integer key = keySetIterator.next();
-		  calsSet.add(key + separator + cals.get(key));
-		  //Log.d(Tools.AWESOME_TAG, key + separator + cals.get(key));
+		  calsSet.add(key + SEPARATOR + cals.get(key));
+		  //Log.d(Tools.AWESOME_TAG, key + SEPARATOR + cals.get(key));
 		}
 		saveToSharedPrefs(calsSet, prefs);
 	}

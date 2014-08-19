@@ -3,7 +3,7 @@
     tools:context="com.tajchert.hours.ActivityColorManagment" >
     <item android:id="@+id/action_done"
           android:icon="@drawable/ic_action_ok"
-          android:title="Save"
+          android:title="@string/tab_style_top_save"
           android:showAsAction="ifRoom"  />
 
 </menu>

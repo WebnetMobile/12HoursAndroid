@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 public class CalendarListAdapter extends BaseAdapter {
 	public ArrayList<CalendarObject> data = new ArrayList<CalendarObject>();
-	public ArrayList<Boolean> itemChecked = new ArrayList<Boolean>();
 	public WidgetInstance widget;
 	Context c;
 	//SimpleDateFormat  format = new SimpleDateFormat("MM-dd HH:mm", java.util.Locale.getDefault());

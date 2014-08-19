@@ -11,15 +11,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class WidgetUpdateService extends Service {
-	@Override
-    public void onCreate() {
-        super.onCreate();
-    }
 
-    @Override
-    public void onDestroy() {        
-        super.onDestroy();
-    }
 	private void widgetStartUpdate(AppWidgetManager appWidgetManager,
 			SharedPreferences prefs, WidgetInstance widget) {
 		if (widget == null) {
@@ -47,7 +39,7 @@ public class WidgetUpdateService extends Service {
 			for(WidgetInstance widget: widgets){
 				widgetStartUpdate(appWidgetManager, prefs, widget);
 			}
-			prefs.edit().putLong(Tools.TIME_WIDGET_ALL_UPDATES, timeNow).commit();
+			prefs.edit().putLong(Tools.TIME_WIDGET_ALL_UPDATES, timeNow).apply();
         }
         stopSelf();
         return super.onStartCommand(intent, flags, startId);

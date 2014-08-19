@@ -163,7 +163,6 @@ public class StepPagerStrip extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        scrollCurrentPageIntoView();
         super.onSizeChanged(w, h, oldw, oldh);
     }
 
@@ -224,10 +223,6 @@ public class StepPagerStrip extends View {
     public void setCurrentPage(int currentPage) {
         mCurrentPage = currentPage;
         invalidate();
-        scrollCurrentPageIntoView();
-    }
-
-    private void scrollCurrentPageIntoView() {
     }
 
     public void setPageCount(int count) {
