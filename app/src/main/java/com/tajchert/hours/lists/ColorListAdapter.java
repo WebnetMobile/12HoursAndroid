@@ -17,7 +17,6 @@ public class ColorListAdapter extends BaseAdapter {
 	private boolean clickable;
 
 	public ColorListAdapter(int[] data, Context c, boolean clickable) {
-		//this.data = data;
 		if(clickable){
 			this.data = new int[(data.length+1)];
 			System.arraycopy( data, 0, this.data, 0, data.length);

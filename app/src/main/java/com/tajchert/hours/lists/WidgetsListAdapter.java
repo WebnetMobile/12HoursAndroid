@@ -72,10 +72,7 @@ public class WidgetsListAdapter extends BaseAdapter {
 			widget.setDimensions(Tools.clock_layouts_dimensions_small[3]);
 		}
 		viewOver.setImageBitmap(Widget.addStaticWidget(c, widget));
-		//viewUnder.setImageBitmap(Bitmap.createScaledBitmap(clockBackground, 150, 150, false));
 		viewUnder.setImageBitmap(clockBackground);
-		//clockBackground.recycle();
-		//clockBackground = null;
 		
 		buttonTransparent.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {

@@ -35,7 +35,6 @@ public class ConfigStyleSelect extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// Inflate the layout for this fragment
 		View v =  inflater.inflate(R.layout.fragment_config_style_select, container, false);
 		prefs = getActivity().getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
 		setThings(v);

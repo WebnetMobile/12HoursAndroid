@@ -59,18 +59,18 @@ public class Widget {
 			if(calendarsNames.length>0){
 				if(calendarsColors.length != calendarsNames.length || !useCalendarColor){
 					for(int i=0; i < calendarsNames.length; i++){
-						calRevolver.testGet(context, Integer.parseInt(calendarsNames[i]) , 0, widget.showNotGoing, widget.showFullDay);
+						calRevolver.getEventList(context, Integer.parseInt(calendarsNames[i]), 0, widget.showNotGoing, widget.showFullDay);
 					}
 				}else if(calendarsColors.length == calendarsNames.length && useCalendarColor){
 					
 					for(int i=0; i < calendarsNames.length; i++){
-						calRevolver.testGet(context, Integer.parseInt(calendarsNames[i]), Integer.parseInt(calendarsColors[i]),widget.showNotGoing, widget.showFullDay);
+						calRevolver.getEventList(context, Integer.parseInt(calendarsNames[i]), Integer.parseInt(calendarsColors[i]), widget.showNotGoing, widget.showFullDay);
 					}
 				}
 			}
 			float opInner = transparencyInnerColor;
 			for(int i=0; i<calRevolver.events.size(); i++){
-				clock.draw(dateToDegrees(calRevolver.events.get(i).dateStart), dateToDegrees(calRevolver.events.get(i).dateEnd), canvas, opInner, transparencyOutColor, calRevolver.events.get(i).color, calRevolver.events.get(i).dateStart.getTimeInMillis(), size, widget);
+				clock.drawEvent(dateToDegrees(calRevolver.events.get(i).dateStart), dateToDegrees(calRevolver.events.get(i).dateEnd), canvas, opInner, transparencyOutColor, calRevolver.events.get(i).color, calRevolver.events.get(i).dateStart.getTimeInMillis(), size, widget);
 			}
 		} catch (Exception e) {
 			//Clock not added - no room or something
@@ -191,18 +191,14 @@ public class Widget {
 			CalendarContentResolver calRevolver = new CalendarContentResolver(context);
 			calRevolver.clear();
 			if(calendarsNames.length>0){
-				//Log.d("24hours", "calendarsColors.length : " +calendarsColors.length );
-				//Log.d("24hours", "calendarsNames.length : " +calendarsNames.length );
 				if(calendarsColors.length != calendarsNames.length || !useCalendarColor){
 					for(int i=0; i < calendarsNames.length; i++){
-						calRevolver.testGet(context, Integer.parseInt(calendarsNames[i]) , 0, widget.showNotGoing, widget.showFullDay);
-						//calRevolver.getEvents(context, calendarsNames[i], 0);
+						calRevolver.getEventList(context, Integer.parseInt(calendarsNames[i]), 0, widget.showNotGoing, widget.showFullDay);
 					}
 				}else if(calendarsColors.length == calendarsNames.length && useCalendarColor){
 					
 					for(int i=0; i < calendarsNames.length; i++){
-						calRevolver.testGet(context, Integer.parseInt(calendarsNames[i]), Integer.parseInt(calendarsColors[i]), widget.showNotGoing, widget.showFullDay);
-						//calRevolver.getEvents(context, calendarsNames[i], Integer.parseInt(calendarsColors[i]));
+						calRevolver.getEventList(context, Integer.parseInt(calendarsNames[i]), Integer.parseInt(calendarsColors[i]), widget.showNotGoing, widget.showFullDay);
 					}
 				}
 			}
@@ -211,28 +207,23 @@ public class Widget {
 			for(int i=0; i<calRevolver.events.size(); i++){
 				Event ev = calRevolver.events.get(i);
 				if(ev.isfullDay){
-					//Log.e(Tools.AWESOME_TAG, "S: " + dateToDegrees(ev.dateStart) +" - " + dateToDegrees(ev.dateEnd));
-					clock.draw(dateToDegrees(ev.dateStart), (dateToDegrees(ev.dateEnd, dateToDegrees(ev.dateStart))-1), canvas, 0, transparencyOutColor, ev.color, ev.dateStart.getTimeInMillis(), size, widget);
+					clock.drawEvent(dateToDegrees(ev.dateStart), (dateToDegrees(ev.dateEnd, dateToDegrees(ev.dateStart)) - 1), canvas, 0, transparencyOutColor, ev.color, ev.dateStart.getTimeInMillis(), size, widget);
 				}
 			}
 			for(int i=0; i<calRevolver.events.size(); i++){
 				Event ev = calRevolver.events.get(i);
 				if(!ev.isfullDay){
-					clock.draw(dateToDegrees(ev.dateStart), dateToDegrees(ev.dateEnd), canvas, opInner, transparencyOutColor, ev.color, ev.dateStart.getTimeInMillis(), size, widget);
+					clock.drawEvent(dateToDegrees(ev.dateStart), dateToDegrees(ev.dateEnd), canvas, opInner, transparencyOutColor, ev.color, ev.dateStart.getTimeInMillis(), size, widget);
 				}
 			}
 		} catch (Exception e) {
 			//Clock not added - no room or something
 		}
 		views.setImageViewBitmap(R.id.imageViewClockOverflow, bitmap);
-        //ComponentName thisWidget = new ComponentName(context, WidgetProvider.class);
-        //AppWidgetManager manager = AppWidgetManager.getInstance(context);
         appWidgetManager.updateAppWidget(appWidgetId, views);
-
         bitmap.recycle();
-        bitmap = null;
-		
 	}
+
 	public static int adaptResolution(Context context){
 		WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 	    Display display = wm.getDefaultDisplay();
@@ -254,8 +245,6 @@ public class Widget {
 	}
 	
 	private static Intent getCalendar(Context context){
-		/*Intent i = new Intent(Intent.ACTION_EDIT);
-		i.setData(CalendarContract.Events.CONTENT_URI);*/
 		Intent i = new Intent();
 		i.setAction(Intent.ACTION_VIEW);
 		i.setData(Uri.parse(CalendarContract.CONTENT_URI + "/time"));

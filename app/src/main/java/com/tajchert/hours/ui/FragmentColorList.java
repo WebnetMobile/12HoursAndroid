@@ -30,12 +30,8 @@ public class FragmentColorList extends Fragment {
 	private int colorNumber = 0;
 	private SharedPreferences prefs;
 	private ColorListAdapter adapter = null;
-	
-	
 
-	public FragmentColorList() {
-		// Required empty public constructor
-	}
+	public FragmentColorList() {}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

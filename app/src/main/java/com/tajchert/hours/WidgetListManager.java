@@ -15,7 +15,6 @@ public class WidgetListManager {
 	private static String SEPARATOR = "<!!!>";
 
 	public static void saveToSharedPrefs(Set<String> cals, SharedPreferences prefs){
-		//Set<String> cals = new HashSet<String>();
 		prefs.edit().putStringSet(Tools.WIDGET_CALENDAR_LIST, cals).apply();
 	}
 	public static void removeWidget(int widgetId, SharedPreferences prefs){
@@ -61,7 +60,6 @@ public class WidgetListManager {
 		Gson gson = new Gson();
 		Set<String> cals = new HashSet<String>(prefs.getStringSet(Tools.WIDGET_CALENDAR_LIST, new HashSet<String>()));
 		cals.add(widget.id + SEPARATOR + gson.toJson(widget));
-		//Log.d(Tools.AWESOME_TAG, "To Gson: " + gson.toJson(widget));
 		saveMap(setToMap(cals), prefs);
 	}
 	
@@ -108,12 +106,10 @@ public class WidgetListManager {
 	
 	public static void saveMap(HashMap<Integer, String> cals, SharedPreferences prefs){
 		Set<String> calsSet = new HashSet<String>();
-		//Log.d(Tools.AWESOME_TAG, "Size: " + cals.size());
 		Iterator<Integer> keySetIterator = cals.keySet().iterator();
 		while(keySetIterator.hasNext()){
 		  Integer key = keySetIterator.next();
 		  calsSet.add(key + SEPARATOR + cals.get(key));
-		  //Log.d(Tools.AWESOME_TAG, key + SEPARATOR + cals.get(key));
 		}
 		saveToSharedPrefs(calsSet, prefs);
 	}

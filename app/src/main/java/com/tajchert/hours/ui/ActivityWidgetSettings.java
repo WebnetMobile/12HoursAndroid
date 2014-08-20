@@ -63,9 +63,7 @@ public class ActivityWidgetSettings extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_widget_settings);
-		setThings();
-		
-		
+		setViewElements();
 		Bundle b = getIntent().getExtras();
 		String widgetId = b.getString("widgetID");
 		prefs = getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
@@ -115,9 +113,6 @@ public class ActivityWidgetSettings extends Activity {
 	private class SaveWidgetData extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
-        	//updateWidgets(WidgetListManager.getWidgets(prefs));
-        	//Start service to update particular widget
-    		//AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(ActivityWidgetSettings.this);
     		Intent serviceIntent = new Intent(ActivityWidgetSettings.this, WidgetUpdateService.class);
     		serviceIntent.putExtra("widgetID", widget.id+"");
     		ActivityWidgetSettings.this.startService(serviceIntent);
@@ -134,11 +129,8 @@ public class ActivityWidgetSettings extends Activity {
     		}
         }
     }
-	
-	
-	
-	
-	private void setThings(){
+
+	private void setViewElements(){
 		seekbarGradientTransparency = (SeekBar) findViewById(R.id.seekbarGradientTransparency);
 		SeekBarPieIntensity = (SeekBar) findViewById(R.id.SeekBarPieIntensity);
 		SeekBarOutIntensity = (SeekBar) findViewById(R.id.SeekBarOut);
@@ -154,9 +146,6 @@ public class ActivityWidgetSettings extends Activity {
 		checkFullDay = (CheckBox) findViewById(R.id.checkBoxCalendarFullDay);
 		checkEventColors = (CheckBox) findViewById(R.id.checkBoxCalendarColors);
 		checkNotGoing = (CheckBox) findViewById(R.id.checkBoxCalendarGoing);
-		
-		
-		
 	}
 	private void setState(){
 		// Set underOverflow
@@ -239,14 +228,12 @@ public class ActivityWidgetSettings extends Activity {
 			@Override
 			public void onClick(View v) {
 				new AppPicker().execute("1");
-				//listActivityPicker(1);
 			}
 		});
 		buttonSelectOuter.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				new AppPicker().execute("2");
-				//listActivityPicker(2);
 			}
 		}); 
 		stylePrev.setOnClickListener(new OnClickListener() {
@@ -297,10 +284,7 @@ public class ActivityWidgetSettings extends Activity {
 			widget.setDimensions(Tools.clock_layouts_dimensions_small[3]);
 		}
 		viewOver.setImageBitmap(Widget.addStaticWidget(ActivityWidgetSettings.this, widget));
-		//viewUnder.setImageBitmap(Bitmap.createScaledBitmap(clockBackground, 200, 200, false));
 		viewUnder.setImageBitmap(clockBackground);
-		//clockBackground.recycle();
-		//clockBackground = null;
 	}
 	
 	@Override
@@ -335,8 +319,7 @@ public class ActivityWidgetSettings extends Activity {
     						dialog.dismiss();
     					}
     				});
-    		builderSingle.setAdapter(adapter,
-    				new DialogInterface.OnClickListener() {
+    		builderSingle.setAdapter(adapter, new DialogInterface.OnClickListener() {
     					String packageName = "";
 
     					@Override

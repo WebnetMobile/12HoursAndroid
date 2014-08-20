@@ -21,7 +21,6 @@ public class CalendarListAdapter extends BaseAdapter {
 	public ArrayList<CalendarObject> data = new ArrayList<CalendarObject>();
 	public WidgetInstance widget;
 	Context c;
-	//SimpleDateFormat  format = new SimpleDateFormat("MM-dd HH:mm", java.util.Locale.getDefault());
 	public CalendarListAdapter(ArrayList<CalendarObject> data, Context c, WidgetInstance widget) {
 		this.data = data;
 		this.c = c;

@@ -12,8 +12,7 @@ import java.util.ArrayList;
 
 public class WidgetUpdateService extends Service {
 
-	private void widgetStartUpdate(AppWidgetManager appWidgetManager,
-			SharedPreferences prefs, WidgetInstance widget) {
+	private void widgetStartUpdate(AppWidgetManager appWidgetManager, SharedPreferences prefs, WidgetInstance widget) {
 		if (widget == null) {
 			Log.e(Tools.AWESOME_TAG, "Widget null");
 			stopSelf();
@@ -21,7 +20,6 @@ public class WidgetUpdateService extends Service {
 		}
 		if (widget.resolution == 0) {
 			widget.resolution = Widget.adaptResolution(this);
-			
 			WidgetListManager.updateWidget(widget.id, prefs, widget);
 		}
 		Log.d(Tools.AWESOME_TAG, "STYLE:" + widget.style);

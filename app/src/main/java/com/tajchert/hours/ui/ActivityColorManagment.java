@@ -35,20 +35,10 @@ public class ActivityColorManagment extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-        MyPagerAdapter mSectionsPagerAdapter;
-
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_color_managment);
-		mSectionsPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
-		
-		// Set up the ViewPager with the sections adapter.
-		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(mSectionsPagerAdapter);
-		mNextButton = (ImageButton) findViewById(R.id.imageViewNextColor);
-		mPrevButton = (ImageButton) findViewById(R.id.imageViewPrevColor);
-		mPrevButton.setVisibility(View.GONE);
-		
+
+        setViewElements();
 
 		prefs = getSharedPreferences("com.tajchert.hours", MODE_PRIVATE);
 		mViewPager.setOffscreenPageLimit(3);
@@ -68,7 +58,6 @@ public class ActivityColorManagment extends FragmentActivity {
 				}else{
 					mPrevButton.setVisibility(View.VISIBLE);
 				}
-				
 			}
 		});
 		if(mViewPager.getCurrentItem() == (mViewPager.getAdapter().getCount()-1)){
@@ -104,7 +93,16 @@ public class ActivityColorManagment extends FragmentActivity {
 
         }
 	}
-	@Override
+
+    private void setViewElements() {
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        mNextButton = (ImageButton) findViewById(R.id.imageViewNextColor);
+        mPrevButton = (ImageButton) findViewById(R.id.imageViewPrevColor);
+        mPrevButton.setVisibility(View.GONE);
+    }
+
+    @Override
 	protected void onPause() {
 	    super.onPause();
 	    new SaveWidgetData().execute("");
@@ -154,7 +152,6 @@ public class ActivityColorManagment extends FragmentActivity {
         		widget.colorPallete = mViewPager.getCurrentItem();
         		WidgetListManager.updateWidget(widget.id, prefs, widget);
         	}
-    		
             return "Executed";
         }
         @Override

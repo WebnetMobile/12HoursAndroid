@@ -30,9 +30,9 @@ public class ColorManager {
 			results[i] = Integer.parseInt(str+"");
 			i++;
 		}
-		
 		return results;
 	}
+
 	public static void saveList(SharedPreferences prefs, ArrayList<Integer> colors){
 		if(prefs == null || colors == null){
 			return;
@@ -61,6 +61,7 @@ public class ColorManager {
 		existing.remove(position);
 		saveList(prefs, existing);
 	}
+
 	public static void removeColor(SharedPreferences prefs, Integer color){
 		if(color == null){
 			return;

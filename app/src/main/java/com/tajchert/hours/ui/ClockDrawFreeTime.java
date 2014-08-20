@@ -78,8 +78,8 @@ public class ClockDrawFreeTime {
 		Canvas canvas = new Canvas(bitmap);
 		long lastEnd = Calendar.getInstance().getTimeInMillis();
 
-		clock.draw(0, 361, canvas, transparencyInnerColor,
-				transparencyOutColor, Color.GREEN, lastEnd, size, null);
+		clock.drawEvent(0, 361, canvas, transparencyInnerColor,
+                transparencyOutColor, Color.GREEN, lastEnd, size, null);
 		ImageView iView = (ImageView) activity.findViewById(R.id.imageViewActivity);
 		iView.setImageBitmap(bitmap);
 	}
@@ -145,17 +145,17 @@ public class ClockDrawFreeTime {
 			Date dateEn = new Date();
 			dateSt.setTime(entryStart);
 			dateEn.setTime(entryEnd);
-				clock.draw(degreesLastEnd,
-						dateInMilisecondsToDegrees(entryStart), canvas,
-						transparencyInnerColor, transparencyOutColor,
-						Color.GREEN, lastEnd, size, null);
+				clock.drawEvent(degreesLastEnd,
+                        dateInMilisecondsToDegrees(entryStart), canvas,
+                        transparencyInnerColor, transparencyOutColor,
+                        Color.GREEN, lastEnd, size, null);
 			
 			lastEnd = entryEnd;
 			degreesLastEnd = dateInMilisecondsToDegrees(entryEnd);
 		}
-		clock.draw(degreesLastEnd, dateInMilisecondsToDegrees(timeForNow),
-				canvas, transparencyInnerColor, transparencyOutColor,
-				Color.GREEN, lastEnd, size, null);
+		clock.drawEvent(degreesLastEnd, dateInMilisecondsToDegrees(timeForNow),
+                canvas, transparencyInnerColor, transparencyOutColor,
+                Color.GREEN, lastEnd, size, null);
 		ImageView iView = (ImageView) activity.findViewById(R.id.imageViewActivity);
 		iView.setImageBitmap(bitmap);
 	}

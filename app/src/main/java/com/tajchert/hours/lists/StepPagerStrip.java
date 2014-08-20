@@ -48,8 +48,6 @@ public class StepPagerStrip extends View {
 
     private RectF mTempRectF = new RectF();
 
-    //private Scroller mScroller;
-
     private OnPageSelectedListener mOnPageSelectedListener;
 
     public StepPagerStrip(Context context) {

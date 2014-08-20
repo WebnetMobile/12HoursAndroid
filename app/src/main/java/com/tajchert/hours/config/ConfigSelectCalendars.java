@@ -162,7 +162,5 @@ public class ConfigSelectCalendars extends Fragment {
         @Override
         protected void onPreExecute() {}
 
-        @Override
-        protected void onProgressUpdate(Void... values) {}
     }
 }

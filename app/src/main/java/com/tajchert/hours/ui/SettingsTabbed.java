@@ -206,7 +206,7 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 							for (int i = 0; i < calendarsNames.length; i++) {
 								try {
                                     ArrayList<Event> listEventsFriend = new ArrayList<Event>();
-									listEventsFriend = calRevolver.testGet(getActivity(), Integer.parseInt(calendarsNames[i]), 0, false, false);
+									listEventsFriend = calRevolver.getEventList(getActivity(), Integer.parseInt(calendarsNames[i]), 0, false, false);
 									Log.d("24Hours", "listEventsFriend.size(): " + listEventsFriend.size());
 									if (listEventsFriend != null && listEventsFriend.size() > 0) {
 										for (Event ev : listEventsFriend) {

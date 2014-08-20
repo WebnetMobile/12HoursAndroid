@@ -29,7 +29,7 @@ public class ClockDraw {
 	public SharedPreferences prefs;
 
 	TreeMap<Long, Integer> colors = new TreeMap<Long, Integer>(); 
-	public void draw(int startAngle, int EndAngle, Canvas canvas, float opacityInner, float opacityOuter, int calColor, long startDate, int size, WidgetInstance widget){
+	public void drawEvent(int startAngle, int EndAngle, Canvas canvas, float opacityInner, float opacityOuter, int calColor, long startDate, int size, WidgetInstance widget){
 		int [] colorList = Tools.colors_mild;
 		int listType;
 		int transparencyCenter;

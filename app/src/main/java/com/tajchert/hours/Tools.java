@@ -5,7 +5,6 @@ import android.graphics.Color;
 public class Tools {
 	
 	public final static String AWESOME_TAG = "24Hours";
-	//public final static int [] clock_layouts = {R.drawable.hand_dial, R.drawable.kit_kat_hand_dial, R.drawable.hand_nodigits_dial, R.drawable.hand_whitefull_dial};
 	public final static int [] clock_layouts = {R.drawable.hand_dial, R.drawable.hand_nodigits_dial, R.drawable.kit_kat_hand_dial, R.drawable.hand_whitefull_dial};
 	public final static float [][] clock_layouts_dimensions_small = new float [] [] {{52.5f, 112.5f, 111f, 11f, 250f}, {52.5f, 112.5f, 111f, 11f, 250f}, {55.75f, 115.5f, 113f, 6.75f, 250f}, {55.75f, 115.5f, 113f, 6.75f, 250f}};
 	public final static float [][] clock_layouts_dimensions_medium = new float [] [] {{73.5f, 158.2f, 155.4f, 15.4f, 350f}, {73.5f, 158.2f, 155.4f, 15.4f, 350f}, {78.05f, 161.7f, 158.2f, 9.45f, 350f}, {78.05f, 161.7f, 158.2f, 9.45f, 350f}};

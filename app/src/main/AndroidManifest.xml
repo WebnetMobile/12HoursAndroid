@@ -27,11 +27,6 @@
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.tajchert.hours.lists.PickCalendars"
-            android:label="Pick calendars"
-            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
-        </activity>
         <!-- SETTINGS -->
         <activity
             android:name="com.tajchert.hours.ui.SettingsTabbed"
@@ -39,16 +34,58 @@
             android:theme="@android:style/Theme.Holo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name="com.tajchert.hours.lists.PickCalendars"
+            android:label="Pick calendars"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
+        </activity>
+
         <activity
             android:name="com.tajchert.hours.ui.ActivityAbout"
             android:label="@string/menu_about"
             android:theme="@android:style/Theme.Holo"
             android:parentActivityName="com.tajchert.hours.ui.SettingsTabbed" >
         </activity>
+
+        <activity
+            android:name="com.tajchert.hours.ui.ActivityWidgetSettings"
+            android:label="@string/title_activity_activity_widget_settings"
+            android:theme="@android:style/Theme.Holo" >
+        </activity>
+
+        <activity
+            android:name="com.tajchert.hours.ui.ActivityAddColors"
+            android:label="Add color"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
+        </activity>
+
+        <activity
+            android:name="com.tajchert.hours.ui.ActivityColorManagment"
+            android:label="@string/title_activity_activity_color_managment"
+            android:noHistory="true" >
+        </activity>
+
+        <service
+            android:name="com.tajchert.hours.WidgetUpdateService"
+            android:enabled="true" />
+
+        <!-- Calendar event change receiver -->
+        <receiver android:name="com.tajchert.hours.CalendarProviderListener" >
+            <intent-filter>
+                <action android:name="android.intent.action.PROVIDER_CHANGED" />
+
+                <data android:scheme="content" />
+                <data android:host="com.android.calendar" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Widgets -->
+
 
         <!-- Small -->
         <receiver
@@ -86,35 +123,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_config" />
         </receiver>
-
-        <service
-            android:name="com.tajchert.hours.WidgetUpdateService"
-            android:enabled="true" />
-
-        <!-- Calendar event change receiver -->
-        <receiver android:name="com.tajchert.hours.CalendarProviderListener" >
-            <intent-filter>
-                <action android:name="android.intent.action.PROVIDER_CHANGED" />
-
-                <data android:scheme="content" />
-                <data android:host="com.android.calendar" />
-            </intent-filter>
-        </receiver>
-        <activity
-            android:name="com.tajchert.hours.ui.ActivityWidgetSettings"
-            android:label="@string/title_activity_activity_widget_settings"
-            android:theme="@android:style/Theme.Holo" >
-        </activity>
-        <activity
-            android:name="com.tajchert.hours.ui.ActivityAddColors"
-            android:label="Add color"
-            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
-        </activity>
-        <activity
-            android:name="com.tajchert.hours.ui.ActivityColorManagment"
-            android:label="@string/title_activity_activity_color_managment"
-            android:noHistory="true" >
-        </activity>
     </application>
 
 </manifest>
