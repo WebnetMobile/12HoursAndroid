@@ -19,7 +19,7 @@ proguard/
 *.iml
 *.ipr
 .idea
-.gradle/
+.gradle
 out
  
 # Eclipse
