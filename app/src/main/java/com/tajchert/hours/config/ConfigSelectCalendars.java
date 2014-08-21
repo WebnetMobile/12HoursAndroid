@@ -16,12 +16,12 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.tajchert.hours.CalendarContentResolver;
-import com.tajchert.hours.CalendarObject;
+import com.tajchert.hours.calendar.CalendarContentResolver;
+import com.tajchert.hours.calendar.CalendarObject;
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
-import com.tajchert.hours.WidgetInstance;
-import com.tajchert.hours.WidgetListManager;
+import com.tajchert.hours.widgets.WidgetInstance;
+import com.tajchert.hours.widgets.WidgetListManager;
 import com.tajchert.hours.lists.CalendarListAdapter;
 
 import java.util.ArrayList;

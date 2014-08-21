@@ -1,10 +1,12 @@
-package com.tajchert.hours;
+package com.tajchert.hours.widgets;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
+import com.tajchert.hours.WidgetUpdateService;
 
 public class WidgetProvider extends AppWidgetProvider{
 	

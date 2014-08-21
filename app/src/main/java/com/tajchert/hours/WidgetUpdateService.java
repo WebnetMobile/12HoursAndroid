@@ -8,6 +8,10 @@ import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.tajchert.hours.widgets.Widget;
+import com.tajchert.hours.widgets.WidgetInstance;
+import com.tajchert.hours.widgets.WidgetListManager;
+
 import java.util.ArrayList;
 
 public class WidgetUpdateService extends Service {

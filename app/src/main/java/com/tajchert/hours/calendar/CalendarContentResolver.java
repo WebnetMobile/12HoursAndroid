@@ -1,4 +1,4 @@
-package com.tajchert.hours;
+package com.tajchert.hours.calendar;
 
 import android.content.ContentResolver;
 import android.content.Context;

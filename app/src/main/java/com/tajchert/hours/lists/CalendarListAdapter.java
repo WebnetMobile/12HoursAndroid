@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.tajchert.hours.CalendarObject;
+import com.tajchert.hours.calendar.CalendarObject;
 import com.tajchert.hours.R;
-import com.tajchert.hours.WidgetInstance;
+import com.tajchert.hours.widgets.WidgetInstance;
 
 import java.util.ArrayList;
 

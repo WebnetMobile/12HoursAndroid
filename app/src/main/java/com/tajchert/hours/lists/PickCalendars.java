@@ -9,8 +9,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.tajchert.hours.CalendarContentResolver;
-import com.tajchert.hours.CalendarObject;
+import com.tajchert.hours.calendar.CalendarContentResolver;
+import com.tajchert.hours.calendar.CalendarObject;
 import com.tajchert.hours.R;
 
 import java.util.ArrayList;

@@ -1,9 +1,10 @@
-package com.tajchert.hours;
+package com.tajchert.hours.widgets;
 
 import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.tajchert.hours.Tools;
 
 import java.util.ArrayList;
 import java.util.HashMap;

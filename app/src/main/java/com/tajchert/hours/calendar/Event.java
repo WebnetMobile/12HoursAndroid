@@ -1,4 +1,4 @@
-package com.tajchert.hours;
+package com.tajchert.hours.calendar;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,7 +21,6 @@ public class Event {
 		
 	}
 	public Event(){
-		
 	}
 
 }

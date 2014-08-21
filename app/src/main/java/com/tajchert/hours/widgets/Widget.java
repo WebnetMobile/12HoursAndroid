@@ -1,4 +1,4 @@
-package com.tajchert.hours;
+package com.tajchert.hours.widgets;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -16,6 +16,10 @@ import android.view.Display;
 import android.view.WindowManager;
 import android.widget.RemoteViews;
 
+import com.tajchert.hours.calendar.CalendarContentResolver;
+import com.tajchert.hours.calendar.Event;
+import com.tajchert.hours.R;
+import com.tajchert.hours.Tools;
 import com.tajchert.hours.ui.ClockDraw;
 
 import java.util.Calendar;

@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
-import com.tajchert.hours.Widget;
-import com.tajchert.hours.WidgetInstance;
+import com.tajchert.hours.widgets.Widget;
+import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.ui.ActivityWidgetSettings;
 
 import java.util.ArrayList;

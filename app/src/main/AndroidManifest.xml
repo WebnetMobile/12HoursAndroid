@@ -75,7 +75,7 @@
             android:enabled="true" />
 
         <!-- Calendar event change receiver -->
-        <receiver android:name="com.tajchert.hours.CalendarProviderListener" >
+        <receiver android:name=".calendar.CalendarProviderListener" >
             <intent-filter>
                 <action android:name="android.intent.action.PROVIDER_CHANGED" />
 
@@ -89,7 +89,7 @@
 
         <!-- Small -->
         <receiver
-            android:name="com.tajchert.hours.WidgetProviderExtraSmall"
+            android:name=".widgets.WidgetProviderExtraSmall"
             android:label="12Hours Small" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -101,7 +101,7 @@
         </receiver>
         <!-- Medium -->
         <receiver
-            android:name="com.tajchert.hours.WidgetProviderSmall"
+            android:name=".widgets.WidgetProviderSmall"
             android:label="12Hours Medium" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -113,7 +113,7 @@
         </receiver>
         <!-- BIG -->
         <receiver
-            android:name="com.tajchert.hours.WidgetProvider"
+            android:name=".widgets.WidgetProvider"
             android:label="12Hours" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

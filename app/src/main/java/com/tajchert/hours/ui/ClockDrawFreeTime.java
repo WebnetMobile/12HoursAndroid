@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
-import com.tajchert.hours.Widget;
+import com.tajchert.hours.widgets.Widget;
 
 import java.util.Calendar;
 import java.util.Date;

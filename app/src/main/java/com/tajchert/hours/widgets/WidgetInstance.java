@@ -1,4 +1,4 @@
-package com.tajchert.hours;
+package com.tajchert.hours.widgets;
 
 import java.util.Arrays;
 

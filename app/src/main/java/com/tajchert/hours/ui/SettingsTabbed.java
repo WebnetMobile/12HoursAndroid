@@ -25,11 +25,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.tajchert.hours.CalendarContentResolver;
-import com.tajchert.hours.CalendarObject;
-import com.tajchert.hours.Event;
+import com.tajchert.hours.calendar.CalendarContentResolver;
+import com.tajchert.hours.calendar.CalendarObject;
+import com.tajchert.hours.calendar.Event;
 import com.tajchert.hours.R;
-import com.tajchert.hours.WidgetListManager;
+import com.tajchert.hours.widgets.WidgetListManager;
 import com.tajchert.hours.changelog.ChangeLog;
 import com.tajchert.hours.lists.PickCalendars;
 import com.tajchert.hours.lists.WidgetsListAdapter;

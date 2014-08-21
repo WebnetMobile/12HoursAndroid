@@ -9,7 +9,7 @@ import android.graphics.RectF;
 
 import com.tajchert.hours.ColorManager;
 import com.tajchert.hours.Tools;
-import com.tajchert.hours.WidgetInstance;
+import com.tajchert.hours.widgets.WidgetInstance;
 
 import java.util.Map.Entry;
 import java.util.TreeMap;

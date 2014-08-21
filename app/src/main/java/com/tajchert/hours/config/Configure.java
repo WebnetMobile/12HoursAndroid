@@ -19,8 +19,8 @@ import android.widget.Button;
 
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
-import com.tajchert.hours.WidgetInstance;
-import com.tajchert.hours.WidgetListManager;
+import com.tajchert.hours.widgets.WidgetInstance;
+import com.tajchert.hours.widgets.WidgetListManager;
 import com.tajchert.hours.WidgetUpdateService;
 import com.tajchert.hours.lists.StepPagerStrip;
 
