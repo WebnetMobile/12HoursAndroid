@@ -2,6 +2,7 @@
 
 ####Long story short: 
 It is a analog clock that displays events from your calendar on a watch face, as a marked zones. So, if you have a dinnet at 5PM till 6PM it will mark zone from 5 to 6PM on your watch. From obvious reason it work only for next 12 hours - thus name of the widget.
+
 ![12Hours](http://12hours.io/assets/img/phone-1.png "12Hours")
 
 
