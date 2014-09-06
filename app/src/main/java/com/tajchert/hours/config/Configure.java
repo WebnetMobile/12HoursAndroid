@@ -30,6 +30,7 @@ import java.util.List;
 public class Configure extends FragmentActivity {
 	private ViewPager mPager;
 	private MyPagerAdapter mAdapter;
+    private boolean wasCalledByButton = false;//To avoid calling actionOnChange() twice when button moves pager
 
 	private boolean mEditingAfterReview;
 	private boolean done = false;
@@ -78,8 +79,11 @@ public class Configure extends FragmentActivity {
 		mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 			@Override
 			public void onPageSelected(int position) {
-				actionOnChange();
-				mStepPagerStrip.setCurrentPage(position);
+                if (wasCalledByButton == false) {//To avoid calling actionOnChange() twice when button moves pager
+                    actionOnChange();
+                }
+                wasCalledByButton = false;
+                mStepPagerStrip.setCurrentPage(position);
 
 				if (mConsumePageSelectedEvent) {
 					mConsumePageSelectedEvent = false;
@@ -94,6 +98,7 @@ public class Configure extends FragmentActivity {
 		mNextButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
+                wasCalledByButton = true;
 				if(!isCal){
 					try {
 		        	    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.android.calendar")));
@@ -107,13 +112,12 @@ public class Configure extends FragmentActivity {
 					done = true;
 					finito();
 				} else {
-					actionOnChange();
 					if (mEditingAfterReview) {
 						mPager.setCurrentItem(mAdapter.getCount() - 1);
 					} else {
 						mPager.setCurrentItem(mPager.getCurrentItem() + 1);
 					}
-					
+                    actionOnChange();
 				}
 			}
 		});
@@ -218,7 +222,7 @@ public class Configure extends FragmentActivity {
 				break;
 			case 2:
 				try {
-					((ConfigSelectCalendars) mCurrentPageSequence.get(1)).saveThings();
+                    ((ConfigSelectCalendars) mCurrentPageSequence.get(1)).saveThings();
 				} catch (Exception e) {
 				}
 				break;
@@ -235,7 +239,7 @@ public class Configure extends FragmentActivity {
 				break;
 			case 1:
 				try {
-					((ConfigSelectCalendars) mCurrentPageSequence.get(0)).saveThings();
+                    ((ConfigSelectCalendars) mCurrentPageSequence.get(0)).saveThings();
 				} catch (Exception e) {
 				}
 				break;
