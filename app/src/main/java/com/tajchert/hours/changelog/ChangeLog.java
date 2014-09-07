@@ -388,34 +388,16 @@ public class ChangeLog {
      * @see #getChangeLogComparator()
      */
     public List<ReleaseItem> getChangeLog(boolean full) {
-        SparseArray<ReleaseItem> masterChangelog = getMasterChangeLog(full);
         SparseArray<ReleaseItem> changelog = getLocalizedChangeLog(full);
-
-        List<ReleaseItem> mergedChangeLog =
-                new ArrayList<ReleaseItem>(masterChangelog.size());
-
-        for (int i = 0, len = masterChangelog.size(); i < len; i++) {
-            int key = masterChangelog.keyAt(i);
-
-            // Use release information from localized change log and fall back to the master file
-            // if necessary.
-            ReleaseItem release = changelog.get(key, masterChangelog.get(key));
-
-            mergedChangeLog.add(release);
-        }
-
-        Collections.sort(mergedChangeLog, getChangeLogComparator());
-
-        return mergedChangeLog;
+        return asList(changelog);
     }
 
-    /**
-     * Read master change log from {@code xml/changelog_master.xml}
-     *
-     * @see #readChangeLogFromResource(int, boolean)
-     */
-    protected SparseArray<ReleaseItem> getMasterChangeLog(boolean full) {
-        return readChangeLogFromResource(R.xml.changelog_master, full);
+    public static <C> List<C> asList(SparseArray<C> sparseArray) {
+        if (sparseArray == null) return null;
+        List<C> arrayList = new ArrayList<C>(sparseArray.size());
+        for (int i = sparseArray.size()-1 ; i >= 0; i--)
+            arrayList.add(sparseArray.valueAt(i));
+        return arrayList;
     }
 
     /**
