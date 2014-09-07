@@ -16,10 +16,10 @@ import android.view.Display;
 import android.view.WindowManager;
 import android.widget.RemoteViews;
 
-import com.tajchert.hours.calendar.CalendarContentResolver;
-import com.tajchert.hours.calendar.Event;
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
+import com.tajchert.hours.calendar.CalendarContentResolver;
+import com.tajchert.hours.calendar.Event;
 import com.tajchert.hours.ui.ClockDraw;
 
 import java.util.Calendar;
@@ -30,6 +30,7 @@ public class Widget {
 	private static int transparencyInnerColor = Tools.innerTransparency;
 	private static int transparencyOutColor = Tools.outerTransparency;
 	private static boolean useCalendarColor = false;
+
 	
 	public static Bitmap addStaticWidget(Context context, WidgetInstance widget){
 		
@@ -51,6 +52,7 @@ public class Widget {
              clock.widthOut = widget.widthOut;
              clock.prefs = context.getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
              size = (int) widget.size;
+            widget.lastUpdateMiliseconds = Calendar.getInstance().getTimeInMillis();
         }else{
         	return null;
         }
@@ -79,15 +81,13 @@ public class Widget {
 		} catch (Exception e) {
 			//Clock not added - no room or something
 		}
+
         return bitmap;
 	}
 	
 	public static void updateAppWidget(SharedPreferences prefs, Context context, AppWidgetManager appWidgetManager, int appWidgetId, WidgetInstance widget){
 		PendingIntent pendingIntent;
 		RemoteViews views;
-		
-		
-		
 		views = new RemoteViews(context.getPackageName(), R.layout.clock_widget);
 		
 		if(widget == null){
@@ -184,11 +184,9 @@ public class Widget {
 		clock.radiusOut = widget.radiusOut;
 		clock.widthIn = widget.widthIn;
 		clock.widthOut = widget.widthOut;
-		clock.prefs = context.getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
+		clock.prefs = prefs;
 		size = (int) widget.size;
-       
-        
-        
+
         Bitmap bitmap = Bitmap.createBitmap(size, size, Config.ARGB_8888);  
 		Canvas canvas = new Canvas(bitmap);
 		try {
@@ -226,6 +224,7 @@ public class Widget {
 		views.setImageViewBitmap(R.id.imageViewClockOverflow, bitmap);
         appWidgetManager.updateAppWidget(appWidgetId, views);
         bitmap.recycle();
+        widget.lastUpdateMiliseconds = Calendar.getInstance().getTimeInMillis();
 	}
 
 	public static int adaptResolution(Context context){

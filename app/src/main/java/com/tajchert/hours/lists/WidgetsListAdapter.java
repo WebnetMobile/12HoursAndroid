@@ -21,6 +21,7 @@ import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.ui.ActivityWidgetSettings;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class WidgetsListAdapter extends BaseAdapter {
@@ -28,7 +29,7 @@ public class WidgetsListAdapter extends BaseAdapter {
 	Context c;
 
 	public WidgetsListAdapter(ArrayList<WidgetInstance> data, Context c) {
-		this.data = data;
+		this.data = showOnlyActiveOnes(data);
 		this.c = c;
 	}
 	public int getCount() {
@@ -99,4 +100,15 @@ public class WidgetsListAdapter extends BaseAdapter {
 		}
 		return v;
 	}
+
+    private ArrayList<WidgetInstance> showOnlyActiveOnes(ArrayList<WidgetInstance> allWidgets){
+        ArrayList<WidgetInstance> activeWidgets = new ArrayList<WidgetInstance>();
+        Long curr = Calendar.getInstance().getTimeInMillis();
+        for(WidgetInstance widget: allWidgets){
+            if(widget.lastUpdateMiliseconds == null || curr - widget.lastUpdateMiliseconds < 3600000){//1h in miliseconds
+                activeWidgets.add(widget);
+            }
+        }
+        return activeWidgets;
+    }
 }

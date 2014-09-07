@@ -26,6 +26,7 @@ public class WidgetInstance {
 	public int transparencyOuter = 210;
 	public int transparencyInner = 60;
 	public int transparencyCenter = 120;//Gradient
+    public Long lastUpdateMiliseconds;
 	
 	public void setDimensions(float [] arr){
 		radiusIn = arr[0];
