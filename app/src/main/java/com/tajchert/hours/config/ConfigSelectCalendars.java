@@ -16,13 +16,13 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.tajchert.hours.calendar.CalendarContentResolver;
-import com.tajchert.hours.calendar.CalendarObject;
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
+import com.tajchert.hours.calendar.CalendarContentResolver;
+import com.tajchert.hours.calendar.CalendarObject;
+import com.tajchert.hours.lists.CalendarListAdapter;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
-import com.tajchert.hours.lists.CalendarListAdapter;
 
 import java.util.ArrayList;
 
@@ -132,10 +132,10 @@ public class ConfigSelectCalendars extends Fragment {
         		Log.e(Tools.AWESOME_TAG, "Widget is null or some in onPostExecute!");
         		try {
 					getActivity().finish();
+                    Toast.makeText(getActivity(), "Cannot find any calendars...", Toast.LENGTH_LONG).show();
 				} catch (Exception e) {
-					//No activity
+					//Activity was already closed
 				}
-        		Toast.makeText(getActivity(), "Cannot find any calendars...", Toast.LENGTH_LONG).show();
         		return;
         	}
         	
