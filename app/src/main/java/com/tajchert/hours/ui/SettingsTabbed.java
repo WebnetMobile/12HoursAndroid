@@ -2,8 +2,10 @@ package com.tajchert.hours.ui;
 
 
 import android.app.ActionBar;
+import android.app.Dialog;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -22,17 +24,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.tajchert.hours.R;
+import com.tajchert.hours.Tools;
 import com.tajchert.hours.calendar.CalendarContentResolver;
 import com.tajchert.hours.calendar.CalendarObject;
 import com.tajchert.hours.calendar.Event;
-import com.tajchert.hours.R;
-import com.tajchert.hours.widgets.WidgetListManager;
 import com.tajchert.hours.changelog.ChangeLog;
 import com.tajchert.hours.lists.PickCalendars;
 import com.tajchert.hours.lists.WidgetsListAdapter;
+import com.tajchert.hours.widgets.WidgetListManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -55,8 +59,9 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 
 	// SHARED PREFS
 	private static SharedPreferences prefs;
+    private Dialog dialogWelcome; //with communities and code share
 
-	private static ArrayList<CalendarObject> listCalendars;
+    private static ArrayList<CalendarObject> listCalendars;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,10 +72,6 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 		final ActionBar actionBar = getActionBar();
 		actionBar.setHomeButtonEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		ChangeLog cl = new ChangeLog(this);
-        if (cl.isFirstRun()) {
-            cl.getLogDialog().show();
-        }
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mCollectionPagerAdapter);
 		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -102,6 +103,11 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 				addWidgetsInfo.setVisibility(View.VISIBLE);
 			}
 		}
+        if(isFirstRun()){
+            if(dialogWelcome == null || !dialogWelcome.isShowing()){
+                showWelcomeDialog();
+            }
+        }
 	}
 
 	// SWIPE VIEWS
@@ -290,8 +296,6 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 
 		}
 
-		
-
 		private void addEventToTogether(Event ev) {
 			// TODO not important
 			Long nowTime = (Calendar.getInstance().getTimeInMillis()/1000) *1000;
@@ -347,6 +351,55 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 			}
 		}
 	}
+
+    private void showWelcomeDialog(){
+        dialogWelcome = new Dialog(SettingsTabbed.this);
+        dialogWelcome.setContentView(R.layout.dialog_info_first_run);
+        dialogWelcome.setTitle("What is new?");
+        ImageButton imageCommunity = (ImageButton) dialogWelcome.findViewById(R.id.imageButtonCommunity);
+        ImageButton imageCode = (ImageButton) dialogWelcome.findViewById(R.id.imageButtonCode);
+        imageCommunity.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://plus.google.com/communities/108716578003125422667";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+        imageCode.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://github.com/tajchert/12HoursAndroid";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+        Button closeButton = (Button) dialogWelcome.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean(Tools.WIDGET_FIRSTRUN, false).apply();
+                dialogWelcome.dismiss();
+            }
+        });
+        dialogWelcome.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                ChangeLog cl = new ChangeLog(SettingsTabbed.this);
+                if (cl.isFirstRun()) {
+                    cl.getLogDialog().show();
+                }
+            }
+        });
+        dialogWelcome.show();
+    }
+
+    private boolean isFirstRun(){
+        return prefs.getBoolean(Tools.WIDGET_FIRSTRUN, true);
+    }
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
@@ -378,15 +431,6 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 			break;
 		case R.id.action_settings:
 			this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+ this.getPackageName().toString())));
-			break;
-		case R.id.action_bug_report:
-			final Intent emailIntent = new Intent(Intent.ACTION_SEND);
-			emailIntent.setType("text/plain");
-			emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "thetajchert@gmail.com" });
-			emailIntent.putExtra(Intent.EXTRA_SUBJECT,"12Hours");
-			emailIntent.putExtra(Intent.EXTRA_TEXT, "");
-
-			this.startActivity(Intent.createChooser(emailIntent,this.getResources().getString(R.string.tab_extras_select_one_title)));
 			break;
 		}
 

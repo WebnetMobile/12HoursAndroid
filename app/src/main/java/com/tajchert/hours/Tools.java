@@ -28,6 +28,7 @@ public class Tools {
 	public static String COLOR_LIST = "com.tajchert.hours.colorlist";
 	
 	public static String WIDGET_FIRSTADD = "com.tajchert.hours.firstadd";
+    public static String WIDGET_FIRSTRUN = "com.tajchert.hours.firstrun";
 	
 	public static String RESULUTION_GOT = "com.tajchert.hours.resolutiongot";
 

@@ -34,7 +34,7 @@ public class WidgetListManager {
 	}
 	public static void updateWidget(int widgetId, SharedPreferences prefs, WidgetInstance newWidget){
 		Log.d(Tools.AWESOME_TAG, "UPDATE size:" + newWidget.calendarNames.length);
-		Log.d(Tools.AWESOME_TAG, "UPDATE new layout:" + newWidget.style);
+		Log.d(Tools.AWESOME_TAG, "UPDATE layout:" + newWidget.style);
 		Set<String> cals = new HashSet<String>(prefs.getStringSet(Tools.WIDGET_CALENDAR_LIST, new HashSet<String>()));
 		HashMap<Integer, String> result = setToMap(cals);
 		if(result.size()>0){

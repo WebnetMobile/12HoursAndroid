@@ -2,13 +2,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- XMLs -->
-    <string name="app_name">12hours</string>
-    <string name="author_name">Michał Tajchert</string>
+    <string name="app_name" translatable="false">12hours</string>
+    <string name="author_name" translatable="false">Michał Tajchert</string>
 
     <!-- CHANGELOG -->
-    <string name="changelog_title">Changelog</string>
-    <string name="changelog_ok_button">OK</string>
-    <string name="changelog_version_format">Version <xliff:g id="version_name">%s</xliff:g></string>
+    <string name="changelog_title" translatable="false">Changelog</string>
+    <string name="changelog_ok_button" translatable="false">OK</string>
+    <string name="changelog_version_format" translatable="false">Version <xliff:g id="version_name">%s</xliff:g></string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
@@ -53,10 +53,10 @@
     <string name="tab_extras_rate_middle"> AND/OR </string>
     <string name="tab_extras_share">Share!</string>
     <string name="tab_extras_contactme">Contact me</string>
-    <string name="tab_extras_googleplus">Google+</string>
+    <string name="tab_extras_googleplus" translatable="false">Google+</string>
 
     <!-- Color Screen -->
-    <string name="tab_style_top_save">Save</string>
+    <string name="tab_style_top_save" translatable="false">Save</string>
     <string name="tab_style_color_aggressive">Aggressive</string>
     <string name="tab_style_color_mild">Mild</string>
     <string name="tab_style_color_blind">Colorblind</string>
@@ -70,10 +70,10 @@
     <string name="tab_style_outer_intensity">Outer intensity:</string>
     <string name="widget_settings_style_title">Style</string>
     <string name="widget_settings_action_title">Action</string>
-    <string name="widget_settings_action_event">Events</string>
+    <string name="widget_settings_action_event" translatable="false">Events</string>
 
     <!-- MENU -->
-    <string name="menu_colors">Colors</string>
+    <string name="menu_colors" translatable="false">Colors</string>
     <string name="menu_about">About</string>
     <string name="menu_bugreport">Bug Report</string>
     <string name="menu_rateapp">Rate App!</string>

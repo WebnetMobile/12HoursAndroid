@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.0.2" versioncode="38" >
+        <change>Fixed bug with ignoring selected style.</change>
+        <change>Community and code release.</change>
+    </release>
     <release version="2.0.1" versioncode="37" >
         <change>Bug fixes.</change>
         <change>Translation: Korean, Japanese, Turkish.</change>
