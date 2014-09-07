@@ -30,14 +30,10 @@ public class CalendarContentResolver {
 		contentResolver = context.getContentResolver();
 		Cursor cursor = contentResolver.query(CALENDAR_URI, FIELDS, null, null, null);
 		try {
-			if (cursor.getCount() > 0) {
+			if (cursor != null && cursor.getCount() > 0) {
 				CalendarObject newOne;
 				while (cursor.moveToNext()) {
 					newOne = new CalendarObject();
-					// String name = cursor.getString(0);
-					// This is actually a better pattern:
-					//String color = cursor.getString(cursor.getColumnIndex(CalendarContract.Calendars.CALENDAR_COLOR));
-					//Boolean selected = !cursor.getString(2).equals("0");
 					newOne.id = cursor.getInt(0);
 					newOne.name = cursor.getString(1);
 					newOne.isSync = !cursor.getString(3).equals("0");
@@ -57,7 +53,6 @@ public class CalendarContentResolver {
 		} catch (Exception e) {
 		}
 		return calendars;
-		
 	}
 	public void clear(){
 		events.clear();
