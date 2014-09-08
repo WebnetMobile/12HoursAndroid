@@ -149,7 +149,7 @@ public class ConfigSelectCalendars extends Fragment {
             widget.showNotGoing = checkBoxCalendarGoing.isChecked();
         	Log.d(Tools.AWESOME_TAG, "SelectCal, style is: " + widget.style);
         	WidgetInstance tmpWidget = WidgetListManager.getWidgetInstance(prefs, mAppWidgetId+"");
-        	if(widget.style != tmpWidget.style){
+        	if(tmpWidget != null && widget.style != tmpWidget.style){
         		widget.style = tmpWidget.style;
         	}
         	WidgetListManager.updateWidget(widget.id, prefs, widget);
