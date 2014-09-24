@@ -52,7 +52,6 @@ public class Widget {
              clock.widthOut = widget.widthOut;
              clock.prefs = context.getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
              size = (int) widget.size;
-            widget.lastUpdateMiliseconds = Calendar.getInstance().getTimeInMillis();
         }else{
         	return null;
         }
@@ -224,7 +223,6 @@ public class Widget {
 		views.setImageViewBitmap(R.id.imageViewClockOverflow, bitmap);
         appWidgetManager.updateAppWidget(appWidgetId, views);
         bitmap.recycle();
-        widget.lastUpdateMiliseconds = Calendar.getInstance().getTimeInMillis();
 	}
 
 	public static int adaptResolution(Context context){
