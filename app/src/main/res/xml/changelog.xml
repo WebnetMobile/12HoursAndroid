@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="2.0.5" versioncode="41" >
+        <change>Fixed bug with disappearing widget.</change>
+    </release>
+    <release version="2.0.3" versioncode="39" >
+        <change>Banner with G+ community and Github links.</change>
+        <change>Small bug fixes.</change>
+    </release>
     <release version="2.0.2" versioncode="38" >
         <change>Fixed bug with ignoring selected style.</change>
         <change>Community and code release.</change>
