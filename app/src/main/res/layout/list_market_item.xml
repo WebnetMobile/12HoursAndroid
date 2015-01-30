@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/NameText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
         android:layout_gravity="center"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:layout_toLeftOf="@+id/checkBoxSub"
-        android:text="X"
+        android:layout_toStartOf="@+id/checkBoxSub"
         android:fontFamily="sans-serif"
+        android:singleLine="true"
+        android:text="X"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text_primary_color"
         android:textStyle="bold" />
 
     <CheckBox
@@ -21,7 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:layout_marginTop="2dp"
         android:text="" />
 
     <TextView
@@ -29,11 +37,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/NameText"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="1dp"
+        android:layout_toLeftOf="@+id/checkBoxSub"
+        android:layout_toStartOf="@+id/checkBoxSub"
         android:fontFamily="sans-serif"
+        android:singleLine="true"
         android:text="X"
+        android:textColor="@color/text_secondary"
         android:textSize="11sp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/textViewOwner"
+        android:layout_marginTop="2dp"
+        android:background="@color/divider_color" />
 
     <Button
         android:id="@+id/buttonTransparent"
@@ -41,9 +64,12 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textViewOwner"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/checkBoxSub"
         android:alpha="0"
         android:background="@drawable/roundedbutton" />
+
 
 </RelativeLayout>
