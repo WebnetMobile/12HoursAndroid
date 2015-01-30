@@ -1,6 +1,5 @@
 package com.tajchert.hours.ui;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -14,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,14 +28,14 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
+import com.tajchert.hours.WidgetUpdateService;
 import com.tajchert.hours.widgets.Widget;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
-import com.tajchert.hours.WidgetUpdateService;
 
 import java.util.ArrayList;
 
-public class ActivityWidgetSettings extends Activity {
+public class ActivityWidgetSettings extends ActionBarActivity {
 	private WidgetInstance widget;
 	private SharedPreferences prefs;
 	

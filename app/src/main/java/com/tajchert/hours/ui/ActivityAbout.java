@@ -1,10 +1,10 @@
 package com.tajchert.hours.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.tajchert.hours.R;
 
-public class ActivityAbout extends Activity{
+public class ActivityAbout extends ActionBarActivity {
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -20,7 +20,7 @@
         <activity
             android:name="com.tajchert.hours.config.Configure"
             android:label="Widget configure"
-            android:theme="@android:style/Theme.Holo.NoActionBar" >
+            android:theme="@style/AppThemeNoActionBar" >
 
             <!-- .Dialog if needed -->
             <intent-filter>
@@ -31,7 +31,7 @@
         <activity
             android:name="com.tajchert.hours.ui.SettingsTabbed"
             android:label="12Hours"
-            android:theme="@android:style/Theme.Holo" >
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -42,26 +42,26 @@
         <activity
             android:name="com.tajchert.hours.lists.PickCalendars"
             android:label="Pick calendars"
-            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
+            android:theme="@style/AppThemeDialog" >
         </activity>
 
         <activity
             android:name="com.tajchert.hours.ui.ActivityAbout"
             android:label="@string/menu_about"
-            android:theme="@android:style/Theme.Holo"
+            android:theme="@style/AppTheme"
             android:parentActivityName="com.tajchert.hours.ui.SettingsTabbed" >
         </activity>
 
         <activity
             android:name="com.tajchert.hours.ui.ActivityWidgetSettings"
             android:label="@string/title_activity_activity_widget_settings"
-            android:theme="@android:style/Theme.Holo" >
+            android:theme="@style/AppTheme" >
         </activity>
 
         <activity
             android:name="com.tajchert.hours.ui.ActivityAddColors"
             android:label="Add color"
-            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
+            android:theme="@style/AppThemeDialog" >
         </activity>
 
         <activity

@@ -12,10 +12,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class SettingsTabbed extends FragmentActivity implements ActionBar.TabListener{
+public class SettingsTabbed extends ActionBarActivity{
 	CollectionPagerAdapter mCollectionPagerAdapter;
 	ViewPager mViewPager;
 
@@ -69,7 +69,23 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 		
 		mCollectionPagerAdapter = new CollectionPagerAdapter(getSupportFragmentManager());
 
-		final ActionBar actionBar = getActionBar();
+        android.support.v7.app.ActionBar.TabListener tabListener = new android.support.v7.app.ActionBar.TabListener() {
+            @Override
+            public void onTabSelected(android.support.v7.app.ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(android.support.v7.app.ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+            }
+
+            @Override
+            public void onTabReselected(android.support.v7.app.ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+            }
+        };
+
+
+		final android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setHomeButtonEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -85,7 +101,7 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
 		for (int i = 0; i < mCollectionPagerAdapter.getCount(); i++) {
 			actionBar.addTab(actionBar.newTab()
 					.setText(mCollectionPagerAdapter.getPageTitle(i))
-					.setTabListener(this));
+					.setTabListener(tabListener));
 		}
 
 		// CUSTOM STUFF
@@ -108,20 +124,6 @@ public class SettingsTabbed extends FragmentActivity implements ActionBar.TabLis
                 showWelcomeDialog();
             }
         }
-	}
-
-	// SWIPE VIEWS
-	public void onTabUnselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
-	}
-
-	public void onTabSelected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
-		mViewPager.setCurrentItem(tab.getPosition());
-	}
-
-	public void onTabReselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
 	}
 
 	public class CollectionPagerAdapter extends FragmentPagerAdapter {

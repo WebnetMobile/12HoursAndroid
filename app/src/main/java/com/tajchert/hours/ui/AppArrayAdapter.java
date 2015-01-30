@@ -53,10 +53,10 @@ public class AppArrayAdapter extends ArrayAdapter<String> {
 		View rowView = inflater.inflate(R.layout.list_apps, parent, false);
 		TextView textView = (TextView) rowView.findViewById(R.id.label);
 		ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-		textView.setText(appNames.get(position));
-		imageView.setImageDrawable(appIconsAndNames.get(appNames.get(position)));
-		
- 
+        textView.setText(appNames.get(position) + "");
+        if (appIconsAndNames.get(appNames.get(position)) != null){
+            imageView.setImageDrawable(appIconsAndNames.get(appNames.get(position)));
+        }
 		return rowView;
 	}
 }

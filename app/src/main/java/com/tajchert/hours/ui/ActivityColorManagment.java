@@ -6,10 +6,10 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,13 +20,13 @@ import android.widget.Toast;
 import com.tajchert.hours.ColorManager;
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
+import com.tajchert.hours.WidgetUpdateService;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
-import com.tajchert.hours.WidgetUpdateService;
 
 import java.util.ArrayList;
 
-public class ActivityColorManagment extends FragmentActivity {
+public class ActivityColorManagment extends ActionBarActivity {
 
 	private ImageButton mNextButton;
 	private ImageButton mPrevButton;
