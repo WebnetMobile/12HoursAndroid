@@ -43,13 +43,6 @@
   <string name="tab_main_title_time">Boş Zaman Bulucu</string>
   <string name="tab_main_select_calendars">Takvimleri Seç</string>
   <string name="tab_main_friend_calendar_chooser_title">BUL</string>
-  <!--  ABOUT  -->
-  <string name="tab_extras_about_content">Selam! Ben Dev.\nBu uygulamanın size en çok yararı sağlaması için elimden geleni yapıyorum. Bu sebeple, lütfen bana bug bilgisi (eğer karşılaştıysanız) göndererek, değerlendirerek veya arkadaşlarınıza tavsiye ederek yardım edin.\nDaha fazla proje için beni G+ üzerinden takip edin.</string>
-  <string name="tab_extras_rate_title">Değerlendir!</string>
-  <string name="tab_extras_rate_middle">VE/YA DA</string>
-  <string name="tab_extras_share">Paylaş!</string>
-  <string name="tab_extras_contactme">Bana ulaş</string>
-  <!-- TODO: string name="tab_extras_googleplus" -->
   <!--  Color Screen  -->
   <string name="tab_style_color_aggressive">Agresif</string>
   <string name="tab_style_color_mild">Hafif</string>

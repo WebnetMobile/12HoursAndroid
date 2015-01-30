@@ -36,12 +36,6 @@
   <string name="tab_main_title_time">自由時間ファインダー</string>
   <string name="tab_main_select_calendars">カレンダーを選択</string>
   <string name="tab_main_friend_calendar_chooser_title">見つける</string>
-  <!--  ABOUT  -->
-  <string name="tab_extras_about_content">こんにちは！こちらはDevです。私は、このアプリがあなたにとって最も有用であるように尽力していますので、バグに関する情報を(それに気付いた場合)送信し、アプリを評価し、もしくはお友達にアプリを勧めるなどして私を助けてください。その他のプロジェクトに関しては、G+上で私をフォローしてください！</string>
-  <string name="tab_extras_rate_title">評価！</string>
-  <string name="tab_extras_rate_middle"> そして/あるいは </string>
-  <string name="tab_extras_share">共有！</string>
-  <string name="tab_extras_contactme">ご連絡ください</string>
   <!--  Color Screen  -->
   <string name="tab_style_color_aggressive">攻撃的</string>
   <string name="tab_style_color_mild">マイルド</string>

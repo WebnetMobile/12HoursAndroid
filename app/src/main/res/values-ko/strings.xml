@@ -36,12 +36,6 @@
   <string name="tab_main_title_time">자유시간 찾기</string>
   <string name="tab_main_select_calendars">달력 선택</string>
   <string name="tab_main_friend_calendar_chooser_title">찾기</string>
-  <!--  ABOUT  -->
-  <string name="tab_extras_about_content">안녕하세요! 개발자 입니다. 앱이 여러분께 도움이 되도록 노력하고 있으니 도와주세요 - 버그가 발견 되면 알려주시고 평가, 또 친구들에게 추천해주세요. G+ 에서 팔로우 하셔서 다른 프로젝트에 관한 소식도 들으세요!</string>
-  <string name="tab_extras_rate_title">평가!</string>
-  <string name="tab_extras_rate_middle">와/혹은</string>
-  <string name="tab_extras_share">공유!</string>
-  <string name="tab_extras_contactme">연락처</string>
   <!--  Color Screen  -->
   <string name="tab_style_color_aggressive">공격적</string>
   <string name="tab_style_color_mild">온화한</string>

@@ -25,7 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/divider"
-        android:background="@drawable/selectable_item_background"
         android:fontFamily="sans-serif-light"
         android:text="@string/color_add_addbutton"
         android:textAppearance="?android:attr/textAppearanceLarge" />

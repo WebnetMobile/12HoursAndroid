@@ -37,12 +37,6 @@
     <string name="tab_main_title_time">Trova Tempo Libero</string>
     <string name="tab_main_select_calendars">Seleziona Calendari</string>
     <string name="tab_main_friend_calendar_chooser_title">TROVA</string>
-    <!-- ABOUT -->
-    <string name="tab_extras_about_content">Ciao!\nSono lo sviluppatore.\nFaccio del mio meglio per rendere questa app il più utile possibile per voi, quindi aiutatemi per favore - inviandomi info sui bug (se ne notate), dandole un voto o raccomandandola ai vostri amici.\nSeguitemi su G+ per altri progetti!</string>
-    <string name="tab_extras_rate_title">Vota!</string>
-    <string name="tab_extras_rate_middle"> E/O </string>
-    <string name="tab_extras_share">Condividi!</string>
-    <string name="tab_extras_contactme">Contattami</string>
     <!-- Color Screen -->
     <string name="tab_style_color_aggressive">Aggressivo</string>
     <string name="tab_style_color_mild">Leggero</string>

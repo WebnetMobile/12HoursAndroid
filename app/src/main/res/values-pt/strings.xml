@@ -37,12 +37,6 @@
   <string name="tab_main_title_time">Buscador de tempo livre</string>
   <string name="tab_main_select_calendars">Selecionar calendários</string>
   <string name="tab_main_friend_calendar_chooser_title">BUSCAR</string>
-  <!--  ABOUT  -->
-  <string name="tab_extras_about_content">Olá! Aqui quem fala é o desenvolvedor.\nEstou fazendo o meu melhor para fazer essa app útil para você, então me ajude enviando erros (se você achar algum), dando nota ou recomendando para seus amigos. \nSiga-me no G+ para mais projetos!</string>
-  <string name="tab_extras_rate_title">Dê uma nota!</string>
-  <string name="tab_extras_rate_middle"> E/OU </string>
-  <string name="tab_extras_share">Compartilhar!</string>
-  <string name="tab_extras_contactme">Contate-me</string>
   <!--  Color Screen  -->
   <string name="tab_style_color_aggressive">Agressivo</string>
   <string name="tab_style_color_mild">Suave</string>

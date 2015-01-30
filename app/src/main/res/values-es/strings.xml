@@ -38,12 +38,6 @@
     <string name="tab_main_title_time">Encuentra Tiempo Libre</string>
     <string name="tab_main_select_calendars">Seleccionar calendarios</string>
     <string name="tab_main_friend_calendar_chooser_title">ENCONTRAR</string>
-    <!-- ABOUT -->
-    <string name="tab_extras_about_content">¡Hola!\nPor favor, ten en cuenta que el widget está en fase beta. Nunca esperé tanta popularidad, y estoy trabajando para corregir posibles errores. Gracias por usar este widget y compartirlo entre tus amigos.</string>
-    <string name="tab_extras_rate_title">Calificar!</string>
-    <string name="tab_extras_rate_middle"> Y/O </string>
-    <string name="tab_extras_share">¡Compartir!</string>
-    <string name="tab_extras_contactme">Escríbeme</string>
 
     <!-- Color Screen -->
     <string name="tab_style_color_aggressive">Agresivo</string>

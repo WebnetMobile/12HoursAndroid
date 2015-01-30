@@ -39,12 +39,6 @@
     <string name="tab_main_title_time">Znajdź Wolny Czas</string>
     <string name="tab_main_select_calendars">Wybierz kalendarze</string>
     <string name="tab_main_friend_calendar_chooser_title">Szukaj</string>
-    <!-- ABOUT -->
-    <string name="tab_extras_about_content">Witaj!\n Robię co mogę by ta aplikacja było możliwie użyteczna - jeśli chcesz pomóc wyślij mi błąd jeśli taki wystąpi, oceń ją w Google Play, i chwal się przed znajomymi.\nŚledź mnie na Google+ aby zobaczyć więcej moich projektów!</string>
-    <string name="tab_extras_rate_title">Oceń!</string>
-    <string name="tab_extras_rate_middle"> I/LUB </string>
-    <string name="tab_extras_share">Udostępnij!</string>
-    <string name="tab_extras_contactme">Mail</string>
 
     <!-- Color Screen -->
     <string name="tab_style_color_aggressive">Agresywne</string>

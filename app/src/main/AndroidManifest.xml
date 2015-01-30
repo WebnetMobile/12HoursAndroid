@@ -19,8 +19,8 @@
         <!-- Basic Config -->
         <activity
             android:name="com.tajchert.hours.config.Configure"
-            android:label="Widget configure"
-            android:theme="@style/AppThemeNoActionBar" >
+            android:label="12Hours"
+            android:theme="@style/AppTheme" >
 
             <!-- .Dialog if needed -->
             <intent-filter>

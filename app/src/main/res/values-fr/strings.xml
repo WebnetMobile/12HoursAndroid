@@ -36,12 +36,6 @@
   <string name="tab_main_title_time">Détecteur de Temps Libre</string>
   <string name="tab_main_select_calendars">Sélectionner le calendrier</string>
   <string name="tab_main_friend_calendar_chooser_title">TROUVER</string>
-  <!--  ABOUT  -->
-  <string name="tab_extras_about_content">Bonjour! Ici Dev.\n\nJe fais tout mon possible pour que l\'application soit le plus utile possible, alors aidez moi en me signalant les anomalies de fonctionnement (si vous en rencontrez) et en notant l\'application. N\'hésitez pas à partager votre expérience avec vos amis.\nSuivez moi sur G+ pour plus de projet. </string>
-  <string name="tab_extras_rate_title">Notez!</string>
-  <string name="tab_extras_rate_middle"> ET/OU </string>
-  <string name="tab_extras_share">Partager!</string>
-  <string name="tab_extras_contactme">Contacter moi</string>
   <!--  Color Screen  -->
   <string name="tab_style_color_aggressive">Agressif</string>
   <string name="tab_style_color_mild">Faible</string>

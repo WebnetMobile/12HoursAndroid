@@ -4,7 +4,6 @@ package com.tajchert.hours.ui;
 import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -23,7 +22,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,7 +30,6 @@ import com.tajchert.hours.Tools;
 import com.tajchert.hours.calendar.CalendarContentResolver;
 import com.tajchert.hours.calendar.CalendarObject;
 import com.tajchert.hours.calendar.Event;
-import com.tajchert.hours.changelog.ChangeLog;
 import com.tajchert.hours.lists.PickCalendars;
 import com.tajchert.hours.lists.WidgetsListAdapter;
 import com.tajchert.hours.widgets.WidgetListManager;
@@ -118,11 +115,6 @@ public class SettingsTabbed extends ActionBarActivity{
 				addWidgetsInfo.setVisibility(View.VISIBLE);
 			}
 		}
-        if(isFirstRun()){
-            if(dialogWelcome == null || !dialogWelcome.isShowing()){
-                showWelcomeDialog();
-            }
-        }
 	}
 
 	public class CollectionPagerAdapter extends FragmentPagerAdapter {
@@ -352,50 +344,6 @@ public class SettingsTabbed extends ActionBarActivity{
 			}
 		}
 	}
-
-    private void showWelcomeDialog(){
-        dialogWelcome = new Dialog(SettingsTabbed.this);
-        dialogWelcome.setContentView(R.layout.dialog_info_first_run);
-        dialogWelcome.setTitle("What is new?");
-        ImageButton imageCommunity = (ImageButton) dialogWelcome.findViewById(R.id.imageButtonCommunity);
-        ImageButton imageCode = (ImageButton) dialogWelcome.findViewById(R.id.imageButtonCode);
-        imageCommunity.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "https://plus.google.com/communities/108716578003125422667";
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-            }
-        });
-        imageCode.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "https://github.com/tajchert/12HoursAndroid";
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-            }
-        });
-        Button closeButton = (Button) dialogWelcome.findViewById(R.id.close_button);
-        closeButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                prefs.edit().putBoolean(Tools.WIDGET_FIRSTRUN, false).apply();
-                dialogWelcome.dismiss();
-            }
-        });
-        dialogWelcome.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                ChangeLog cl = new ChangeLog(SettingsTabbed.this);
-                if (cl.isFirstRun()) {
-                    cl.getLogDialog().show();
-                }
-            }
-        });
-        dialogWelcome.show();
-    }
 
     private boolean isFirstRun(){
         return prefs.getBoolean(Tools.WIDGET_FIRSTRUN, true);

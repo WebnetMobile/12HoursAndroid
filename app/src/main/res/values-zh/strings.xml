@@ -39,12 +39,6 @@
     <string name="tab_main_title_time">搜索空闲时间</string>
     <string name="tab_main_select_calendars">选择日历</string>
     <string name="tab_main_friend_calendar_chooser_title">寻找</string>
-    <!-- ABOUT -->
-    <string name="tab_extras_about_content">你好！我是Dev。\n我们正在努力完善这款应用。如果你注意到了任何错误或者漏洞，请通过您把漏洞信息发给我们，对该应用进行评分或者将它推荐给你的朋友的方式来帮助我们。请在G+关注我的更多项目。再次感谢您的支持和帮助。</string>
-    <string name="tab_extras_rate_title">评分！</string>
-    <string name="tab_extras_rate_middle"> 和\或  </string>
-    <string name="tab_extras_share">分享</string>
-    <string name="tab_extras_contactme">联系我</string>
 
     <!-- Color Screen -->
     <string name="tab_style_color_aggressive">积极进取</string>

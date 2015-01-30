@@ -22,12 +22,8 @@
     <color name="text_primary_color">#212121</color>
     <color name="text_secondary">#727272</color>
 
-    <color name="step_pager_previous_tab_color">#A8A8A8</color>
-    <color name="step_pager_selected_tab_color">#fff</color>
-    <color name="step_pager_selected_last_tab_color">#ff669900</color>
-    <color name="step_pager_next_tab_color">#5C5C5C</color>
-
-    <color name="review_green">#ff669900</color>
-
-    <color name="text_light">#fff</color>
+    <color name="step_pager_previous_tab_color">#3F51B5</color>
+    <color name="step_pager_selected_tab_color">#E040FB</color>
+    <color name="step_pager_selected_last_tab_color">#E040FB</color>
+    <color name="step_pager_next_tab_color">#727272</color>
 </resources>

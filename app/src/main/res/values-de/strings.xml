@@ -40,12 +40,6 @@
     <string name="tab_main_title_time">Suche nach freier Zeit</string>
     <string name="tab_main_select_calendars">FINDEN</string>
     <string name="tab_main_friend_calendar_chooser_title">FINDEN</string>
-    <!-- ABOUT -->
-    <string name="tab_extras_about_content">Hallo!\nHier ist Dev.\nIch tue mein Bestes, damit Sie den größten Nutzen aus dieser App haben. Deshalb helfen Sie mir bitte und schicken Sie mir eine Info mit dem Programmfehler (falls Sie ihn bemerken), oder bewerten Sie das Programm oder empfehlen Sie es an Freunde.\nFolgen Sie mir auf G+ für mehr Projekte!</string>
-    <string name="tab_extras_rate_title">Bewerten Sie!</string>
-    <string name="tab_extras_rate_middle"> UND/ODER </string>
-    <string name="tab_extras_share">Teilen!</string>
-    <string name="tab_extras_contactme">Kontaktieren Sie mich!</string>
 
     <!-- Color Screen -->
     <string name="tab_style_color_aggressive">Aufdringliche</string>

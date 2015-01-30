@@ -8,26 +8,24 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
+import com.tajchert.hours.WidgetUpdateService;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
-import com.tajchert.hours.WidgetUpdateService;
-import com.tajchert.hours.lists.StepPagerStrip;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Configure extends FragmentActivity {
+public class Configure extends ActionBarActivity {
 	private ViewPager mPager;
 	private MyPagerAdapter mAdapter;
     private boolean wasCalledByButton = false;//To avoid calling actionOnChange() twice when button moves pager
@@ -42,7 +40,6 @@ public class Configure extends FragmentActivity {
 	
 	private Button mNextButton;
 	private Button mPrevButton;
-	private StepPagerStrip mStepPagerStrip;
 	
 	private SharedPreferences prefs;
 	private boolean isFirstRun = false;
@@ -60,17 +57,6 @@ public class Configure extends FragmentActivity {
 		mAdapter = new MyPagerAdapter(getSupportFragmentManager());
 		mPager = (ViewPager) findViewById(R.id.pager);
 		mPager.setAdapter(mAdapter);
-		mStepPagerStrip = (StepPagerStrip) findViewById(R.id.strip);
-		mStepPagerStrip
-				.setOnPageSelectedListener(new StepPagerStrip.OnPageSelectedListener() {
-					@Override
-					public void onPageStripSelected(int position) {
-						position = Math.min(mAdapter.getCount() - 1, position);
-						if (mPager.getCurrentItem() != position) {
-							mPager.setCurrentItem(position);
-						}
-					}
-				});
 
 		mNextButton = (Button) findViewById(R.id.next_button);
 		mPrevButton = (Button) findViewById(R.id.prev_button);
@@ -83,12 +69,10 @@ public class Configure extends FragmentActivity {
                     actionOnChange();
                 }
                 wasCalledByButton = false;
-                mStepPagerStrip.setCurrentPage(position);
 
 				if (mConsumePageSelectedEvent) {
 					mConsumePageSelectedEvent = false;
 				}else{
-					mStepPagerStrip.setPageCount(mAdapter.getCount());
 					mEditingAfterReview = false;
 					updateBottomBar();
 				}
@@ -129,7 +113,6 @@ public class Configure extends FragmentActivity {
 					isCal = true;
 					setFragments();
 					mNextButton.setText(R.string.configure_next);
-					mStepPagerStrip.setVisibility(View.VISIBLE);
 					mAdapter = new MyPagerAdapter(getSupportFragmentManager());
 					mPager = (ViewPager) findViewById(R.id.pager);
 					mPager.setAdapter(mAdapter);
@@ -141,7 +124,6 @@ public class Configure extends FragmentActivity {
 				mPager.setCurrentItem(mPager.getCurrentItem() - 1);
 			}
 		});
-		mStepPagerStrip.setPageCount(mAdapter.getCount());
 		updateBottomBar();
 		
 	}
@@ -266,11 +248,6 @@ public class Configure extends FragmentActivity {
 			// R.style.TextAppearanceFinish);
 		} else {
 			mNextButton.setText(R.string.configure_next);
-			mNextButton.setBackgroundResource(R.drawable.selectable_item_background);
-			TypedValue v = new TypedValue();
-			getTheme().resolveAttribute(android.R.attr.textAppearanceMedium, v,
-					true);
-			mNextButton.setTextAppearance(this, v.resourceId);
 			// mNextButton.setEnabled(position != mAdapter.getCutOffPage());
 		}
 		mPrevButton.setVisibility(position <= 0 ? View.INVISIBLE : View.VISIBLE);
@@ -278,7 +255,6 @@ public class Configure extends FragmentActivity {
 			mNextButton.setText(R.string.configure_install_cal);
 			mPrevButton.setText(R.string.configure_continue_cal);
 			mPrevButton.setVisibility(View.VISIBLE);
-			mStepPagerStrip.setVisibility(View.GONE);
 		}
 	}
 	private boolean appInstalledOrNot(String uri) {

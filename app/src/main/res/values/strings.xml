@@ -47,13 +47,6 @@
     <string name="tab_main_title_time">Free Time Finder</string>
     <string name="tab_main_select_calendars">Select Calendars</string>
     <string name="tab_main_friend_calendar_chooser_title">FIND</string>
-    <!-- ABOUT -->
-    <string name="tab_extras_about_content">Hi! Dev here.\nI\'m doing my best to make this app most useful to you, so please help me - by sending bug info (if any noticed), rating it or by recommending it to friends.\nFollow me on G+ for more projects!</string>
-    <string name="tab_extras_rate_title">Rate!</string>
-    <string name="tab_extras_rate_middle"> AND/OR </string>
-    <string name="tab_extras_share">Share!</string>
-    <string name="tab_extras_contactme">Contact me</string>
-    <string name="tab_extras_googleplus" translatable="false">Google+</string>
 
     <!-- Color Screen -->
     <string name="tab_style_top_save" translatable="false">Save</string>
