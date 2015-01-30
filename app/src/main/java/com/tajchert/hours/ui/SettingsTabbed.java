@@ -3,7 +3,6 @@ package com.tajchert.hours.ui;
 
 import android.app.ActionBar;
 import android.app.Dialog;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -426,13 +425,6 @@ public class SettingsTabbed extends ActionBarActivity{
 		case R.id.action_colors:
 			intent = new Intent(this, ActivityColorManagment.class);
 			startActivity(intent);
-			break;
-		case R.id.action_about:
-			intent = new Intent(this, ActivityAbout.class);
-			startActivity(intent);
-			break;
-		case R.id.action_settings:
-			this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+ this.getPackageName().toString())));
 			break;
 		}
 

@@ -1,9 +1,0 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.tajchert.hours.ActivityColorManagment" >
-    <item android:id="@+id/action_done"
-          android:icon="@drawable/ic_action_ok"
-          android:title="@string/tab_style_top_save"
-          android:showAsAction="ifRoom"  />
-
-</menu>

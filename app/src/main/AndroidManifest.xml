@@ -46,13 +46,6 @@
         </activity>
 
         <activity
-            android:name="com.tajchert.hours.ui.ActivityAbout"
-            android:label="@string/menu_about"
-            android:theme="@style/AppTheme"
-            android:parentActivityName="com.tajchert.hours.ui.SettingsTabbed" >
-        </activity>
-
-        <activity
             android:name="com.tajchert.hours.ui.ActivityWidgetSettings"
             android:label="@string/title_activity_activity_widget_settings"
             android:theme="@style/AppTheme" >

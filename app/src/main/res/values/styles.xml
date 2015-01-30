@@ -2,19 +2,19 @@
 
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/app_main_color</item>
         <item name="colorPrimaryDark">@color/app_darker_color</item>
         <item name="colorAccent">@color/app_accent_color</item>
     </style>
 
-    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/app_main_color</item>
         <item name="colorPrimaryDark">@color/app_darker_color</item>
         <item name="colorAccent">@color/app_accent_color</item>
     </style>
 
-    <style name="AppThemeDialog" parent="Theme.AppCompat.Dialog">
+    <style name="AppThemeDialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorPrimary">@color/app_main_color</item>
         <item name="colorPrimaryDark">@color/app_darker_color</item>
         <item name="colorAccent">@color/app_accent_color</item>

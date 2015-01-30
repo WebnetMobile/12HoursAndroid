@@ -108,25 +108,6 @@ public class ActivityColorManagment extends ActionBarActivity {
 	    new SaveWidgetData().execute("");
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_color_managment, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		if( id == R.id.action_done){
-			new SaveWidgetData().execute("");
-		}
-		if(id == android.R.id.home){
-			new SaveWidgetData().execute("");
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
 	private class MyPagerAdapter extends FragmentStatePagerAdapter {
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
