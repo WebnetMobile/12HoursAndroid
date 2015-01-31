@@ -113,6 +113,14 @@
                 android:resource="@xml/widget_config" />
         </receiver>
 
+        <activity
+            android:name=".ui.FreeTimeActivity"
+            android:label="@string/title_activity_free_time"
+            android:parentActivityName=".ui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tajchert.hours.ui.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

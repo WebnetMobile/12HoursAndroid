@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-        <com.getbase.floatingactionbutton.AddFloatingActionButton
+        <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/normal_plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,6 +23,6 @@
             android:layout_marginBottom="16dp"
             fab:fab_colorNormal="@color/app_accent_color"
             fab:fab_colorPressed="@color/app_accent_color_darker"
-            fab:fab_plusIconColor="@color/fab_color_icon" />
+            fab:fab_icon="@drawable/ic_action_group" />
 
 </RelativeLayout>
