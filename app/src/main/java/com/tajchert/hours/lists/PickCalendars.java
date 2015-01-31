@@ -9,9 +9,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.tajchert.hours.R;
 import com.tajchert.hours.calendar.CalendarContentResolver;
 import com.tajchert.hours.calendar.CalendarObject;
-import com.tajchert.hours.R;
 import com.tajchert.hours.ui.FreeTimeActivity;
 
 import java.util.ArrayList;
@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class PickCalendars extends Activity {
 	private CalendarListAdapter marketListAdapter;
 	private ArrayList<CalendarObject> listCalendars;
+    private boolean shouldReturnResult = false;
 
 	private ListView calendarList;
 	
@@ -30,7 +31,9 @@ public class PickCalendars extends Activity {
         setContentView(R.layout.calendar_chooser_friends);
         calendarList = (ListView) findViewById(R.id.listViewCalendars);
         calendarList.setDividerHeight(1);
-        
+
+        Intent providedIntent = getIntent();
+        shouldReturnResult = providedIntent.getBooleanExtra("forResult", false);
        
 		Button buttonSelect = (Button) findViewById(R.id.buttonSelect);
 		buttonSelect.setOnClickListener(new OnClickListener() {
@@ -48,13 +51,22 @@ public class PickCalendars extends Activity {
 						arr = arr.substring(0, arr.length() - 4);
 					} catch (Exception e) {
 					}
-
-                    Intent returnIntent = new Intent(PickCalendars.this, FreeTimeActivity.class);
-					returnIntent.putExtra("calendars", arr);
-                    startActivity(returnIntent);
+                    if(shouldReturnResult){
+                        Intent returnIntent = new Intent();
+                        returnIntent.putExtra("calendars", arr);
+                        setResult(RESULT_OK, returnIntent);
+                    } else {
+                        Intent returnIntent = new Intent(PickCalendars.this, FreeTimeActivity.class);
+                        returnIntent.putExtra("calendars", arr);
+                        startActivity(returnIntent);
+                    }
 					finish();
 				}else{
-					finish();
+                    if(shouldReturnResult){
+                        Intent returnIntent = new Intent();
+                        setResult(RESULT_CANCELED, returnIntent);
+                    }
+                    finish();
 				}
 			}
 		});

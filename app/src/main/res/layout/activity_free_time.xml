@@ -24,18 +24,34 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/analogClockActivity"
         android:layout_alignLeft="@+id/analogClockActivity"
+        android:layout_alignStart="@+id/analogClockActivity"
         android:layout_alignRight="@+id/analogClockActivity"
+        android:layout_alignEnd="@+id/analogClockActivity"
         android:layout_alignTop="@+id/analogClockActivity" />
 
     <Button
         android:id="@+id/buttonCalendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:layout_alignBottom="@+id/analogClockActivity"
         android:layout_alignLeft="@+id/analogClockActivity"
+        android:layout_alignStart="@+id/analogClockActivity"
         android:layout_alignRight="@+id/analogClockActivity"
+        android:layout_alignEnd="@+id/analogClockActivity"
         android:layout_alignTop="@+id/analogClockActivity"
-        android:alpha="0"
         android:background="@drawable/roundedbutton" />
+
+    <Button
+        android:id="@+id/buttonCalendarChange"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/analogClockActivity"
+        android:layout_alignEnd="@+id/analogClockActivity"
+        android:layout_alignRight="@+id/analogClockActivity"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/ic_calendar" />
 
 </RelativeLayout>

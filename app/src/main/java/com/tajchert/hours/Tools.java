@@ -1,6 +1,9 @@
 package com.tajchert.hours;
 
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.view.MotionEvent;
+import android.view.View;
 
 public class Tools {
 	
@@ -37,6 +40,28 @@ public class Tools {
 	public final static int innerTransparency = 60;
 	public final static int gradientTransparency = 120;
 	public final static int outerTransparency = 210;
+
+    //UI
+    public static void buttonPressedEffect(View button){
+        button.setOnTouchListener(new View.OnTouchListener() {
+
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        v.getBackground().setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        v.getBackground().clearColorFilter();
+                        v.invalidate();
+                        break;
+                    }
+                }
+                return false;
+            }
+        });
+    }
 
 
 }
