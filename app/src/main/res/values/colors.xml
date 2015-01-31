@@ -18,6 +18,8 @@
     <color name="app_main_color">#3F51B5</color>
     <color name="app_darker_color">#303F9F</color>
     <color name="app_accent_color">#E040FB</color>
+    <color name="app_accent_color_darker">#ffde18fb</color>
+    <color name="fab_color_icon">#ffeaeaea</color>
     <color name="divider_color">#B6B6B6</color>
     <color name="text_primary_color">#212121</color>
     <color name="text_secondary">#727272</color>

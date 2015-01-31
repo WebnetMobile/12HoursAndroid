@@ -1,0 +1,68 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    card_view:cardCornerRadius="1dp"
+    card_view:cardElevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    
+    <ImageView
+        android:id="@+id/imageViewClockUnderflow"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_alignBottom="@+id/imageViewClockOverflow"
+        android:layout_alignLeft="@+id/imageViewClockOverflow"
+        android:layout_alignStart="@+id/imageViewClockOverflow"
+        android:layout_alignRight="@+id/imageViewClockOverflow"
+        android:layout_alignEnd="@+id/imageViewClockOverflow"
+        android:layout_alignTop="@+id/imageViewClockOverflow"
+         />
+    <ImageView
+        android:id="@+id/imageViewClockOverflow"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+         />
+	 
+    <AnalogClock
+        android:id="@+id/analogClockActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:dial="@drawable/empty"
+        android:hand_hour="@drawable/hand_hour"
+        android:hand_minute="@drawable/hand_minute"
+        android:layout_alignBottom="@+id/imageViewClockOverflow"
+        android:layout_alignLeft="@+id/imageViewClockOverflow"
+        android:layout_alignStart="@+id/imageViewClockOverflow"
+        android:layout_alignRight="@+id/imageViewClockOverflow"
+        android:layout_alignEnd="@+id/imageViewClockOverflow"
+        android:layout_alignTop="@+id/imageViewClockOverflow" />
+
+    
+
+    <TextView
+        android:id="@+id/labelCalNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageViewClockOverflow"
+        android:layout_toEndOf="@+id/imageViewClockOverflow"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:ellipsize="none"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:text="X"
+        android:fontFamily="sans-serif"
+        android:textSize="22sp" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

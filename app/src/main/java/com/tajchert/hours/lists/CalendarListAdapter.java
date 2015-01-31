@@ -18,9 +18,9 @@ import java.util.ArrayList;
 
 
 public class CalendarListAdapter extends BaseAdapter {
-	public ArrayList<CalendarObject> data = new ArrayList<CalendarObject>();
-	public WidgetInstance widget;
-	Context c;
+    public ArrayList<CalendarObject> data = new ArrayList<CalendarObject>();
+    public WidgetInstance widget;
+    Context c;
 	public CalendarListAdapter(ArrayList<CalendarObject> data, Context c, WidgetInstance widget) {
 		this.data = data;
 		this.c = c;
