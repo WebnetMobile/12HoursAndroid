@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -195,7 +196,7 @@ public class SettingsTabbed extends ActionBarActivity{
 
 		public void onActivityResult(int requestCode, int resultCode, Intent data) {
 	        	if (requestCode == 1) {
-	        		ClockDrawFreeTime clockSurface = new ClockDrawFreeTime(getView(), getActivity(), prefs, eventsTogether);
+	        		ClockDrawFreeTime clockSurface = new ClockDrawFreeTime(((ImageView)getView().findViewById(R.id.imageViewActivity)), getActivity(), prefs, eventsTogether);
 					if (resultCode == RESULT_OK) {
 						String calendars = data.getStringExtra("calendars");
 						String[] calendarsNames = calendars.split("<;;>");

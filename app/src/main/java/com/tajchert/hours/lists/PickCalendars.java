@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.tajchert.hours.calendar.CalendarContentResolver;
 import com.tajchert.hours.calendar.CalendarObject;
 import com.tajchert.hours.R;
+import com.tajchert.hours.ui.FreeTimeActivity;
 
 import java.util.ArrayList;
 
@@ -47,13 +48,12 @@ public class PickCalendars extends Activity {
 						arr = arr.substring(0, arr.length() - 4);
 					} catch (Exception e) {
 					}
-					Intent returnIntent = new Intent();
+
+                    Intent returnIntent = new Intent(PickCalendars.this, FreeTimeActivity.class);
 					returnIntent.putExtra("calendars", arr);
-					setResult(RESULT_OK, returnIntent);
+                    startActivity(returnIntent);
 					finish();
 				}else{
-					Intent returnIntent = new Intent();
-					setResult(RESULT_CANCELED, returnIntent);
 					finish();
 				}
 			}

@@ -13,14 +13,12 @@ import android.view.View;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.tajchert.hours.R;
-import com.tajchert.hours.calendar.CalendarContentResolver;
 import com.tajchert.hours.lists.PickCalendars;
 import com.tajchert.hours.lists.WidgetListRecyclerAdapter;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
 
 import java.util.ArrayList;
-import java.util.TreeMap;
 
 public class MainActivity extends ActionBarActivity {
     private RecyclerView widgetList;
@@ -29,7 +27,6 @@ public class MainActivity extends ActionBarActivity {
     private SharedPreferences prefs;
 
     private FloatingActionButton fab;
-    private static TreeMap<Long, Long> eventsTogether = new TreeMap<Long, Long>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +37,6 @@ public class MainActivity extends ActionBarActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CalendarContentResolver calRevolver = new CalendarContentResolver(MainActivity.this);
-                calRevolver.clear();
-                eventsTogether.clear();
                 Intent i = new Intent(MainActivity.this, PickCalendars.class);
                 startActivityForResult(i, 1);
             }

@@ -6,10 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.view.View;
 import android.widget.ImageView;
 
-import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
 import com.tajchert.hours.widgets.Widget;
 
@@ -22,13 +20,13 @@ public class ClockDrawFreeTime {
 	private TreeMap<Long, Long> eventsTogether = new TreeMap<Long, Long>();
 	private Context cont;
 	private SharedPreferences prefs;
-	private View activity;
+	private ImageView imageView;
 	
-	public ClockDrawFreeTime(View view, Context cont, SharedPreferences pref, TreeMap<Long, Long> eventsTogether){
+	public ClockDrawFreeTime(ImageView imageView, Context cont, SharedPreferences pref, TreeMap<Long, Long> eventsTogether){
 		this.cont = cont;
 		this.eventsTogether = eventsTogether;
 		this.prefs = pref;
-		this.activity = view;
+		this.imageView = imageView;
 	}
 	
 	void drawFull() {
@@ -80,13 +78,11 @@ public class ClockDrawFreeTime {
 
 		clock.drawEvent(0, 361, canvas, transparencyInnerColor,
                 transparencyOutColor, Color.GREEN, lastEnd, size, null);
-		ImageView iView = (ImageView) activity.findViewById(R.id.imageViewActivity);
-		iView.setImageBitmap(bitmap);
+		imageView.setImageBitmap(bitmap);
 	}
 	void drawEmpty(){
 		Bitmap bitmap = Bitmap.createBitmap(10, 10,Config.ARGB_8888);
-		ImageView iView = (ImageView) activity.findViewById(R.id.imageViewActivity);
-		iView.setImageBitmap(bitmap);
+        imageView.setImageBitmap(bitmap);
 	}
 
 	void drawEventsFromTogether() {
@@ -156,8 +152,7 @@ public class ClockDrawFreeTime {
 		clock.drawEvent(degreesLastEnd, dateInMilisecondsToDegrees(timeForNow),
                 canvas, transparencyInnerColor, transparencyOutColor,
                 Color.GREEN, lastEnd, size, null);
-		ImageView iView = (ImageView) activity.findViewById(R.id.imageViewActivity);
-		iView.setImageBitmap(bitmap);
+        imageView.setImageBitmap(bitmap);
 	}
 	
 	private int dateInMilisecondsToDegrees(long timeInMiliseconds) {
