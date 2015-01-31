@@ -356,7 +356,6 @@ public class ActivityWidgetSettings extends ActionBarActivity {
         	progressSelect.setMessage("Wait while loading...");
         	progressSelect.show();
         	builderSingle = new AlertDialog.Builder(ActivityWidgetSettings.this);
-    		builderSingle.setIcon(R.drawable.ic_launcher);
     		builderSingle.setTitle(getResources().getString(R.string.tab_extras_select_one_title));
         }
     }

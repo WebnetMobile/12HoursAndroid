@@ -39,6 +39,8 @@ public class WidgetListRecyclerAdapter extends RecyclerView.Adapter<HolderWidget
 
         setCalendarNames(contactViewHolder, widget);
         setCalendarThumbnail(contactViewHolder, widget);
+        contactViewHolder.context = context;
+        contactViewHolder.widgetId = widget.id;
     }
 
     private void setCalendarThumbnail(HolderWidget contactViewHolder, WidgetInstance widget) {

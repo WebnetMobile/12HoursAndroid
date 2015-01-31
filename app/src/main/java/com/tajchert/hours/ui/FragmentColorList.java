@@ -1,9 +1,9 @@
 package com.tajchert.hours.ui;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,12 +11,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.larswerkman.holocolorpicker.ColorPicker;
 import com.tajchert.hours.ColorManager;
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
@@ -28,8 +31,10 @@ public class FragmentColorList extends Fragment {
 	private ListView colorListView;
 	public static String ARG_PARAM1 ="colorNumber";
 	private int colorNumber = 0;
-	private SharedPreferences prefs;
 	private ColorListAdapter adapter = null;
+    private int newColor;
+    private SharedPreferences prefs;
+    private Dialog addColorDialog;
 
 	public FragmentColorList() {}
 
@@ -45,7 +50,6 @@ public class FragmentColorList extends Fragment {
 		}
 		title = (TextView) v.findViewById(R.id.textViewTitle);
 		colorListView = (ListView) v.findViewById(R.id.listViewColors);
-		
 		
 		switch(colorNumber){
 		case 0:
@@ -78,9 +82,7 @@ public class FragmentColorList extends Fragment {
 		            	if(position==9){
 		            		Toast.makeText(getActivity(), "Too many colors...", Toast.LENGTH_SHORT).show();
 		            	}else if(position>=ColorManager.getArray(prefs).length){
-		                	Log.d(Tools.AWESOME_TAG,"ADD COLOR");
-		                	Intent intent = new Intent(getActivity(), ActivityAddColors.class);
-		                    startActivity(intent);
+                            showAddDialog();
 		                }else{
 		                	DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
 		                	    @Override
@@ -91,7 +93,7 @@ public class FragmentColorList extends Fragment {
 		                	            adapter = new ColorListAdapter(ColorManager.getArray(prefs), getActivity(), true);
 		                		    	adapter.notifyDataSetChanged();
 		                		    	colorListView.setAdapter(adapter);
-		                		    	 colorListView.setDividerHeight(0);
+		                		    	colorListView.setDividerHeight(0);
 		                	            break;
 
 		                	        case DialogInterface.BUTTON_NEGATIVE:
@@ -125,5 +127,39 @@ public class FragmentColorList extends Fragment {
 	    	 Log.d(Tools.AWESOME_TAG,"adapter size:"+adapter.getCount());
 	     }
 	  }
+
+    private void showAddDialog(){
+        if(!FragmentColorList.this.isVisible()){
+            return;
+        }
+        addColorDialog = new Dialog(getActivity());
+        addColorDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        addColorDialog.setContentView(R.layout.activity_add_colors);
+
+        addColorDialog.show();
+
+        Button addButton = (Button) addColorDialog.findViewById(R.id.add_button);
+        ColorPicker picker = (ColorPicker) addColorDialog.findViewById(R.id.picker);
+
+        picker.setShowOldCenterColor(false);
+        picker.setOnColorSelectedListener(new ColorPicker.OnColorSelectedListener() {
+            @Override
+            public void onColorSelected(int i) {
+                newColor = i;
+            }
+        });
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ColorManager.addColor(prefs, newColor);
+                adapter = new ColorListAdapter(ColorManager.getArray(prefs), getActivity(), true);
+                adapter.notifyDataSetChanged();
+                colorListView.setAdapter(adapter);
+                colorListView.setDividerHeight(0);
+                addColorDialog.dismiss();
+            }
+        });
+    }
 
 }

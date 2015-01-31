@@ -1,11 +1,13 @@
 package com.tajchert.hours.ui;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
@@ -23,11 +25,13 @@ public class ActivityAddColors extends ActionBarActivity implements OnColorSelec
         Button addButton;
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_colors);
+        Dialog dialog = new Dialog(ActivityAddColors.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.activity_add_colors);
 		prefs = getSharedPreferences("com.tajchert.hours", MODE_PRIVATE);
 		
-		addButton = (Button) findViewById(R.id.add_button);
-		picker = (ColorPicker) findViewById(R.id.picker);
+		addButton = (Button) dialog.findViewById(R.id.add_button);
+		picker = (ColorPicker) dialog.findViewById(R.id.picker);
 		
 		picker.setShowOldCenterColor(false);
 		picker.setOnColorSelectedListener(this);
