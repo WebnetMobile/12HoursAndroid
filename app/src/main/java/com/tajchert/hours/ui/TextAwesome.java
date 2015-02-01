@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 public class TextAwesome extends TextView {
-
     private final static String NAME = "FONTAWESOME";
     private static LruCache<String, Typeface> sTypefaceCache = new LruCache<String, Typeface>(12);
 
@@ -37,5 +36,4 @@ public class TextAwesome extends TextView {
         setTypeface(typeface);
 
     }
-
 }

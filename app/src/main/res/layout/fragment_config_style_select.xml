@@ -26,13 +26,14 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
-        <ImageButton
+        <com.tajchert.hours.ui.TextAwesomeClicable
             android:id="@+id/designArrowLeft"
             android:layout_width="50dp"
             android:layout_height="200dp"
-            android:layout_marginTop="25dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_action_previous_item" />
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/fa_chevron_left"
+            android:textSize="50dp" />
 
         <RelativeLayout
             android:id="@+id/clockLayout"
@@ -72,13 +73,14 @@
 
         </RelativeLayout>
 
-        <ImageButton
+        <com.tajchert.hours.ui.TextAwesomeClicable
             android:id="@+id/designArrowRight"
             android:layout_width="50dp"
             android:layout_height="200dp"
-            android:layout_marginTop="25dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_action_next_item" />
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/fa_chevron_right"
+            android:textSize="50dp" />
     </LinearLayout>
 
 </RelativeLayout>

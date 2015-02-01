@@ -11,12 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
+import com.tajchert.hours.ui.TextAwesomeClicable;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
 
@@ -61,12 +61,12 @@ public class ConfigStyleSelect extends Fragment {
 	}
 	
 	private void setThings(View v){
-        ImageButton designArrowRight;
-        ImageButton designArrowLeft;
+        TextAwesomeClicable designArrowRight;
+        TextAwesomeClicable designArrowLeft;
 
 		imageViewClockOverflow = (ImageView) v.findViewById(R.id.imageViewClockOverflow);
-    	designArrowRight= (ImageButton) v.findViewById(R.id.designArrowRight);
-    	designArrowLeft= (ImageButton) v.findViewById(R.id.designArrowLeft);
+    	designArrowRight= (TextAwesomeClicable) v.findViewById(R.id.designArrowRight);
+    	designArrowLeft= (TextAwesomeClicable) v.findViewById(R.id.designArrowLeft);
     	styleNumber = (TextView) v.findViewById(R.id.textViewStyleNumber);
     	setStyleNumber();
     	

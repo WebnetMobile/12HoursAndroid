@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/topClockPreview"
         android:layout_width="match_parent"
-        android:layout_height="100dp" >
+        android:layout_height="100dp">
 
         <ImageView
             android:id="@+id/imageViewClockUnderflow"
@@ -24,7 +24,7 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true" />
-        
+
         <AnalogClock
             android:id="@+id/analogClockActivity"
             android:layout_width="wrap_content"
@@ -38,7 +38,6 @@
             android:hand_hour="@drawable/hand_hour"
             android:hand_minute="@drawable/hand_minute" />
 
-        
 
         <View
             android:id="@+id/divider"
@@ -61,39 +60,46 @@
             android:text="@string/widget_settings_style_title"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <ImageButton
+        <com.tajchert.hours.ui.TextAwesomeClicable
             android:id="@+id/imageButtonNext"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_toRightOf="@+id/imageViewClockUnderflow"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_action_next_item" />
+            android:gravity="center"
+            android:text="@string/fa_chevron_right"
+            android:textSize="30dp" />
 
-        <ImageButton
+
+        <com.tajchert.hours.ui.TextAwesomeClicable
             android:id="@+id/imageButtonPrev"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/imageViewClockUnderflow"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_action_previous_item" />
+            android:gravity="center"
+            android:text="@string/fa_chevron_left"
+            android:textSize="30dp" />
     </RelativeLayout>
 
     <ScrollView
         android:id="@+id/TransparencySettings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/topClockPreview" >
+        android:layout_below="@+id/topClockPreview">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:id="@+id/GradientIntensity"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/textView1"
@@ -143,7 +149,7 @@
                 android:id="@+id/PieIntensity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/GradientIntensity" >
+                android:layout_below="@+id/GradientIntensity">
 
                 <TextView
                     android:id="@+id/TextView02"
@@ -192,7 +198,7 @@
                 android:id="@+id/OuterIntensity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/PieIntensity" >
+                android:layout_below="@+id/PieIntensity">
 
                 <TextView
                     android:id="@+id/TextView04"
@@ -275,7 +281,7 @@
                 android:layout_height="140dp"
                 android:layout_below="@+id/textView3"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true" >
+                android:layout_centerVertical="true">
 
                 <ImageView
                     android:id="@+id/imageViewClockPreview"
@@ -324,36 +330,37 @@
                 android:layout_centerVertical="true"
                 android:layout_marginTop="20dp"
                 android:background="#ffffff" />
+
             <LinearLayout
-                 android:id="@+id/layoutCheckboxes"
+                android:id="@+id/layoutCheckboxes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/separatorThree"
                 android:layout_centerHorizontal="true"
-                android:orientation="vertical"
-                android:gravity="left">
+                android:gravity="left"
+                android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/checkBoxCalendarFullDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="sans-serif-light"
-                android:text="@string/configure_fullday" />
+                <CheckBox
+                    android:id="@+id/checkBoxCalendarFullDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@string/configure_fullday" />
 
-            <CheckBox
-                android:id="@+id/checkBoxCalendarColors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:text="@string/configure_colorfromcalendar" />
+                <CheckBox
+                    android:id="@+id/checkBoxCalendarColors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@string/configure_colorfromcalendar" />
 
-            <CheckBox
-                android:id="@+id/checkBoxCalendarGoing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:text="@string/configure_notgoing" />
+                <CheckBox
+                    android:id="@+id/checkBoxCalendarGoing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@string/configure_notgoing" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
