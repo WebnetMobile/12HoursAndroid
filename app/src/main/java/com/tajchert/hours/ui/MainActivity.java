@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.melnykov.fab.FloatingActionButton;
 import com.tajchert.hours.R;
 import com.tajchert.hours.lists.PickCalendars;
 import com.tajchert.hours.lists.WidgetListRecyclerAdapter;

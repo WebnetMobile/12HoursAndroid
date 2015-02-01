@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/topClockPreview"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="130dp"
+        android:background="@color/app_main_color"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
 
         <ImageView
             android:id="@+id/imageViewClockUnderflow"
@@ -37,28 +42,6 @@
             android:dial="@drawable/empty"
             android:hand_hour="@drawable/hand_hour"
             android:hand_minute="@drawable/hand_minute" />
-
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="fill_parent"
-            android:layout_height="1dip"
-            android:layout_below="@+id/imageViewClockOverflow"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="2dp"
-            android:background="#ffffff" />
-
-        <TextView
-            android:id="@+id/textViewStyleTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/divider"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="7dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/widget_settings_style_title"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.tajchert.hours.ui.TextAwesomeClicable
             android:id="@+id/imageButtonNext"
@@ -92,201 +75,119 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/topClockPreview">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/GradientIntensity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="7dp"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/tab_style_radial_gradient"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <SeekBar
-                    android:id="@+id/seekbarGradientTransparency"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/textView1"
-                    android:layout_marginTop="5dp"
-                    android:max="255" />
-
-                <TextView
-                    android:id="@+id/textViewRight"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView1"
-                    android:layout_alignBottom="@+id/textView1"
-                    android:layout_alignParentRight="true"
-                    android:fontFamily="sans-serif-light"
-                    android:gravity="right"
-                    android:text="100"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/textViewLeft"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView1"
-                    android:layout_alignBottom="@+id/textView1"
-                    android:layout_alignParentLeft="true"
-                    android:fontFamily="sans-serif-light"
-                    android:text="0"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/PieIntensity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/GradientIntensity">
-
-                <TextView
-                    android:id="@+id/TextView02"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/TextView03"
-                    android:layout_toRightOf="@+id/TextView01"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="@string/tab_style_inner_intensity"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <SeekBar
-                    android:id="@+id/SeekBarPieIntensity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TextView02"
-                    android:layout_marginTop="10dp"
-                    android:max="255" />
-
-                <TextView
-                    android:id="@+id/TextView01"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/TextView02"
-                    android:layout_alignParentLeft="true"
-                    android:fontFamily="sans-serif-light"
-                    android:text="0"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/TextView03"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/TextView02"
-                    android:layout_alignParentRight="true"
-                    android:fontFamily="sans-serif-light"
-                    android:gravity="right"
-                    android:text="100"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/OuterIntensity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/PieIntensity">
-
-                <TextView
-                    android:id="@+id/TextView04"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/TextView06"
-                    android:layout_toRightOf="@+id/TextView05"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="@string/tab_style_outer_intensity"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <SeekBar
-                    android:id="@+id/SeekBarOut"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TextView04"
-                    android:layout_marginTop="5dp"
-                    android:max="255" />
-
-                <TextView
-                    android:id="@+id/TextView05"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/SeekBarOut"
-                    android:layout_alignParentLeft="true"
-                    android:fontFamily="sans-serif-light"
-                    android:text="0"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/TextView06"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/SeekBarOut"
-                    android:layout_alignParentRight="true"
-                    android:fontFamily="sans-serif-light"
-                    android:gravity="right"
-                    android:text="100"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/separator"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="5dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/tab_style_radial_gradient"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_secondary" />
+
+            <com.appyvet.rangebar.RangeBar
+                android:id="@+id/seekbarGradientTransparency"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_below="@+id/textView1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="-7dp"
+                custom:rangeBar="false"
+                custom:tickEnd="255"
+                custom:tickInterval="10" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/tab_style_inner_intensity"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_secondary" />
+
+            <com.appyvet.rangebar.RangeBar
+                android:id="@+id/SeekBarPieIntensity"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="-7dp"
+                custom:rangeBar="false"
+                custom:tickEnd="255"
+                custom:tickInterval="10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/tab_style_outer_intensity"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_secondary" />
+
+
+            <com.appyvet.rangebar.RangeBar
+                android:id="@+id/SeekBarOut"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="-7dp"
+                custom:rangeBar="false"
+                custom:tickEnd="255"
+                custom:tickInterval="10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
                 android:fontFamily="sans-serif"
                 android:gravity="left"
                 android:text="@string/widget_settings_action_title"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/text_primary_color" />
 
             <View
-                android:id="@+id/separator"
                 android:layout_width="fill_parent"
-                android:layout_height="1dip"
-                android:layout_below="@+id/OuterIntensity"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="20dp"
-                android:background="#ffffff" />
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/divider_color" />
 
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/separator"
-                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:text="@string/configure_choose_program_title"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_secondary" />
 
             <RelativeLayout
-                android:id="@+id/buttonLayout"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_below="@+id/textView3"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true">
+                android:layout_gravity="center_horizontal">
 
                 <ImageView
                     android:id="@+id/imageViewClockPreview"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:layout_width="143dp"
+                    android:layout_height="143dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/clock_preview" />
@@ -298,7 +199,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:alpha="0.7"
-                    android:background="@drawable/rounded_color_button_big" />
+                    android:background="@drawable/circlebutton_color_main" />
 
                 <Button
                     android:id="@+id/buttonProgram"
@@ -307,43 +208,39 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:alpha="0.5"
-                    android:background="@drawable/rounded_color_button"
+                    android:background="@drawable/circlebutton_color_accent"
                     android:fontFamily="sans-serif-light" />
             </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/separatorThree"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif"
                 android:gravity="left"
                 android:text="@string/widget_settings_action_event"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/text_primary_color" />
 
             <View
-                android:id="@+id/separatorThree"
                 android:layout_width="fill_parent"
-                android:layout_height="1dip"
-                android:layout_below="@+id/buttonLayout"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="20dp"
-                android:background="#ffffff" />
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/divider_color" />
 
             <LinearLayout
-                android:id="@+id/layoutCheckboxes"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/separatorThree"
-                android:layout_centerHorizontal="true"
-                android:gravity="left"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
+
 
                 <CheckBox
                     android:id="@+id/checkBoxCalendarFullDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
                     android:layout_marginTop="5dp"
                     android:fontFamily="sans-serif-light"
                     android:text="@string/configure_fullday" />
@@ -352,6 +249,7 @@
                     android:id="@+id/checkBoxCalendarColors"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
                     android:fontFamily="sans-serif-light"
                     android:text="@string/configure_colorfromcalendar" />
 
@@ -359,10 +257,27 @@
                     android:id="@+id/checkBoxCalendarGoing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
                     android:fontFamily="sans-serif-light"
                     android:text="@string/configure_notgoing" />
+
             </LinearLayout>
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
+
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/normal_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topClockPreview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="-20dp"
+        android:src="@drawable/ic_action_settings"
+        fab:fab_colorNormal="@color/app_accent_color"
+        fab:fab_colorPressed="@color/app_accent_color_darker"
+        fab:fab_colorRipple="@color/app_accent_color_ripple"
+        fab:fab_shadow="false"
+        fab:fab_type="mini" />
 
 </RelativeLayout>

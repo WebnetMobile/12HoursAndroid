@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.melnykov.fab.FloatingActionButton;
 import com.tajchert.hours.R;
 import com.tajchert.hours.calendar.CalendarContentResolver;
 import com.tajchert.hours.calendar.Event;

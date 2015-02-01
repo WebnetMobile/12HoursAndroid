@@ -3,6 +3,7 @@
     <color name="app_darker_color">#ff303f9f</color>
     <color name="app_accent_color">#ffe040fb</color>
     <color name="app_accent_color_darker">#ffc234d7</color>
+    <color name="app_accent_color_ripple">#ff872898</color>
     <color name="fab_color_icon">#ffeaeaea</color>
     <color name="divider_color">#B6B6B6</color>
     <color name="text_primary_color">#ff212121</color>

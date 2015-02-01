@@ -40,7 +40,7 @@
         android:background="@drawable/circlebutton" />
 
 
-    <com.getbase.floatingactionbutton.FloatingActionButton
+    <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fab_calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,8 +50,9 @@
         android:layout_marginRight="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_action_group"
+        fab:fab_colorRipple="@color/app_accent_color_ripple"
         fab:fab_colorNormal="@color/app_accent_color"
-        fab:fab_colorPressed="@color/app_accent_color_darker"
-        fab:fab_icon="@drawable/ic_action_group" />
+        fab:fab_colorPressed="@color/app_accent_color_darker" />
 
 </RelativeLayout>

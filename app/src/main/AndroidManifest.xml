@@ -46,7 +46,8 @@
         <activity
             android:name=".ui.ActivityWidgetSettings"
             android:label="@string/title_activity_activity_widget_settings"
-            android:theme="@style/AppTheme"
+            android:theme="@style/AppThemeNoActionBar"
+            android:configChanges="keyboardHidden|orientation"
             android:parentActivityName=".ui.MainActivity">
         </activity>
         <activity

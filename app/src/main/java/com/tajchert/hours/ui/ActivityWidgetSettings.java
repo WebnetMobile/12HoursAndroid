@@ -11,7 +11,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -20,9 +19,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 
+import com.appyvet.rangebar.RangeBar;
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
 import com.tajchert.hours.WidgetUpdateService;
@@ -41,9 +39,9 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 	private CheckBox checkFullDay;
 	private CheckBox checkEventColors;
 	private CheckBox checkNotGoing;
-	private SeekBar seekbarGradientTransparency;
-	private SeekBar SeekBarPieIntensity;
-	private SeekBar SeekBarOutIntensity;
+	private RangeBar seekbarGradientTransparency;
+	private RangeBar SeekBarPieIntensity;
+	private RangeBar SeekBarOutIntensity;
 	
 	private Button buttonSelect;
 	private Button buttonSelectOuter;
@@ -61,23 +59,19 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_widget_settings);
 		setViewElements();
-		Bundle b = getIntent().getExtras();
-		String widgetId = b.getString("widgetID");
+
 		prefs = getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
-		widget = WidgetListManager.getWidgetInstance(prefs, widgetId);
-		position = widget.style;
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            try {
-                getActionBar().setDisplayHomeAsUpEnabled(true);
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-            }
-        }
+
 	}
 	@Override
 	protected void onResume() {
 	    super.onResume();
+        Bundle b = getIntent().getExtras();
+        String widgetId = b.getString("widgetID");
+        widget = WidgetListManager.getWidgetInstance(prefs, widgetId);
+
 	    if(widget != null){
+            position = widget.style;
 	    	new SetWidgetData().execute("");
 	    	//setState();
 	    }else{
@@ -87,8 +81,8 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 	
 	@Override
 	protected void onPause(){
+        new SaveWidgetData().execute("");
 		super.onPause();
-		new SaveWidgetData().execute("");
 	}
 	
 	private class SetWidgetData extends AsyncTask<String, Void, String> {
@@ -116,10 +110,6 @@ public class ActivityWidgetSettings extends ActionBarActivity {
             return "Executed";
         }
         @Override
-        protected void onPostExecute(String result) {
-        	ActivityWidgetSettings.this.finish();
-        }
-        @Override
         protected void onPreExecute() {
         	if(widget!=null){
         		WidgetListManager.updateWidget(widget.id, prefs, widget);
@@ -128,9 +118,9 @@ public class ActivityWidgetSettings extends ActionBarActivity {
     }
 
 	private void setViewElements(){
-		seekbarGradientTransparency = (SeekBar) findViewById(R.id.seekbarGradientTransparency);
-		SeekBarPieIntensity = (SeekBar) findViewById(R.id.SeekBarPieIntensity);
-		SeekBarOutIntensity = (SeekBar) findViewById(R.id.SeekBarOut);
+		seekbarGradientTransparency = (RangeBar) findViewById(R.id.seekbarGradientTransparency);
+		SeekBarPieIntensity = (RangeBar) findViewById(R.id.SeekBarPieIntensity);
+		SeekBarOutIntensity = (RangeBar) findViewById(R.id.SeekBarOut);
 		buttonSelect = (Button) findViewById(R.id.buttonProgram);
 		buttonSelectOuter = (Button) findViewById(R.id.buttonProgramOut);
 		
@@ -148,42 +138,45 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 		// Set underOverflow
 		updatePreview();
 		
-		seekbarGradientTransparency.setProgress(widget.transparencyCenter);
-		seekbarGradientTransparency.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-					int tmp = 0;
-					public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-						tmp = progress;
-					}
-					public void onStartTrackingTouch(SeekBar seekBar) {}
-					public void onStopTrackingTouch(SeekBar seekBar) {
-						widget.transparencyCenter = tmp;
-						updatePreview();
-					}
-		});
-		SeekBarPieIntensity.setProgress(widget.transparencyInner);
-		SeekBarPieIntensity.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-					int tmp = 0;
-					public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-						tmp = progress;
-					}
-					public void onStartTrackingTouch(SeekBar seekBar) {}
-					public void onStopTrackingTouch(SeekBar seekBar) {
-						widget.transparencyInner = tmp;
-						updatePreview();
-					}
-		});
-		SeekBarOutIntensity.setProgress(widget.transparencyOuter);
-		SeekBarOutIntensity.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-					int tmp = 0;
-					public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-						tmp = progress;
-					}
-					public void onStartTrackingTouch(SeekBar seekBar) {}
-					public void onStopTrackingTouch(SeekBar seekBar) {
-						widget.transparencyOuter = tmp;
-						updatePreview();
-					}
-		});
+		seekbarGradientTransparency.setSeekPinByValue(widget.transparencyCenter);
+        seekbarGradientTransparency.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
+            int tmp = 0;
+            @Override
+            public void onRangeChangeListener(RangeBar rangeBar, int i, int i2, String s, String s2) {
+                if(i2 != tmp){
+                    tmp = i2 * 10;
+                    widget.transparencyCenter = tmp;
+                    updatePreview();
+                }
+            }
+        });
+
+        SeekBarPieIntensity.setSeekPinByValue(widget.transparencyInner);
+        SeekBarPieIntensity.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
+            int tmp = 0;
+            @Override
+            public void onRangeChangeListener(RangeBar rangeBar, int i, int i2, String s, String s2) {
+                if(i2 != tmp){
+                    tmp = i2 * 10;
+                    widget.transparencyInner = tmp;
+                    updatePreview();
+                }
+            }
+        });
+
+        SeekBarOutIntensity.setSeekPinByValue(widget.transparencyOuter);
+        SeekBarOutIntensity.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
+            int tmp = 0;
+            @Override
+            public void onRangeChangeListener(RangeBar rangeBar, int i, int i2, String s, String s2) {
+                if(i2 != tmp){
+                    tmp = i2 * 10;
+                    widget.transparencyOuter = tmp;
+                    updatePreview();
+                }
+            }
+        });
+
 		if(widget.showFullDay){
 			checkFullDay.setChecked(true);
 		}else{
