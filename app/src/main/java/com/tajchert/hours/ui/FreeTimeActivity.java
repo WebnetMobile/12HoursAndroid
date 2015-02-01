@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.tajchert.hours.R;
-import com.tajchert.hours.Tools;
 import com.tajchert.hours.calendar.CalendarContentResolver;
 import com.tajchert.hours.calendar.Event;
 import com.tajchert.hours.lists.PickCalendars;
@@ -44,7 +44,7 @@ public class FreeTimeActivity extends ActionBarActivity {
     }
 
     private void setButtons() {
-        Button calendarChange = (Button) findViewById(R.id.buttonCalendarChange);
+        FloatingActionButton calendarChange = (FloatingActionButton) findViewById(R.id.fab_calendar);
         Button buttonCalendar = (Button) findViewById(R.id.buttonCalendar);
         buttonCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +59,6 @@ public class FreeTimeActivity extends ActionBarActivity {
                 }
             }
         });
-        Tools.buttonPressedEffect(calendarChange);
         calendarChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
