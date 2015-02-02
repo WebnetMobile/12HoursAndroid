@@ -13,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -59,6 +60,12 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_widget_settings);
 		setViewElements();
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 		prefs = getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
 
@@ -154,9 +161,10 @@ public class ActivityWidgetSettings extends ActionBarActivity {
         SeekBarPieIntensity.setSeekPinByValue(widget.transparencyInner);
         SeekBarPieIntensity.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
             int tmp = 0;
+
             @Override
             public void onRangeChangeListener(RangeBar rangeBar, int i, int i2, String s, String s2) {
-                if(i2 != tmp){
+                if (i2 != tmp) {
                     tmp = i2 * 10;
                     widget.transparencyInner = tmp;
                     updatePreview();
@@ -193,26 +201,26 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 			checkEventColors.setChecked(false);
 		}
 		checkFullDay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-		       @Override
-		       public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-		    	   widget.showFullDay = isChecked;
-		    	   updatePreview();
-		       }
-		   });
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                widget.showFullDay = isChecked;
+                updatePreview();
+            }
+        });
 		checkNotGoing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-		       @Override
-		       public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-		    	   widget.showNotGoing = isChecked;
-		    	   updatePreview();
-		       }
-		   }); 
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                widget.showNotGoing = isChecked;
+                updatePreview();
+            }
+        });
 		checkEventColors.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-		       @Override
-		       public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-		    	   widget.useCalendarColor = isChecked;
-		    	   updatePreview();
-		       }
-		   }); 
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                widget.useCalendarColor = isChecked;
+                updatePreview();
+            }
+        });
 		
 		buttonSelect.setOnClickListener(new OnClickListener() {
 			@Override

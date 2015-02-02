@@ -12,6 +12,7 @@
         <item name="colorPrimary">@color/app_main_color</item>
         <item name="colorPrimaryDark">@color/app_darker_color</item>
         <item name="colorAccent">@color/app_accent_color</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 
     <style name="AppThemeDialog" parent="Theme.AppCompat.Light.Dialog">
