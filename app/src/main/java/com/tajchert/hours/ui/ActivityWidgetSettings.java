@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -54,6 +55,9 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 	//Preview
 	private ImageView viewUnder;
 	private ImageView viewOver;
+    private Runnable runnable = null;
+    private final Handler handler = new Handler();
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -153,7 +157,7 @@ public class ActivityWidgetSettings extends ActionBarActivity {
                 if(i2 != tmp){
                     tmp = i2 * 10;
                     widget.transparencyCenter = tmp;
-                    updatePreview();
+                    updatePreviewCallback();
                 }
             }
         });
@@ -167,7 +171,7 @@ public class ActivityWidgetSettings extends ActionBarActivity {
                 if (i2 != tmp) {
                     tmp = i2 * 10;
                     widget.transparencyInner = tmp;
-                    updatePreview();
+                    updatePreviewCallback();
                 }
             }
         });
@@ -180,7 +184,7 @@ public class ActivityWidgetSettings extends ActionBarActivity {
                 if(i2 != tmp){
                     tmp = i2 * 10;
                     widget.transparencyOuter = tmp;
-                    updatePreview();
+                    updatePreviewCallback();
                 }
             }
         });
@@ -239,7 +243,7 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 			public void onClick(View v) {
 				if(position>0){
 					position--;
-					updatePreview();
+                    updatePreviewCallback();
 				}
 			}
 		});
@@ -248,12 +252,26 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 			public void onClick(View v) {
 				if(position<(Tools.clock_layouts.length-1)){
 					position++;
-					updatePreview();
+                    updatePreviewCallback();
 				}
 			}
 		});
 		
 	}
+
+    private void updatePreviewCallback(){
+        if (runnable != null)
+            handler.removeCallbacks(runnable);
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                updatePreview();
+                handler.removeCallbacks(runnable);
+                runnable = null;
+            }
+        };
+        handler.postDelayed(runnable, 200);
+    }
 	
 	private void updatePreview(){
 		Bitmap clockBackground = null;
