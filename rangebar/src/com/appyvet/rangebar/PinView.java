@@ -244,7 +244,7 @@ class PinView extends View {
             if (mValue.length() > 4) {
                 text = mValue.substring(0, 4);
             }
-            calibrateTextSize(mTextPaint, text, 8, 24, mBounds.width());
+            calibrateTextSize(mTextPaint, text, 12, 45, mBounds.width());
             mTextPaint.getTextBounds(text, 0, text.length(), mBounds);
             mTextPaint.setTextAlign(Paint.Align.CENTER);
             mPin.setColorFilter(mPinFilter);

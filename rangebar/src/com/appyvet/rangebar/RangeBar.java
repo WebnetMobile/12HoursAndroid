@@ -91,7 +91,7 @@ public class RangeBar extends View {
 
     private static final float DEFAULT_CIRCLE_SIZE_DP = 5;
 
-    private static final float DEFAULT_BAR_PADDING_BOTTOM_DP = 24;
+    private static final float DEFAULT_BAR_PADDING_BOTTOM_DP = 16;
 
     // Instance variables for all of the customizable attributes
 

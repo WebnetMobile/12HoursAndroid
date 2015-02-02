@@ -1,17 +1,11 @@
 <resources>
-    <color name="app_main_color">#ff3f51b5</color>
-    <color name="app_darker_color">#ff303f9f</color>
-    <color name="app_accent_color">#ffe040fb</color>
-    <color name="app_accent_color_darker">#ffc234d7</color>
-    <color name="app_accent_color_ripple">#ff872898</color>
+    <color name="app_main_color">#009688</color>
+    <color name="app_darker_color">#00796B</color>
+    <color name="app_accent_color">#ff00bcd4</color>
+    <color name="app_accent_color_darker">#ff0097a9</color>
+    <color name="app_accent_color_ripple">#ff00abbd</color>
     <color name="fab_color_icon">#ffeaeaea</color>
     <color name="divider_color">#B6B6B6</color>
     <color name="text_primary_color">#ff212121</color>
     <color name="text_secondary">#ff727272</color>
-
-
-    <color name="step_pager_previous_tab_color">#ff3f51b5</color>
-    <color name="step_pager_selected_tab_color">#ffe040fb</color>
-    <color name="step_pager_selected_last_tab_color">#ffe040fb</color>
-    <color name="step_pager_next_tab_color">#ff727272</color>
 </resources>
