@@ -14,7 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
@@ -38,8 +38,8 @@ public class Configure extends ActionBarActivity {
 	private boolean isCal;
 
 	
-	private Button mNextButton;
-	private Button mPrevButton;
+	private TextView mNextButton;
+	private TextView mPrevButton;
 	
 	private SharedPreferences prefs;
 	private boolean isFirstRun = false;
@@ -58,8 +58,8 @@ public class Configure extends ActionBarActivity {
 		mPager = (ViewPager) findViewById(R.id.pager);
 		mPager.setAdapter(mAdapter);
 
-		mNextButton = (Button) findViewById(R.id.next_button);
-		mPrevButton = (Button) findViewById(R.id.prev_button);
+		mNextButton = (TextView) findViewById(R.id.next_button);
+		mPrevButton = (TextView) findViewById(R.id.prev_button);
 		
 		
 		mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {

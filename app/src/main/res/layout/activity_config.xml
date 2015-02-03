@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
@@ -9,30 +10,47 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <View android:id="@+id/divider"
-        android:layout_height="1dp"
-        android:layout_width="match_parent" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:background="@drawable/selectable_item_background"
-            android:id="@+id/prev_button"
+        <com.andexert.library.RippleView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/configure_prev" />
+            android:layout_weight="1"
+            ripple:rv_color="@color/app_accent_color">
 
-        <Button
-            android:background="@drawable/selectable_item_background"
-            android:id="@+id/next_button"
+
+            <TextView
+                android:id="@+id/prev_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:text="@string/configure_prev" />
+
+        </com.andexert.library.RippleView>
+
+        <com.andexert.library.RippleView
             android:layout_width="0dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/configure_next" />
+            ripple:rv_color="@color/app_accent_color">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:id="@+id/next_button"
+                android:text="@string/configure_next" />
+        </com.andexert.library.RippleView>
 
     </LinearLayout>
 
