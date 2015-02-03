@@ -118,6 +118,7 @@
                 custom:rangeBar="false"
                 custom:selectorColor="@color/app_accent_color"
                 custom:selectorSize="2dp"
+                custom:tickColor="@color/app_darker_color"
                 custom:tickEnd="255"
                 custom:tickInterval="10" />
 
@@ -145,6 +146,7 @@
                 custom:rangeBar="false"
                 custom:selectorColor="@color/app_accent_color"
                 custom:selectorSize="2dp"
+                custom:tickColor="@color/app_darker_color"
                 custom:tickEnd="255"
                 custom:tickInterval="10" />
 
@@ -174,6 +176,7 @@
                 custom:rangeBar="false"
                 custom:selectorColor="@color/app_accent_color"
                 custom:selectorSize="2dp"
+                custom:tickColor="@color/app_darker_color"
                 custom:tickEnd="255"
                 custom:tickInterval="10" />
 

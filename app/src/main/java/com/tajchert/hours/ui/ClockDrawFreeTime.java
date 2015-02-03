@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.widget.ImageView;
 
 import com.tajchert.hours.Tools;
@@ -21,12 +20,14 @@ public class ClockDrawFreeTime {
 	private Context cont;
 	private SharedPreferences prefs;
 	private ImageView imageView;
+    private int color;
 	
-	public ClockDrawFreeTime(ImageView imageView, Context cont, SharedPreferences pref, TreeMap<Long, Long> eventsTogether){
+	public ClockDrawFreeTime(ImageView imageView, Context cont, SharedPreferences pref, TreeMap<Long, Long> eventsTogether, int color){
 		this.cont = cont;
 		this.eventsTogether = eventsTogether;
 		this.prefs = pref;
 		this.imageView = imageView;
+        this.color = color;
 	}
 	
 	void drawFull() {
@@ -77,7 +78,7 @@ public class ClockDrawFreeTime {
 		long lastEnd = Calendar.getInstance().getTimeInMillis();
 
 		clock.drawEvent(0, 361, canvas, transparencyInnerColor,
-                transparencyOutColor, Color.GREEN, lastEnd, size, null);
+                transparencyOutColor, color, lastEnd, size, null);
 		imageView.setImageBitmap(bitmap);
 	}
 	void drawEmpty(){
@@ -144,14 +145,14 @@ public class ClockDrawFreeTime {
 				clock.drawEvent(degreesLastEnd,
                         dateInMilisecondsToDegrees(entryStart), canvas,
                         transparencyInnerColor, transparencyOutColor,
-                        Color.GREEN, lastEnd, size, null);
+                        color, lastEnd, size, null);
 			
 			lastEnd = entryEnd;
 			degreesLastEnd = dateInMilisecondsToDegrees(entryEnd);
 		}
 		clock.drawEvent(degreesLastEnd, dateInMilisecondsToDegrees(timeForNow),
                 canvas, transparencyInnerColor, transparencyOutColor,
-                Color.GREEN, lastEnd, size, null);
+                color, lastEnd, size, null);
         imageView.setImageBitmap(bitmap);
 	}
 	

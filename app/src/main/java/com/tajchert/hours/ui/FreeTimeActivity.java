@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.CalendarContract;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 
+import com.andexert.library.RippleView;
 import com.melnykov.fab.FloatingActionButton;
 import com.tajchert.hours.R;
 import com.tajchert.hours.calendar.CalendarContentResolver;
@@ -27,7 +30,12 @@ public class FreeTimeActivity extends ActionBarActivity {
     private static final String TAG = "FreeTimeActivity";
     private ImageView imageView;
     private SharedPreferences prefs;
+    private RippleView rippleCalendarButton;
     private static TreeMap<Long, Long> eventsTogether = new TreeMap<Long, Long>();
+
+    private Animation animationFadeIn;
+    private Animation animationFadeOut;
+    private boolean isFadeOut = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +44,30 @@ public class FreeTimeActivity extends ActionBarActivity {
         imageView = (ImageView) findViewById(R.id.imageViewActivity);
         prefs = this.getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
         setButtons();
+        setAnimations();
 
         Intent intent = getIntent();
         if(intent != null){
-            drawFreeTime(intent);
+            drawFreeTimeAnimation(intent);
         }
     }
 
+    private void setAnimations() {
+        animationFadeIn = new AlphaAnimation(0.0f, 1.0f);
+        animationFadeIn.setDuration(150);
+        animationFadeIn.setFillEnabled(true);
+        animationFadeIn.setFillAfter(true);
+        animationFadeOut = new AlphaAnimation(1.0f, 0.0f);
+        animationFadeOut.setDuration(150);
+        animationFadeOut.setFillEnabled(true);
+        animationFadeOut.setFillAfter(true);
+    }
+
+
     private void setButtons() {
         FloatingActionButton calendarChange = (FloatingActionButton) findViewById(R.id.fab_calendar);
-        Button buttonCalendar = (Button) findViewById(R.id.buttonCalendar);
-        buttonCalendar.setOnClickListener(new View.OnClickListener() {
+        rippleCalendarButton = (RippleView) findViewById(R.id.buttonCalendar);
+        rippleCalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
@@ -62,6 +83,10 @@ public class FreeTimeActivity extends ActionBarActivity {
         calendarChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!isFadeOut){
+                    imageView.startAnimation(animationFadeOut);
+                    isFadeOut = true;
+                }
                 Intent i = new Intent(FreeTimeActivity.this, PickCalendars.class);
                 i.putExtra("forResult", true);
                 startActivityForResult(i, 1);
@@ -69,8 +94,21 @@ public class FreeTimeActivity extends ActionBarActivity {
         });
     }
 
+    private void drawFreeTimeAnimation(final Intent data) {
+        if(rippleCalendarButton != null){
+            rippleCalendarButton.animateRipple(rippleCalendarButton.getWidth(), rippleCalendarButton.getHeight());
+        }
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                drawFreeTime(data);
+            }
+        }, 250);
+    }
+
     private void drawFreeTime(Intent data) {
-        ClockDrawFreeTime clockSurface = new ClockDrawFreeTime(imageView, FreeTimeActivity.this, prefs, eventsTogether);
+        ClockDrawFreeTime clockSurface = new ClockDrawFreeTime(imageView, FreeTimeActivity.this, prefs, eventsTogether, getResources().getColor(R.color.app_accent_color));
         if(data == null){
             clockSurface.drawEmpty();
             return;
@@ -100,12 +138,14 @@ public class FreeTimeActivity extends ActionBarActivity {
         }else{
             clockSurface.drawFull();
         }
+        imageView.startAnimation(animationFadeIn);
+        isFadeOut = false;
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                drawFreeTime(data);
+                drawFreeTimeAnimation(data);
                 super.onActivityResult(requestCode, resultCode, data);
             } else if (resultCode == RESULT_CANCELED) {
                 //do nothing
@@ -115,7 +155,6 @@ public class FreeTimeActivity extends ActionBarActivity {
     }
 
     private void addEventToTogether(Event ev) {
-        // TODO not important
         Long nowTime = (Calendar.getInstance().getTimeInMillis()/1000) *1000;
         Long newStart = (ev.dateStart.getTimeInMillis()/1000) *1000;
         Long newEnd = (ev.dateEnd.getTimeInMillis()/1000) * 1000;
