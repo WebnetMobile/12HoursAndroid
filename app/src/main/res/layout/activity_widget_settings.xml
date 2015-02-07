@@ -23,6 +23,7 @@
             android:layout_alignLeft="@+id/imageViewClockOverflow"
             android:layout_alignRight="@+id/imageViewClockOverflow"
             android:layout_alignTop="@+id/imageViewClockOverflow"
+            android:transitionName="clockBackground"
             android:layout_centerVertical="true" />
 
         <ImageView
@@ -30,12 +31,14 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
+            android:transitionName="clockForeground"
             android:layout_centerVertical="true" />
 
         <AnalogClock
             android:id="@+id/analogClockActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:transitionName="clockAnalog"
             android:layout_alignBottom="@+id/imageViewClockOverflow"
             android:layout_alignLeft="@+id/imageViewClockOverflow"
             android:layout_alignRight="@+id/imageViewClockOverflow"
