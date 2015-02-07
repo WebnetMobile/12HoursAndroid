@@ -196,56 +196,70 @@
                 android:layout_marginLeft="16dp"
                 android:background="@color/divider_color" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:text="@string/configure_choose_program_title"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/text_secondary" />
-
             <RelativeLayout
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_below="@+id/textView3"
-                android:layout_gravity="center_horizontal">
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp">
 
-                <ImageView
-                    android:id="@+id/imageViewClockPreview"
-                    android:layout_width="143dp"
-                    android:layout_height="143dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/clock_preview" />
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal">
 
-                <Button
-                    android:id="@+id/buttonProgramOut"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:alpha="0.7"
-                    android:background="@drawable/circlebutton_color_main" />
 
-                <Button
-                    android:id="@+id/buttonProgram"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:alpha="0.5"
-                    android:background="@drawable/circlebutton_color_accent"
-                    android:fontFamily="sans-serif-light" />
+                    <Button
+                        android:id="@+id/buttonProgramOut"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circlebutton_color_main"
+                        android:elevation="5dp" />
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal">
+
+
+                    <Button
+                        android:id="@+id/buttonProgram"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circlebutton_color_accent"
+                        android:elevation="5dp" />
+
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif"
+                    android:paddingLeft="100dp"
+                    android:text="2"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="sans-serif"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/white" />
             </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif"
                 android:gravity="left"
                 android:text="@string/widget_settings_action_event"

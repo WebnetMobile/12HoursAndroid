@@ -109,19 +109,37 @@ public class FreeTimeActivity extends ActionBarActivity {
 
     private void drawFreeTime(Intent data) {
         ClockDrawFreeTime clockSurface = new ClockDrawFreeTime(imageView, FreeTimeActivity.this, prefs, eventsTogether, getResources().getColor(R.color.app_accent_color));
-        if(data == null){
+        if (data == null) {
             clockSurface.drawEmpty();
             return;
         }
         String calendars = data.getStringExtra("calendars");
         String[] calendarsNames = calendars.split("<;;>");
+
+        if (calendars.length() == 0  || calendarsNames.length == 0) {
+            clockSurface.drawEmpty();
+            return;
+        }
+
+        getEvents(clockSurface, calendarsNames);
+
+        if (eventsTogether.size() > 0){
+            clockSurface.drawEventsFromTogether();
+        } else {
+            clockSurface.drawFull();
+        }
+
+        imageView.startAnimation(animationFadeIn);
+        isFadeOut = false;
+    }
+
+    private void getEvents(ClockDrawFreeTime clockSurface, String[] calendarsNames) {
         CalendarContentResolver calRevolver = new CalendarContentResolver(FreeTimeActivity.this);
         calRevolver.clear();
         eventsTogether.clear();
-        for (int i = 0; i < calendarsNames.length; i++) {
+        for (String calendarName : calendarsNames) {
             try {
-                ArrayList<Event> listEventsFriend = calRevolver.getEventList(FreeTimeActivity.this, Integer.parseInt(calendarsNames[i]), 0, false, false);
-                Log.d("24Hours", "listEventsFriend.size(): " + listEventsFriend.size());
+                ArrayList<Event> listEventsFriend = calRevolver.getEventList(FreeTimeActivity.this, Integer.parseInt(calendarName), 0);
                 if (listEventsFriend.size() > 0) {
                     for (Event ev : listEventsFriend) {
                         addEventToTogether(ev);
@@ -131,33 +149,19 @@ public class FreeTimeActivity extends ActionBarActivity {
                 clockSurface.drawEmpty();
             }
         }
-        if (calendars.length() == 0  || calendarsNames.length == 0) {
-            clockSurface.drawEmpty();
-        }else if(eventsTogether.size()>0){
-            clockSurface.drawEventsFromTogether();
-        }else{
-            clockSurface.drawFull();
-        }
-        imageView.startAnimation(animationFadeIn);
-        isFadeOut = false;
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
-                drawFreeTimeAnimation(data);
-                super.onActivityResult(requestCode, resultCode, data);
-            } else if (resultCode == RESULT_CANCELED) {
-                //do nothing
-            }
-
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            drawFreeTimeAnimation(data);
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
     private void addEventToTogether(Event ev) {
-        Long nowTime = (Calendar.getInstance().getTimeInMillis()/1000) *1000;
-        Long newStart = (ev.dateStart.getTimeInMillis()/1000) *1000;
-        Long newEnd = (ev.dateEnd.getTimeInMillis()/1000) * 1000;
+        Long nowTime = (Calendar.getInstance().getTimeInMillis() / 1000) * 1000;
+        Long newStart = (ev.dateStart.getTimeInMillis() / 1000) * 1000;
+        Long newEnd = (ev.dateEnd.getTimeInMillis() / 1000) * 1000;
         // eventsTogether
         if(newStart < nowTime ){
             newStart = nowTime;
