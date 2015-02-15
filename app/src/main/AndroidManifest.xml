@@ -30,7 +30,7 @@
         <!-- SETTINGS -->
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.ActivityMain"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".lists.PickCalendars"
+            android:name=".ui.ActivityChangeWidgetCalendars"
             android:label="Pick calendars"
             android:theme="@style/AppThemeDialog" >
         </activity>
@@ -48,7 +48,7 @@
             android:label="@string/title_activity_activity_widget_settings"
             android:theme="@style/AppThemeNoActionBar"
             android:configChanges="keyboardHidden|orientation"
-            android:parentActivityName=".ui.MainActivity">
+            android:parentActivityName=".ui.ActivityMain">
         </activity>
         <activity
             android:name=".ui.ActivityAddColors"
@@ -59,7 +59,7 @@
             android:name=".ui.ActivityColorManagment"
             android:label="@string/title_activity_activity_color_managment"
             android:noHistory="true"
-            android:parentActivityName=".ui.MainActivity" >
+            android:parentActivityName=".ui.ActivityMain" >
         </activity>
 
         <service
@@ -117,12 +117,12 @@
         </receiver>
 
         <activity
-            android:name=".ui.FreeTimeActivity"
+            android:name=".ui.ActivityFreeTime"
             android:label="@string/title_activity_free_time"
-            android:parentActivityName=".ui.MainActivity" >
+            android:parentActivityName=".ui.ActivityMain" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.tajchert.hours.ui.MainActivity" />
+                android:value=".ui.ActivityMain" />
         </activity>
     </application>
 

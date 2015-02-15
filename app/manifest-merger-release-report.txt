@@ -73,7 +73,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:38:17
 	android:name
 		ADDED from AndroidManifest.xml:38:27
-activity#com.tajchert.hours.lists.PickCalendars
+activity#com.tajchert.hours.ui.PickCalendars
 ADDED from AndroidManifest.xml:41:9
 	android:label
 		ADDED from AndroidManifest.xml:43:13

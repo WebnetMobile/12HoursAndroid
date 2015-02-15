@@ -1,4 +1,4 @@
-package com.tajchert.hours.ui;
+package com.tajchert.hours.lists;
 
 
 import android.content.Context;

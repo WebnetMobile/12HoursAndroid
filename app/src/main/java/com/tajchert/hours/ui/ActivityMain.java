@@ -15,14 +15,13 @@ import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.melnykov.fab.FloatingActionButton;
 import com.tajchert.hours.R;
-import com.tajchert.hours.lists.PickCalendars;
 import com.tajchert.hours.lists.WidgetListRecyclerAdapter;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
 
 import java.util.ArrayList;
 
-public class MainActivity extends ActionBarActivity {
+public class ActivityMain extends ActionBarActivity {
     private RecyclerView widgetList;
     private WidgetListRecyclerAdapter adapter;
     private ArrayList<WidgetInstance> widgetInstances;
@@ -39,7 +38,7 @@ public class MainActivity extends ActionBarActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, PickCalendars.class);
+                Intent i = new Intent(ActivityMain.this, ActivityChangeWidgetCalendars.class);
                 startActivityForResult(i, 1);
                 if(showcaseView!= null) {
                     showcaseView.hide();
@@ -71,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         widgetInstances = WidgetListManager.getWidgets(prefs);
-        adapter = new WidgetListRecyclerAdapter(widgetInstances, MainActivity.this);
+        adapter = new WidgetListRecyclerAdapter(widgetInstances, ActivityMain.this);
         widgetList.setAdapter(adapter);
     }
 

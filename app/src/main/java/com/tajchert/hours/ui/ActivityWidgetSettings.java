@@ -24,9 +24,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.appyvet.rangebar.RangeBar;
+import com.melnykov.fab.FloatingActionButton;
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
 import com.tajchert.hours.WidgetUpdateService;
+import com.tajchert.hours.lists.AppArrayAdapter;
 import com.tajchert.hours.widgets.Widget;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
@@ -34,6 +36,7 @@ import com.tajchert.hours.widgets.WidgetListManager;
 import java.util.ArrayList;
 
 public class ActivityWidgetSettings extends ActionBarActivity {
+    private static final String TAG = "ActivityWidgetSettings";
 	private WidgetInstance widget;
 	private SharedPreferences prefs;
 	
@@ -58,6 +61,7 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 	private ImageView viewOver;
     private Runnable runnable = null;
     private final Handler handler = new Handler();
+    private FloatingActionButton fabChangeCal;
 
 	
 	@Override
@@ -65,17 +69,19 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_widget_settings);
 		setViewElements();
+		prefs = getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
 
+	}
+
+    private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
-		prefs = getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
-
-	}
-	@Override
+    @Override
 	protected void onResume() {
 	    super.onResume();
         Bundle b = getIntent().getExtras();
@@ -130,6 +136,10 @@ public class ActivityWidgetSettings extends ActionBarActivity {
     }
 
 	private void setViewElements(){
+
+        setToolbar();
+
+        fabChangeCal = (FloatingActionButton) findViewById(R.id.fab_change_calendars);
 		seekbarGradientTransparency = (RangeBar) findViewById(R.id.seekbarGradientTransparency);
 		SeekBarPieIntensity = (RangeBar) findViewById(R.id.SeekBarPieIntensity);
 		SeekBarOutIntensity = (RangeBar) findViewById(R.id.SeekBarOut);
@@ -160,6 +170,17 @@ public class ActivityWidgetSettings extends ActionBarActivity {
                     widget.transparencyCenter = tmp;
                     updatePreviewCallback();
                 }
+            }
+        });
+
+        fabChangeCal.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityWidgetSettings.this, ActivityChangeWidgetCalendars.class);
+                i.putExtra("forResult", true);
+                i.putExtra("widget_id", widget.id);
+                i.putExtra("button_text", "SAVE");
+                startActivityForResult(i, 1);
             }
         });
 
@@ -376,6 +397,24 @@ public class ActivityWidgetSettings extends ActionBarActivity {
         	progressSelect.show();
         	builderSingle = new AlertDialog.Builder(ActivityWidgetSettings.this);
     		builderSingle.setTitle(getResources().getString(R.string.tab_extras_select_one_title));
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            if(data != null){
+
+                //String calendars = data.getStringExtra("calendars");
+                String calendarsColors = data.getStringExtra("calendarsColors");
+                String calendarsIds = data.getStringExtra("calendarsIds");
+                String [] calendarsNamesArray = data.getStringArrayExtra("calendarsNamesArray");
+
+                widget.calendars = calendarsIds;
+                widget.calendarColors = calendarsColors;
+                widget.calendarNames = calendarsNamesArray;
+                WidgetListManager.updateWidget(widget.id, prefs, widget);
+            }
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }

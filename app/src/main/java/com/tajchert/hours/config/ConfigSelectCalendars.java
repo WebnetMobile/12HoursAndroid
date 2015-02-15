@@ -27,7 +27,7 @@ import com.tajchert.hours.widgets.WidgetListManager;
 import java.util.ArrayList;
 
 public class ConfigSelectCalendars extends Fragment {
-	private CalendarListAdapter marketListAdapter;
+	private CalendarListAdapter selectedCalendarSourcesAdapter;
 	private CheckBox checkBoxCalendarColors;
 	private CheckBox checkBoxCalendarFullDay;
 	private CheckBox checkBoxCalendarGoing;
@@ -84,9 +84,9 @@ public class ConfigSelectCalendars extends Fragment {
 		listCalendars = new ArrayList<CalendarObject>();
         listCalendars.clear();
         listCalendars = CalendarContentResolver.getCalendars(getActivity());
-		marketListAdapter = new CalendarListAdapter((ArrayList<CalendarObject>) listCalendars, getActivity(), widget);
-		calendarList.setAdapter(marketListAdapter);
-		marketListAdapter.notifyDataSetChanged();
+		selectedCalendarSourcesAdapter = new CalendarListAdapter((ArrayList<CalendarObject>) listCalendars, getActivity(), widget);
+		calendarList.setAdapter(selectedCalendarSourcesAdapter);
+		selectedCalendarSourcesAdapter.notifyDataSetChanged();
 	}
 	public void saveThings(){
 		Log.d(Tools.AWESOME_TAG, "saveThings!");
@@ -101,7 +101,7 @@ public class ConfigSelectCalendars extends Fragment {
         protected String doInBackground(String... params) {
         	arr ="";
         	colArr = "";
-        	if(marketListAdapter == null ||  marketListAdapter.data == null ||  marketListAdapter.data.size() == 0){
+        	if(selectedCalendarSourcesAdapter == null ||  selectedCalendarSourcesAdapter.data == null ||  selectedCalendarSourcesAdapter.data.size() == 0){
         		Log.e(Tools.AWESOME_TAG, "Widget is null or some in doInBackground!");
         		try {
 					getActivity().finish();
@@ -110,7 +110,7 @@ public class ConfigSelectCalendars extends Fragment {
 				}
         		return "";
         	}
-			for (CalendarObject cal : marketListAdapter.data) {
+			for (CalendarObject cal : selectedCalendarSourcesAdapter.data) {
 				if(cal.isChecked){
 					Log.d(Tools.AWESOME_TAG, "CHECKED: " + cal.name);
 					calNames.add(cal.name);
@@ -128,7 +128,7 @@ public class ConfigSelectCalendars extends Fragment {
 
         @Override
         protected void onPostExecute(String result) {
-        	if(marketListAdapter == null ||  marketListAdapter.data == null ||  marketListAdapter.data.size() == 0 || widget == null){
+        	if(selectedCalendarSourcesAdapter == null ||  selectedCalendarSourcesAdapter.data == null ||  selectedCalendarSourcesAdapter.data.size() == 0 || widget == null){
         		Log.e(Tools.AWESOME_TAG, "Widget is null or some in onPostExecute!");
         		try {
 					getActivity().finish();

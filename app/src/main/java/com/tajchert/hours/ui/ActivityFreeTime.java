@@ -19,14 +19,13 @@ import com.melnykov.fab.FloatingActionButton;
 import com.tajchert.hours.R;
 import com.tajchert.hours.calendar.CalendarContentResolver;
 import com.tajchert.hours.calendar.Event;
-import com.tajchert.hours.lists.PickCalendars;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class FreeTimeActivity extends ActionBarActivity {
+public class ActivityFreeTime extends ActionBarActivity {
     private static final String TAG = "FreeTimeActivity";
     private ImageView imageView;
     private SharedPreferences prefs;
@@ -87,7 +86,7 @@ public class FreeTimeActivity extends ActionBarActivity {
                     imageView.startAnimation(animationFadeOut);
                     isFadeOut = true;
                 }
-                Intent i = new Intent(FreeTimeActivity.this, PickCalendars.class);
+                Intent i = new Intent(ActivityFreeTime.this, ActivityChangeWidgetCalendars.class);
                 i.putExtra("forResult", true);
                 startActivityForResult(i, 1);
             }
@@ -108,7 +107,7 @@ public class FreeTimeActivity extends ActionBarActivity {
     }
 
     private void drawFreeTime(Intent data) {
-        ClockDrawFreeTime clockSurface = new ClockDrawFreeTime(imageView, FreeTimeActivity.this, prefs, eventsTogether, getResources().getColor(R.color.app_accent_color));
+        ClockDrawFreeTime clockSurface = new ClockDrawFreeTime(imageView, ActivityFreeTime.this, prefs, eventsTogether, getResources().getColor(R.color.app_accent_color));
         if (data == null) {
             clockSurface.drawEmpty();
             return;
@@ -134,12 +133,12 @@ public class FreeTimeActivity extends ActionBarActivity {
     }
 
     private void getEvents(ClockDrawFreeTime clockSurface, String[] calendarsNames) {
-        CalendarContentResolver calRevolver = new CalendarContentResolver(FreeTimeActivity.this);
+        CalendarContentResolver calRevolver = new CalendarContentResolver(ActivityFreeTime.this);
         calRevolver.clear();
         eventsTogether.clear();
         for (String calendarName : calendarsNames) {
             try {
-                ArrayList<Event> listEventsFriend = calRevolver.getEventList(FreeTimeActivity.this, Integer.parseInt(calendarName), 0);
+                ArrayList<Event> listEventsFriend = calRevolver.getEventList(ActivityFreeTime.this, Integer.parseInt(calendarName), 0);
                 if (listEventsFriend.size() > 0) {
                     for (Event ev : listEventsFriend) {
                         addEventToTogether(ev);
