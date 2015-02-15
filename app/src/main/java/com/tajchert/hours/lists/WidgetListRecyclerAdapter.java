@@ -46,18 +46,19 @@ public class WidgetListRecyclerAdapter extends RecyclerView.Adapter<HolderWidget
     private void setCalendarThumbnail(HolderWidget contactViewHolder, WidgetInstance widget) {
         Bitmap clockBackground = null;
         if(widget.style == 0){
-            clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.hand_dial), 150, 150, false);
+            clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.hand_dial), 250, 250, false);
             widget.setDimensions(Tools.clock_layouts_dimensions_small[0]);
         }else if(widget.style == 1){
-            clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.hand_nodigits_dial), 150, 150, false);
+            clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.hand_nodigits_dial), 250, 250, false);
             widget.setDimensions(Tools.clock_layouts_dimensions_small[1]);
         }else if(widget.style == 2){
-            clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.kit_kat_hand_dial), 150, 150, false);
+            clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.kit_kat_hand_dial), 250, 250, false);
             widget.setDimensions(Tools.clock_layouts_dimensions_small[2]);
         }else if(widget.style == 3){
-            clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.hand_whitefull_dial), 150, 150, false);
+            clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.hand_whitefull_dial), 250, 250, false);
             widget.setDimensions(Tools.clock_layouts_dimensions_small[3]);
         }
+        contactViewHolder.underFlow.setBackground(context.getResources().getDrawable(R.drawable.widget_background));
         contactViewHolder.overFlow.setImageBitmap(Widget.addStaticWidget(context, widget));
         contactViewHolder.underFlow.setImageBitmap(clockBackground);
     }

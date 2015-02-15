@@ -62,22 +62,29 @@ public class ActivityChangeWidgetCalendars extends Activity {
 					try {
 						arrNames = arrNames.substring(0, arrNames.length() - 4);
                         arrIds = arrIds.substring(0, arrIds.length() - 4);
-                        arrCol = arrIds.substring(0, arrIds.length() - 4);
+                        arrCol = arrCol.substring(0, arrCol.length() - 4);
 					} catch (Exception e) {
 					}
                     if(shouldReturnResult){
                         Intent returnIntent = new Intent();
                         returnIntent.putExtra("calendars", arrNames);
-                        returnIntent.putExtra("calendarsIds", arrNames);
+                        returnIntent.putExtra("calendarsIds", arrIds);
                         returnIntent.putExtra("calendarsColors", arrCol);
                         returnIntent.putExtra("calendarsNamesArray", calNames.toArray(new String[calNames.size()]));
+
+                        returnIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         setResult(RESULT_OK, returnIntent);
+                        overridePendingTransition(0,0); //0 for no animation
                     } else {
                         Intent returnIntent = new Intent(ActivityChangeWidgetCalendars.this, ActivityFreeTime.class);
                         returnIntent.putExtra("calendars", arrNames);
-                        returnIntent.putExtra("calendarsIds", arrNames);
+                        returnIntent.putExtra("calendarsIds", arrIds);
                         returnIntent.putExtra("calendarsColors", arrCol);
+                        returnIntent.putExtra("calendarsNamesArray", calNames.toArray(new String[calNames.size()]));
+
+                        returnIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(returnIntent);
+                        overridePendingTransition(0,0); //0 for no animation
                     }
 					finish();
 				}else{
