@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.melnykov.fab.FloatingActionButton;
@@ -54,7 +58,23 @@ public class ActivityMain extends ActionBarActivity {
                 .setContentText("Use it to find free time between calendars.")
                 .hideOnTouchOutside()
                 .setStyle(R.style.CustomShowcaseTheme)
-                .singleShot(2222)
+                        .setShowcaseEventListener(new OnShowcaseEventListener() {
+                            @Override
+                            public void onShowcaseViewHide(ShowcaseView showcaseView) {
+                                showcasePalette();
+                            }
+
+                            @Override
+                            public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                            }
+
+                            @Override
+                            public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                            }
+                        })
+                //.singleShot(2222)
                 .build();
         showcaseView.hideButton();
 
@@ -63,6 +83,50 @@ public class ActivityMain extends ActionBarActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         widgetList.setLayoutManager(llm);
 
+    }
+
+    private void showcasePalette() {
+        ShowcaseView showcaseView;
+        showcaseView = new ShowcaseView.Builder(this)
+                .setTarget(new ViewTarget(R.id.action_colors, this))
+                .setContentTitle("Palette")
+                .setContentText("Change or define custom colors here.")
+                .hideOnTouchOutside()
+                .setStyle(R.style.CustomShowcaseTheme)
+                .setShowcaseEventListener(new OnShowcaseEventListener() {
+                    @Override
+                    public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+                    }
+
+                    @Override
+                    public void onShowcaseViewShow(ShowcaseView showcaseView) {
+
+                    }
+                }).build();
+        showcaseView.hideButton();
+        showcaseView.show();
+    }
+
+    private int getScreenHeight(){
+        WindowManager wm = (WindowManager) ActivityMain.this.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        display.getMetrics(metrics);
+        return metrics.heightPixels;
+    }
+
+    private int getScreenWeight(){
+        WindowManager wm = (WindowManager) ActivityMain.this.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        display.getMetrics(metrics);
+        return metrics.heightPixels;
     }
 
     @Override
