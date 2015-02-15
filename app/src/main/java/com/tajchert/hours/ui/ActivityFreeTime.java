@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.andexert.library.RippleView;
 import com.melnykov.fab.FloatingActionButton;
@@ -27,6 +28,7 @@ import java.util.TreeMap;
 
 public class ActivityFreeTime extends ActionBarActivity {
     private static final String TAG = "FreeTimeActivity";
+    private TextView calendarNamesText;
     private ImageView imageView;
     private SharedPreferences prefs;
     private RippleView rippleCalendarButton;
@@ -40,6 +42,7 @@ public class ActivityFreeTime extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_free_time);
+        calendarNamesText = (TextView) findViewById(R.id.freeTimeCalendarNames);
         imageView = (ImageView) findViewById(R.id.imageViewActivity);
         prefs = this.getSharedPreferences("com.tajchert.hours", Context.MODE_PRIVATE);
         setButtons();
@@ -97,6 +100,7 @@ public class ActivityFreeTime extends ActionBarActivity {
         if(rippleCalendarButton != null){
             rippleCalendarButton.animateRipple(rippleCalendarButton.getWidth(), rippleCalendarButton.getHeight());
         }
+        calendarNamesText.setText("");
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -114,6 +118,7 @@ public class ActivityFreeTime extends ActionBarActivity {
         }
         String calendars = data.getStringExtra("calendars");
         String[] calendarsNames = calendars.split("<;;>");
+        setCalendarNamesText(calendarsNames);
 
         if (calendars.length() == 0  || calendarsNames.length == 0) {
             clockSurface.drawEmpty();
@@ -130,6 +135,20 @@ public class ActivityFreeTime extends ActionBarActivity {
 
         imageView.startAnimation(animationFadeIn);
         isFadeOut = false;
+    }
+
+    private void setCalendarNamesText(String[] calendarsNames) {
+        if(calendarsNames.length > 0 && calendarsNames[0] != null && calendarsNames[0].length() > 0) {
+            StringBuilder builder = new StringBuilder();
+            for(String s : calendarsNames) {
+                builder.append(s);
+                builder.append(", ");
+            }
+            String titles = builder.toString();
+            titles = titles.substring(0, titles.length()-2);
+            titles += ".";
+            calendarNamesText.setText(getResources().getText(R.string.configure_calendarselection_title) +": " + titles);
+        }
     }
 
     private void getEvents(ClockDrawFreeTime clockSurface, String[] calendarsNames) {

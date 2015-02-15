@@ -70,7 +70,7 @@
 
     <!-- JAVA -->
     <string name="cancel">Cancel</string>
-    <string name="tab_no_widget_content">Add 12hour widget to your homescreen, and come back :)</string>
+    <string name="tab_no_widget_content">Add widget to your homescreen, and come back :)</string>
     <string name="tab_extras_select_one_title">Select App:</string>
     <string name="tab_extras_select_one_title_selected">You have selected:</string>
     <string name="tab_extras_colors_needed_more">You need at least 3 colors.</string>

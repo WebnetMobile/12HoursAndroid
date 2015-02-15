@@ -6,10 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.tajchert.hours.ui.ActivityFreeTime">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:id="@+id/freeTimeCalendarNames"
+        android:layout_margin="16dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textColor="@color/text_secondary"
+        android:fontFamily="sans-serif"/>
+
     <AnalogClock
         android:id="@+id/analogClockActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/freeTimeCalendarNames"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:dial="@drawable/hand_dial"

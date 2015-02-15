@@ -113,8 +113,10 @@ public class ActivityChangeWidgetCalendars extends Activity {
 
     private void setListFromExisitng(Bundle extras) {
         String widgetId = extras.getInt("widget_id") + "";
-        String buttonText = extras.getString("button_text") + "";
-        buttonSelect.setText(buttonText);
+        String buttonText = extras.getString("button_text");
+        if(buttonText != null) {
+            buttonSelect.setText(buttonText);
+        }
         if(widgetId.equals("")){
             return;
         }

@@ -90,6 +90,7 @@ public class ActivityMain extends ActionBarActivity {
                 .setContentText("Change or define custom colors here.")
                 .hideOnTouchOutside()
                 .setStyle(R.style.CustomShowcaseTheme)
+                .singleShot(2223)
                 .build();
         showcaseView.hideButton();
         showcaseView.show();
