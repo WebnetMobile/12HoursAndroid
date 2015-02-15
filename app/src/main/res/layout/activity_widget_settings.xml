@@ -113,9 +113,10 @@
                 android:layout_below="@+id/textView1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="-7dp"
                 app:dsb_progressColor="@color/app_accent_color"
                 app:dsb_rippleColor="@color/app_accent_color"
+                app:dsb_min="0"
+                app:dsb_max="255"
                 app:dsb_indicatorColor="@color/app_accent_color" />
 
 
@@ -135,10 +136,11 @@
                 android:layout_height="72dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="-7dp"
                 app:dsb_progressColor="@color/app_accent_color"
                 app:dsb_rippleColor="@color/app_accent_color"
-                app:dsb_indicatorColor="@color/app_accent_color" />
+                app:dsb_indicatorColor="@color/app_accent_color"
+                app:dsb_min="0"
+                app:dsb_max="255" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,10 +161,11 @@
                 android:layout_height="72dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="-7dp"
                 app:dsb_progressColor="@color/app_accent_color"
                 app:dsb_rippleColor="@color/app_accent_color"
-                app:dsb_indicatorColor="@color/app_accent_color" />
+                app:dsb_indicatorColor="@color/app_accent_color"
+                app:dsb_min="0"
+                app:dsb_max="255" />
 
             <TextView
                 android:layout_width="wrap_content"

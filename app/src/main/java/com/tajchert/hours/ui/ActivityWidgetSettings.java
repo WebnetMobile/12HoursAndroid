@@ -161,11 +161,11 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 		// Set underOverflow
 		updatePreview();
 		
-		seekbarGradientTransparency.setProgress((int) Math.round(widget.transparencyCenter/2.5));
+		seekbarGradientTransparency.setProgress(Math.abs(widget.transparencyCenter - 255));
         seekbarGradientTransparency.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
             public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
-                widget.transparencyCenter = (int) Math.abs(Math.round(value * 2.5) - 250);
+                widget.transparencyCenter = Math.abs(value - 255);
                 updatePreviewCallback();
             }
         });
@@ -181,20 +181,20 @@ public class ActivityWidgetSettings extends ActionBarActivity {
             }
         });
 
-        SeekBarPieIntensity.setProgress((int) Math.round(widget.transparencyInner/2.5));
+        SeekBarPieIntensity.setProgress(widget.transparencyInner);
         SeekBarPieIntensity.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
             public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
-                widget.transparencyInner = (int) Math.round(value * 2.5);
+                widget.transparencyInner = value;
                 updatePreviewCallback();
             }
         });
 
-        SeekBarOutIntensity.setProgress((int) Math.round(widget.transparencyOuter/2.5));
+        SeekBarOutIntensity.setProgress(widget.transparencyOuter);
         SeekBarOutIntensity.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
             public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
-                widget.transparencyOuter = (int) Math.round(value * 2.5);
+                widget.transparencyOuter = value;
                 updatePreviewCallback();
             }
         });
