@@ -46,7 +46,7 @@
     <!-- TAB MAIN -->
     <string name="tab_main_title_time">Free Time Finder</string>
     <string name="tab_main_select_calendars">Select Calendars</string>
-    <string name="tab_main_friend_calendar_chooser_title">FIND</string>
+    <string name="tab_main_friend_calendar_chooser_title">FIND FREE TIME</string>
 
     <!-- Color Screen -->
     <string name="tab_style_top_save" translatable="false">Save</string>

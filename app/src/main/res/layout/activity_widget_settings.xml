@@ -48,7 +48,7 @@
             android:hand_hour="@drawable/hand_hour"
             android:hand_minute="@drawable/hand_minute" />
 
-        <com.tajchert.hours.ui.TextAwesomeClicable
+        <ImageButton
             android:id="@+id/imageButtonNext"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -57,11 +57,11 @@
             android:layout_marginStart="10dp"
             android:layout_toRightOf="@+id/imageViewClockUnderflow"
             android:gravity="center"
-            android:text="@string/fa_chevron_right"
-            android:textSize="30dp" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrow_right"/>
 
 
-        <com.tajchert.hours.ui.TextAwesomeClicable
+        <ImageButton
             android:id="@+id/imageButtonPrev"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -70,8 +70,8 @@
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/imageViewClockUnderflow"
             android:gravity="center"
-            android:text="@string/fa_chevron_left"
-            android:textSize="30dp" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrow_left"/>
     </RelativeLayout>
 
     <android.support.v7.widget.Toolbar

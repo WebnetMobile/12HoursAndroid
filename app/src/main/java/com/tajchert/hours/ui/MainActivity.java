@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.melnykov.fab.FloatingActionButton;
 import com.tajchert.hours.R;
 import com.tajchert.hours.lists.PickCalendars;
@@ -25,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
     private WidgetListRecyclerAdapter adapter;
     private ArrayList<WidgetInstance> widgetInstances;
     private SharedPreferences prefs;
-
+    private ShowcaseView showcaseView;
     private FloatingActionButton fab;
 
     @Override
@@ -39,8 +41,20 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, PickCalendars.class);
                 startActivityForResult(i, 1);
+                if(showcaseView!= null) {
+                    showcaseView.hide();
+                }
             }
         });
+        showcaseView = new ShowcaseView.Builder(this)
+                .setTarget(new ViewTarget(fab))
+                .setContentTitle("Free time finder!")
+                .setContentText("Use it to find free time between calendars.")
+                .hideOnTouchOutside()
+                .setStyle(R.style.CustomShowcaseTheme)
+                .singleShot(2222)
+                .build();
+        showcaseView.hideButton();
 
         widgetList.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(this);

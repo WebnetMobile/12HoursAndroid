@@ -20,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.appyvet.rangebar.RangeBar;
@@ -49,8 +50,8 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 	private Button buttonSelectOuter;
 	
 	
-	private TextAwesomeClicable stylePrev;
-	private TextAwesomeClicable styleNext;
+	private ImageButton stylePrev;
+	private ImageButton styleNext;
 	
 	//Preview
 	private ImageView viewUnder;
@@ -138,8 +139,8 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 		//Preview
 		viewUnder = (ImageView) findViewById(R.id.imageViewClockUnderflow);
 		viewOver = (ImageView) findViewById(R.id.imageViewClockOverflow);
-		stylePrev = (TextAwesomeClicable) findViewById(R.id.imageButtonPrev);
-		styleNext = (TextAwesomeClicable) findViewById(R.id.imageButtonNext);
+		stylePrev = (ImageButton) findViewById(R.id.imageButtonPrev);
+		styleNext = (ImageButton) findViewById(R.id.imageButtonNext);
 		
 		checkFullDay = (CheckBox) findViewById(R.id.checkBoxCalendarFullDay);
 		checkEventColors = (CheckBox) findViewById(R.id.checkBoxCalendarColors);
