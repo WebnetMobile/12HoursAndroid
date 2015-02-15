@@ -23,7 +23,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.appyvet.rangebar.RangeBar;
 import com.melnykov.fab.FloatingActionButton;
 import com.tajchert.hours.R;
 import com.tajchert.hours.Tools;
@@ -32,6 +31,8 @@ import com.tajchert.hours.lists.AppArrayAdapter;
 import com.tajchert.hours.widgets.Widget;
 import com.tajchert.hours.widgets.WidgetInstance;
 import com.tajchert.hours.widgets.WidgetListManager;
+
+import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 import java.util.ArrayList;
 
@@ -45,9 +46,9 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 	private CheckBox checkFullDay;
 	private CheckBox checkEventColors;
 	private CheckBox checkNotGoing;
-	private RangeBar seekbarGradientTransparency;
-	private RangeBar SeekBarPieIntensity;
-	private RangeBar SeekBarOutIntensity;
+	private DiscreteSeekBar seekbarGradientTransparency;
+	private DiscreteSeekBar SeekBarPieIntensity;
+	private DiscreteSeekBar SeekBarOutIntensity;
 	
 	private Button buttonSelect;
 	private Button buttonSelectOuter;
@@ -140,9 +141,9 @@ public class ActivityWidgetSettings extends ActionBarActivity {
         setToolbar();
 
         fabChangeCal = (FloatingActionButton) findViewById(R.id.fab_change_calendars);
-		seekbarGradientTransparency = (RangeBar) findViewById(R.id.seekbarGradientTransparency);
-		SeekBarPieIntensity = (RangeBar) findViewById(R.id.SeekBarPieIntensity);
-		SeekBarOutIntensity = (RangeBar) findViewById(R.id.SeekBarOut);
+		seekbarGradientTransparency = (DiscreteSeekBar) findViewById(R.id.seekbarGradientTransparency);
+		SeekBarPieIntensity = (DiscreteSeekBar) findViewById(R.id.SeekBarPieIntensity);
+		SeekBarOutIntensity = (DiscreteSeekBar) findViewById(R.id.SeekBarOut);
 		buttonSelect = (Button) findViewById(R.id.buttonProgram);
 		buttonSelectOuter = (Button) findViewById(R.id.buttonProgramOut);
 		
@@ -160,16 +161,12 @@ public class ActivityWidgetSettings extends ActionBarActivity {
 		// Set underOverflow
 		updatePreview();
 		
-		seekbarGradientTransparency.setSeekPinByValue(widget.transparencyCenter);
-        seekbarGradientTransparency.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
-            int tmp = 0;
+		seekbarGradientTransparency.setProgress((int) Math.round(widget.transparencyCenter/2.5));
+        seekbarGradientTransparency.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
-            public void onRangeChangeListener(RangeBar rangeBar, int i, int i2, String s, String s2) {
-                if(i2 != tmp){
-                    tmp = i2 * 10;
-                    widget.transparencyCenter = tmp;
-                    updatePreviewCallback();
-                }
+            public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
+                widget.transparencyCenter = (int) Math.abs(Math.round(value * 2.5) - 250);
+                updatePreviewCallback();
             }
         });
 
@@ -184,30 +181,21 @@ public class ActivityWidgetSettings extends ActionBarActivity {
             }
         });
 
-        SeekBarPieIntensity.setSeekPinByValue(widget.transparencyInner);
-        SeekBarPieIntensity.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
-            int tmp = 0;
-
+        SeekBarPieIntensity.setProgress((int) Math.round(widget.transparencyInner/2.5));
+        SeekBarPieIntensity.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
-            public void onRangeChangeListener(RangeBar rangeBar, int i, int i2, String s, String s2) {
-                if (i2 != tmp) {
-                    tmp = i2 * 10;
-                    widget.transparencyInner = tmp;
-                    updatePreviewCallback();
-                }
+            public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
+                widget.transparencyInner = (int) Math.round(value * 2.5);
+                updatePreviewCallback();
             }
         });
 
-        SeekBarOutIntensity.setSeekPinByValue(widget.transparencyOuter);
-        SeekBarOutIntensity.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
-            int tmp = 0;
+        SeekBarOutIntensity.setProgress((int) Math.round(widget.transparencyOuter/2.5));
+        SeekBarOutIntensity.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
-            public void onRangeChangeListener(RangeBar rangeBar, int i, int i2, String s, String s2) {
-                if(i2 != tmp){
-                    tmp = i2 * 10;
-                    widget.transparencyOuter = tmp;
-                    updatePreviewCallback();
-                }
+            public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
+                widget.transparencyOuter = (int) Math.round(value * 2.5);
+                updatePreviewCallback();
             }
         });
 

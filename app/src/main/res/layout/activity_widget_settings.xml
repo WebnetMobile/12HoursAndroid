@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/tools"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -107,7 +106,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/text_secondary" />
 
-            <com.appyvet.rangebar.RangeBar
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
                 android:id="@+id/seekbarGradientTransparency"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
@@ -115,15 +114,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="-7dp"
-                custom:connectingLineColor="@color/app_accent_color_darker"
-                custom:pinColor="@color/app_accent_color"
-                custom:pinRadius="6dp"
-                custom:rangeBar="false"
-                custom:selectorColor="@color/app_accent_color"
-                custom:selectorSize="2dp"
-                custom:tickColor="@color/app_darker_color"
-                custom:tickEnd="255"
-                custom:tickInterval="10" />
+                app:dsb_progressColor="@color/app_accent_color"
+                app:dsb_rippleColor="@color/app_accent_color"
+                app:dsb_indicatorColor="@color/app_accent_color" />
 
 
             <TextView
@@ -136,22 +129,16 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/text_secondary" />
 
-            <com.appyvet.rangebar.RangeBar
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
                 android:id="@+id/SeekBarPieIntensity"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="-7dp"
-                custom:connectingLineColor="@color/app_accent_color_darker"
-                custom:pinColor="@color/app_accent_color"
-                custom:pinRadius="6dp"
-                custom:rangeBar="false"
-                custom:selectorColor="@color/app_accent_color"
-                custom:selectorSize="2dp"
-                custom:tickColor="@color/app_darker_color"
-                custom:tickEnd="255"
-                custom:tickInterval="10" />
+                app:dsb_progressColor="@color/app_accent_color"
+                app:dsb_rippleColor="@color/app_accent_color"
+                app:dsb_indicatorColor="@color/app_accent_color" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -166,22 +153,16 @@
                 android:textColor="@color/text_secondary" />
 
 
-            <com.appyvet.rangebar.RangeBar
+            <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
                 android:id="@+id/SeekBarOut"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="-7dp"
-                custom:connectingLineColor="@color/app_accent_color_darker"
-                custom:pinColor="@color/app_accent_color"
-                custom:pinRadius="6dp"
-                custom:rangeBar="false"
-                custom:selectorColor="@color/app_accent_color"
-                custom:selectorSize="2dp"
-                custom:tickColor="@color/app_darker_color"
-                custom:tickEnd="255"
-                custom:tickInterval="10" />
+                app:dsb_progressColor="@color/app_accent_color"
+                app:dsb_rippleColor="@color/app_accent_color"
+                app:dsb_indicatorColor="@color/app_accent_color" />
 
             <TextView
                 android:layout_width="wrap_content"
