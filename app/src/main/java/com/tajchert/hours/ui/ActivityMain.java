@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
@@ -28,6 +29,7 @@ public class ActivityMain extends ActionBarActivity {
     private SharedPreferences prefs;
     private ShowcaseView showcaseView;
     private FloatingActionButton fab;
+    private TextView textNoWidget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class ActivityMain extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         widgetList = (RecyclerView) findViewById(R.id.widgetList);
         fab = (FloatingActionButton) findViewById(R.id.normal_plus);
+        textNoWidget = (TextView) findViewById(R.id.text_no_widget);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +75,11 @@ public class ActivityMain extends ActionBarActivity {
         widgetInstances = WidgetListManager.getWidgets(prefs);
         adapter = new WidgetListRecyclerAdapter(widgetInstances, ActivityMain.this);
         widgetList.setAdapter(adapter);
+        if(widgetInstances == null || widgetInstances.size() == 0) {
+            textNoWidget.setVisibility(View.VISIBLE);
+        } else {
+            textNoWidget.setVisibility(View.GONE);
+        }
     }
 
     @Override

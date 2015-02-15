@@ -21,6 +21,7 @@ import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -29,6 +30,7 @@ import android.view.View;
  * that is pressed and slid.
  */
 class PinView extends View {
+    private static final String TAG = "PinView";
 
     // Private Constants ///////////////////////////////////////////////////////
 
@@ -258,9 +260,13 @@ class PinView extends View {
     // Private Methods /////////////////////////////////////////////////////////////////
 
     //Set text size based on available pin width.
-    private static void calibrateTextSize(Paint paint, String text, float min, float max,
-            float boxWidth) {
+    private static void calibrateTextSize(Paint paint, String text, float min, float max, float boxWidth) {
         paint.setTextSize(10);
-        paint.setTextSize(Math.max(Math.min((boxWidth / paint.measureText(text)) * 10, max), min));
+        float size = Math.max(Math.min((boxWidth / paint.measureText(text)) * 10, max), min);
+        Log.d(TAG, "calibrateTextSize box:" +boxWidth);
+        Log.d(TAG, "calibrateTextSize min:" +min);
+        Log.d(TAG, "calibrateTextSize max:" +max);
+        Log.d(TAG, "calibrateTextSize size:" +size);
+        paint.setTextSize(size);
     }
 }
