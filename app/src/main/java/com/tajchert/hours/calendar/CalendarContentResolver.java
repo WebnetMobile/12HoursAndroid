@@ -75,7 +75,22 @@ public class CalendarContentResolver {
 		long nextDay = nowTime + (1000 * 60 * 60 * 24);// 24h
 		long halfday = nowTime + (1000 * 60 * 60 * 12);//12h
 		String[] projection = new String[] { "calendar_id", "title", "begin", "end", "description", "event_id", "selfAttendeeStatus"};
-		Cursor calCursor = context.getContentResolver().query(Uri.parse("content://com.android.calendar/instances/when/"+nowTime+"/"+halfday), projection,"calendar_id = "+calendarId, null,null);
+        Cursor calCursor = context.getContentResolver().query(Uri.parse("content://com.android.calendar/instances/when/"+nowTime+"/"+halfday), projection,"calendar_id = "+calendarId, null,null);
+
+        if(showFullDay){
+            long prevTimeTwoDays = nowTime - (1000 * 60 * 60 * 24 * 2);// -48h
+            long nextTimeTwoDays = nowTime + (1000 * 60 * 60 * 24 * 2);//48h
+            calCursor = context.getContentResolver().query(Uri.parse("content://com.android.calendar/instances/when/"+prevTimeTwoDays+"/"+nextTimeTwoDays), projection,"calendar_id = "+calendarId, null,null);
+            if (calCursor.moveToFirst()) {
+                Calendar eventBegin = Calendar.getInstance();
+                eventBegin.setTimeInMillis(calCursor.getLong(2));
+                Calendar eventEnd = Calendar.getInstance();
+                eventEnd.setTimeInMillis(calCursor.getLong(3));
+                if(eventBegin.getTimeInMillis() < nowTime && eventEnd.getTimeInMillis() > nowTime){
+                    //Is
+                }
+            }
+        }
 
 		Event eventTemp;
         if (calCursor.moveToFirst()) {
