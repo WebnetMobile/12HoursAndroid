@@ -7,12 +7,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
@@ -74,7 +71,7 @@ public class ActivityMain extends ActionBarActivity {
 
                             }
                         })
-                //.singleShot(2222)
+                .singleShot(2222)
                 .build();
         showcaseView.hideButton();
 
@@ -93,40 +90,9 @@ public class ActivityMain extends ActionBarActivity {
                 .setContentText("Change or define custom colors here.")
                 .hideOnTouchOutside()
                 .setStyle(R.style.CustomShowcaseTheme)
-                .setShowcaseEventListener(new OnShowcaseEventListener() {
-                    @Override
-                    public void onShowcaseViewHide(ShowcaseView showcaseView) {
-
-                    }
-
-                    @Override
-                    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
-
-                    }
-
-                    @Override
-                    public void onShowcaseViewShow(ShowcaseView showcaseView) {
-
-                    }
-                }).build();
+                .build();
         showcaseView.hideButton();
         showcaseView.show();
-    }
-
-    private int getScreenHeight(){
-        WindowManager wm = (WindowManager) ActivityMain.this.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        DisplayMetrics metrics = new DisplayMetrics();
-        display.getMetrics(metrics);
-        return metrics.heightPixels;
-    }
-
-    private int getScreenWeight(){
-        WindowManager wm = (WindowManager) ActivityMain.this.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        DisplayMetrics metrics = new DisplayMetrics();
-        display.getMetrics(metrics);
-        return metrics.heightPixels;
     }
 
     @Override
