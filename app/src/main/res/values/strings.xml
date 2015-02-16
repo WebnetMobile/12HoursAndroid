@@ -82,4 +82,11 @@
 
     <string name="title_activity_free_time">Free Time Finder</string>
 
+    <!-- Showcase -->
+    <string name="showcase_free_time_title">Free time finder!</string>
+    <string name="showcase_palette_title">Palette</string>
+    <string name="showcase_free_time_content">Use it to find free time between calendars.</string>
+    <string name="showcase_palette_content">Change or define custom colors here.</string>
+
+
 </resources>

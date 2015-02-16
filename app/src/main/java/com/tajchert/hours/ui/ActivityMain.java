@@ -51,8 +51,8 @@ public class ActivityMain extends ActionBarActivity {
         });
         showcaseView = new ShowcaseView.Builder(this)
                 .setTarget(new ViewTarget(fab))
-                .setContentTitle("Free time finder!")
-                .setContentText("Use it to find free time between calendars.")
+                .setContentTitle(getResources().getString(R.string.showcase_free_time_title))
+                .setContentText(getResources().getString(R.string.showcase_free_time_content))
                 .hideOnTouchOutside()
                 .setStyle(R.style.CustomShowcaseTheme)
                         .setShowcaseEventListener(new OnShowcaseEventListener() {
@@ -60,16 +60,10 @@ public class ActivityMain extends ActionBarActivity {
                             public void onShowcaseViewHide(ShowcaseView showcaseView) {
                                 showcasePalette();
                             }
-
                             @Override
-                            public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
-
-                            }
-
+                            public void onShowcaseViewDidHide(ShowcaseView showcaseView) {}
                             @Override
-                            public void onShowcaseViewShow(ShowcaseView showcaseView) {
-
-                            }
+                            public void onShowcaseViewShow(ShowcaseView showcaseView) {}
                         })
                 .singleShot(2222)
                 .build();
@@ -86,8 +80,8 @@ public class ActivityMain extends ActionBarActivity {
         ShowcaseView showcaseView;
         showcaseView = new ShowcaseView.Builder(this)
                 .setTarget(new ViewTarget(R.id.action_colors, this))
-                .setContentTitle("Palette")
-                .setContentText("Change or define custom colors here.")
+                .setContentTitle(getResources().getString(R.string.showcase_palette_title))
+                .setContentText(getResources().getString(R.string.showcase_palette_content))
                 .hideOnTouchOutside()
                 .setStyle(R.style.CustomShowcaseTheme)
                 .singleShot(2223)
