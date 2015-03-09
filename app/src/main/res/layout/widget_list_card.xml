@@ -18,6 +18,19 @@
         android:layout_margin="8dp">
 
         <ImageView
+            android:id="@+id/imageViewClockBackground"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/widget_background"
+            android:layout_alignBottom="@+id/imageViewClockOverflow"
+            android:layout_alignEnd="@+id/imageViewClockOverflow"
+            android:layout_alignLeft="@+id/imageViewClockOverflow"
+            android:layout_alignRight="@+id/imageViewClockOverflow"
+            android:layout_alignStart="@+id/imageViewClockOverflow"
+            android:layout_alignTop="@+id/imageViewClockOverflow"
+            android:layout_centerVertical="true" />
+
+        <ImageView
             android:id="@+id/imageViewClockUnderflow"
             android:layout_width="100dp"
             android:layout_height="100dp"

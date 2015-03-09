@@ -20,6 +20,7 @@ import com.tajchert.hours.ui.ActivityWidgetSettings;
 
 public class HolderWidget extends RecyclerView.ViewHolder {
     protected TextView calendars;
+    protected ImageView clockBacground;
     protected ImageView underFlow;
     protected ImageView overFlow;
     protected Context context;
@@ -28,6 +29,7 @@ public class HolderWidget extends RecyclerView.ViewHolder {
     public HolderWidget(View v) {
         super(v);
         calendars =  (TextView) v.findViewById(R.id.labelCalNumber);
+        clockBacground = (ImageView) v.findViewById(R.id.imageViewClockBackground);
         underFlow = (ImageView)  v.findViewById(R.id.imageViewClockUnderflow);
         overFlow = (ImageView)  v.findViewById(R.id.imageViewClockOverflow);
         final AnalogClock analogClock = (AnalogClock)  v.findViewById(R.id.analogClockActivity);

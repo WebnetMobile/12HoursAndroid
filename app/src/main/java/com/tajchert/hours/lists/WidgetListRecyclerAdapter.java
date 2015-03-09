@@ -58,7 +58,6 @@ public class WidgetListRecyclerAdapter extends RecyclerView.Adapter<HolderWidget
             clockBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.hand_whitefull_dial), 250, 250, false);
             widget.setDimensions(Tools.clock_layouts_dimensions_small[3]);
         }
-        contactViewHolder.underFlow.setBackground(context.getResources().getDrawable(R.drawable.widget_background));
         contactViewHolder.overFlow.setImageBitmap(Widget.addStaticWidget(context, widget));
         contactViewHolder.underFlow.setImageBitmap(clockBackground);
     }
