@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ripple="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -20,37 +19,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.andexert.library.RippleView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            ripple:rv_color="@color/app_accent_color">
-
-
-            <TextView
-                android:id="@+id/prev_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:layout_centerInParent="true"
-                android:text="@string/configure_prev" />
-
-        </com.andexert.library.RippleView>
-
-        <com.andexert.library.RippleView
+        <TextView
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            ripple:rv_color="@color/app_accent_color">
+            android:id="@+id/prev_button"
+            android:text="@string/configure_prev"
+            android:gravity="center"
+            android:src="@android:color/transparent"
+            android:background="?attr/selectableItemBackground" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:layout_centerInParent="true"
-                android:id="@+id/next_button"
-                android:text="@string/configure_next" />
-        </com.andexert.library.RippleView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:id="@+id/next_button"
+            android:text="@string/configure_next"
+            android:gravity="center"
+            android:src="@android:color/transparent"
+            android:background="?attr/selectableItemBackground" />
 
     </LinearLayout>
 
