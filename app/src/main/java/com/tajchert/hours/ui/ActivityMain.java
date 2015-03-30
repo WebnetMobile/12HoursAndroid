@@ -1,6 +1,8 @@
 package com.tajchert.hours.ui;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -100,11 +102,41 @@ public class ActivityMain extends ActionBarActivity {
         widgetInstances = WidgetListManager.getWidgets(prefs);
         adapter = new WidgetListRecyclerAdapter(widgetInstances, ActivityMain.this);
         widgetList.setAdapter(adapter);
+        widgetList.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                //dialog and
+                dialogDeleteWidget(widgetInstances.get(widgetList.getChildPosition(v)).id);
+                return false;
+            }
+        });
         if(widgetInstances == null || widgetInstances.size() == 0) {
             textNoWidget.setVisibility(View.VISIBLE);
         } else {
             textNoWidget.setVisibility(View.GONE);
         }
+    }
+
+    private void dialogDeleteWidget(final int widgetId) {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        //Yes button clicked
+                        WidgetListManager.removeWidget(widgetId, prefs);
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityMain.this);
+        builder.setMessage("Do you want to delete this widget?").set.setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
     }
 
     @Override
